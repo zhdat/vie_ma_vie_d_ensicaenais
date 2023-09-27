@@ -1,3 +1,9 @@
 .gradle/
 .idea/
 .DS_Store
+*.gradle
+gradlew*
+settings.gralde
+gradle.*
+.gitlab*
+build.gradle
