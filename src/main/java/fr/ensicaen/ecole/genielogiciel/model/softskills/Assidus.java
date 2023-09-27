@@ -1,6 +1,4 @@
-package src.main.java.fr.ensicaen.ecole.genielogiciel.model.softskills;
-
-import src.main.java.fr.ensicaen.ecole.genielogiciel.model.softskills.Softskills;
+package fr.ensicaen.ecole.genielogiciel.model.softskills;
 
 public class Assidus implements Softskills {
     @Override

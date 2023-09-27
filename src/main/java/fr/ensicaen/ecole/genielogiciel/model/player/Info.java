@@ -1,7 +1,7 @@
-package src.main.java.fr.ensicaen.ecole.genielogiciel.model.player;
+package fr.ensicaen.ecole.genielogiciel.model.player;
 
-import src.main.java.fr.ensicaen.ecole.genielogiciel.model.softskills.Softskills;
-import src.main.java.fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
+import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
+import fr.ensicaen.ecole.genielogiciel.model.softskills.Softskills;
 
 public class Info extends AbstractPlayer implements Player {
     public Info(String name, Softskills softskills, Origin origin){

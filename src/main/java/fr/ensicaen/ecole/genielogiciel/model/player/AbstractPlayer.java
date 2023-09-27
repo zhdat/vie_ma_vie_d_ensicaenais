@@ -1,6 +1,7 @@
-package src.main.java.fr.ensicaen.ecole.genielogiciel.model.player;
-import src.main.java.fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
-import src.main.java.fr.ensicaen.ecole.genielogiciel.model.softskills.Softskills;
+package fr.ensicaen.ecole.genielogiciel.model.player;
+
+import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
+import fr.ensicaen.ecole.genielogiciel.model.softskills.Softskills;
 
 public abstract class AbstractPlayer implements Player {
     int _position;
