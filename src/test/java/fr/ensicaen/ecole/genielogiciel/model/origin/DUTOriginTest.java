@@ -11,8 +11,7 @@ public class DUTOriginTest {
 
     @BeforeAll
     static void beforeAll() {
-        dut = new DUTOrigin(new Player() {
-        });
+        dut = new DUTOrigin();
     }
 
     @Test

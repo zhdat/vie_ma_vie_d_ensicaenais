@@ -11,8 +11,7 @@ public class PrepaOriginTest {
 
     @BeforeAll
     static void beforeAll() {
-        prepa = new PrepaOrigin(new Player() {
-        });
+        prepa = new PrepaOrigin();
     }
 
 
