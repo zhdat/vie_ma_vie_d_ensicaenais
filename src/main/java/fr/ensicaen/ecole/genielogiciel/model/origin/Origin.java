@@ -1,4 +1,6 @@
 package fr.ensicaen.ecole.genielogiciel.model.origin;
 
-public interface Origin {
+import fr.ensicaen.ecole.genielogiciel.model.player.Player;
+
+public abstract class Origin implements Player {
 }
