@@ -1,4 +1,4 @@
 package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-public class Studies {
+public class Studies implements Tile{
 }

@@ -1,4 +1,4 @@
 package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-public class NightParty {
+public class NightParty implements Tile{
 }
