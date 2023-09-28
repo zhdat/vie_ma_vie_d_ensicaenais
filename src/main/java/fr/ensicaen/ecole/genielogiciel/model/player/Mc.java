@@ -4,7 +4,7 @@ import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
 import fr.ensicaen.ecole.genielogiciel.model.softskills.Softskills;
 
 public class Mc extends AbstractPlayer implements Player {
-    public Mc(String name, Softskills softskills, Origin origin){
+    public Mc(String name, Softskills softskills, Origin origin) {
         _position = 0;
         _name = name;
         _softskills = softskills;
@@ -12,33 +12,46 @@ public class Mc extends AbstractPlayer implements Player {
         _level = 0;
         _type = this;
     }
+
     @Override
     public int getPosition() {
-        return 0;
+        return _position;
     }
 
     @Override
     public String getName() {
-        return null;
+        return _name;
     }
 
     @Override
     public Softskills getSoftskills() {
-        return null;
+        return _softskills;
     }
 
     @Override
     public Origin getOrigin() {
-        return null;
+        return _origin;
     }
 
     @Override
     public int getLevel() {
-        return 0;
+        return _level;
     }
 
     @Override
     public Player getType() {
         return this;
+    }
+
+    @Override
+    public int goForward(int diceValue) {
+        _position += diceValue;
+        return _position;
+    }
+
+    @Override
+    public int teleportation(int position) {
+        _position = position;
+        return _position;
     }
 }
