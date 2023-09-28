@@ -12,10 +12,6 @@ public class PrepaOriginTest {
     @BeforeAll
     static void beforeAll() {
         prepa = new PrepaOrigin(new Player() {
-            @Override
-            public int hashCode() {
-                return super.hashCode();
-            }
         });
     }
 

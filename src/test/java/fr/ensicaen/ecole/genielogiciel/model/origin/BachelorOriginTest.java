@@ -13,10 +13,6 @@ public class BachelorOriginTest {
     @BeforeAll
     static void beforeAll() {
         bachelor = new BachelorOrigin(new Player() {
-            @Override
-            public int hashCode() {
-                return super.hashCode();
-            }
         });
     }
 
