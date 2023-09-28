@@ -6,7 +6,7 @@ import fr.ensicaen.ecole.genielogiciel.model.player.Elec;
 import fr.ensicaen.ecole.genielogiciel.model.player.Info;
 import fr.ensicaen.ecole.genielogiciel.model.player.Mc;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
-import fr.ensicaen.ecole.genielogiciel.model.softskills.Assidus;
+import fr.ensicaen.ecole.genielogiciel.model.softskills.Assidu;
 import fr.ensicaen.ecole.genielogiciel.model.softskills.Brillant;
 import fr.ensicaen.ecole.genielogiciel.model.softskills.Dilétante;
 import fr.ensicaen.ecole.genielogiciel.model.softskills.Softskills;
@@ -22,7 +22,7 @@ public class Game {
     }
     public static Softskills createSoftskills(String type){
         return switch (type) {
-            case "Assidus" -> new Assidus();
+            case "Assidus" -> new Assidu();
             case "Dilettante" -> new Dilétante();
             case "Brillant" -> new Brillant();
             default -> null;
