@@ -12,5 +12,5 @@ public interface Player {
     int getLevel();
     Player getType();
     int goForward(int diceValue);
-    int goBackward(int diceValue);
+    int teleportation(int position);
 }

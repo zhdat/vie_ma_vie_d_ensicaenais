@@ -44,11 +44,13 @@ public class Info extends AbstractPlayer implements Player {
 
     @Override
     public int goForward(int diceValue) {
-        return 0;
+        _position += diceValue;
+        return _position;
     }
 
     @Override
-    public int goBackward(int diceValue) {
-        return 0;
+    public int teleportation(int position) {
+        _position = position;
+        return _position;
     }
 }
