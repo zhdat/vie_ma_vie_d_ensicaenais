@@ -1,5 +1,4 @@
 package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-public interface Tile {
-
+public class Back_to_School {
 }
