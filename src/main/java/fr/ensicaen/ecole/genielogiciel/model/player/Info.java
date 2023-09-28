@@ -41,4 +41,14 @@ public class Info extends AbstractPlayer implements Player {
     public Player getType() {
         return this;
     }
+
+    @Override
+    public int goForward(int diceValue) {
+        return 0;
+    }
+
+    @Override
+    public int goBackward(int diceValue) {
+        return 0;
+    }
 }

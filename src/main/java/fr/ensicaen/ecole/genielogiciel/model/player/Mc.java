@@ -41,4 +41,14 @@ public class Mc extends AbstractPlayer implements Player {
     public Player getType() {
         return this;
     }
+
+    @Override
+    public int goForward(int diceValue) {
+        return _position + diceValue;
+    }
+
+    @Override
+    public int goBackward(int diceValue) {
+        return _position + diceValue;
+    }
 }

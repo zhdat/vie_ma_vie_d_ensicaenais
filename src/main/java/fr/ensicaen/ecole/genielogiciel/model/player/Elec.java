@@ -4,7 +4,7 @@ import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
 import fr.ensicaen.ecole.genielogiciel.model.softskills.Softskills;
 
 public class Elec extends AbstractPlayer implements Player {
-    public Elec(String name, Softskills softskills, Origin origin){
+    public Elec(String name, Softskills softskills, Origin origin) {
         _position = 0;
         _name = name;
         _softskills = softskills;
@@ -41,5 +41,15 @@ public class Elec extends AbstractPlayer implements Player {
     @Override
     public Player getType() {
         return this;
+    }
+
+    @Override
+    public int goForward(int diceValue) {
+        return 0;
+    }
+
+    @Override
+    public int goBackward(int diceValue) {
+        return 0;
     }
 }
