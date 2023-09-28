@@ -17,11 +17,11 @@ public final class GameView {
 
     public static GameView createView() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(GameView.class.getResource("Board.fxml"));
+        fxmlLoader.setLocation(GameView.class.getResource("Application.fxml"));
         Parent root = fxmlLoader.load();
         final GameView view = fxmlLoader.getController();
         fxmlLoader.setController(view);
-        Scene scene = new Scene(root, 1000, 1000);
+        Scene scene = new Scene(root, 1858, 1023);
         Stage stage = new Stage();
         stage.setScene(scene);
         view._stage = stage;
