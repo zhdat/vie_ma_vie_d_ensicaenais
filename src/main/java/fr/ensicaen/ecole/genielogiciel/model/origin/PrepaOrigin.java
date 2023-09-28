@@ -1,14 +1,13 @@
 package fr.ensicaen.ecole.genielogiciel.model.origin;
 
+import fr.ensicaen.ecole.genielogiciel.model.player.Player;
+
 public class PrepaOrigin implements Origin{
 
-    @Override
-    public int getEffectOnMathsTile() {
-        return 1;
+    private Player _player;
+
+    public PrepaOrigin(Player p){
+        _player = p;
     }
 
-    @Override
-    public int getEffectOnInfoTile() {
-        return -1;
-    }
 }

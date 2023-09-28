@@ -1,13 +1,12 @@
 package fr.ensicaen.ecole.genielogiciel.model.origin;
 
-public class DUTOrigin implements Origin{
-    @Override
-    public int getEffectOnInfoTile() {
-        return 1;
-    }
+import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 
-    @Override
-    public int getEffectOnMathsTile() {
-        return -1;
+public class DUTOrigin implements Origin{
+
+    private Player _player;
+
+    public DUTOrigin(Player p){
+        _player = p;
     }
 }
