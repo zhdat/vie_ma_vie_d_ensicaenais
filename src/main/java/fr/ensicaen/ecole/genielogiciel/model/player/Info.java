@@ -14,27 +14,27 @@ public class Info extends AbstractPlayer implements Player {
     }
     @Override
     public int getPosition() {
-        return 0;
+        return _position;
     }
 
     @Override
     public String getName() {
-        return null;
+        return _name;
     }
 
     @Override
     public Softskills getSoftskills() {
-        return null;
+        return _softskills;
     }
 
     @Override
     public Origin getOrigin() {
-        return null;
+        return _origin;
     }
 
     @Override
     public int getLevel() {
-        return 0;
+        return _level;
     }
 
     @Override
