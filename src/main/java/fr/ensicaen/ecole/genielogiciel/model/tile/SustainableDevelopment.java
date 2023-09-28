@@ -4,10 +4,10 @@ import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 import fr.ensicaen.ecole.genielogiciel.model.softskills.Softskills;
 
-public class Database implements Tile{
+public class SustainableDevelopment implements Tile{
     private Player _player;
 
-    public Database(Player _player) {
+    public SustainableDevelopment(Player _player) {
         this._player = _player;
     }
     public int getPlayerLevel(){
