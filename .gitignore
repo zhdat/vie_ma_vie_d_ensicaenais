@@ -1,5 +1,4 @@
 .gradle/
 .idea/
 .DS_Store
-build/classes/java/main/fr/ensicaen/ecole/genielogiciel/
-
+build/
