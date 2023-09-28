@@ -12,8 +12,7 @@ public class BachelorOriginTest {
 
     @BeforeAll
     static void beforeAll() {
-        bachelor = new BachelorOrigin(new Player() {
-        });
+        bachelor = new BachelorOrigin();
     }
 
     @Test
