@@ -6,11 +6,7 @@ public class PrepaOrigin extends Origin{
 
     private final int INFO_TILE_EFFECT_PREPA = -1;
     private final int MATH_TILE_EFFECT_PREPA = +1;
-    private Player _player;
 
-    public PrepaOrigin(Player p){
-        _player = p;
-    }
 
 
     @Override

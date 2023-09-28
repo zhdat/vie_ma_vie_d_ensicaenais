@@ -6,11 +6,7 @@ public class BachelorOrigin extends Origin{
 
     private final int INFO_TILE_EFFECT_BACHELOR = +1;
     private final int MATH_TILE_EFFECT_BACHELOR = -1;
-    private Player _player;
 
-    public BachelorOrigin(Player p){
-        _player = p;
-    }
 
 
     @Override
