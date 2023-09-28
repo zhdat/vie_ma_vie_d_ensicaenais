@@ -33,9 +33,11 @@
 -->
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
@@ -46,7 +48,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="1023.0" prefWidth="1918.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="1059.0" prefWidth="1858.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ensicaen.ecole.genielogiciel.view.GameView">
   <children>
     <MenuBar prefHeight="45.0" prefWidth="1918.0" VBox.vgrow="NEVER">
       <menus>
@@ -87,11 +89,11 @@
         </Menu>
       </menus>
     </MenuBar>
-      <HBox prefHeight="1080.0" prefWidth="1918.0">
+      <HBox prefHeight="1033.0" prefWidth="1825.0">
          <children>
-            <AnchorPane prefHeight="998.0" prefWidth="1275.0" styleClass="board" stylesheets="@Board.css">
+            <AnchorPane prefHeight="1034.0" prefWidth="1161.0" styleClass="board" stylesheets="@Board.css">
                <children>
-                  <AnchorPane layoutX="-5.0" layoutY="-2.0" prefHeight="1035.0" prefWidth="1317.0">
+                  <AnchorPane layoutX="-5.0" layoutY="-2.0" prefHeight="1035.0" prefWidth="1223.0">
                      <children>
                         <Circle id="tile_start" fill="#ff401f" layoutX="95.0" layoutY="890.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle id="tile_1" fill="#ff401f" layoutX="198.0" layoutY="901.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -165,22 +167,28 @@
             </AnchorPane>
             <VBox prefHeight="998.0" prefWidth="648.0">
                <children>
-                  <SplitPane dividerPositions="0.62926992632284" orientation="VERTICAL" prefHeight="1016.0" prefWidth="646.0">
+                  <SplitPane dividerPositions="0.62926992632284" orientation="VERTICAL" prefHeight="1016.0" prefWidth="584.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="634.0" prefWidth="656.0">
                            <children>
-                              <TextField id="round" editable="false" layoutX="33.0" layoutY="56.0" prefHeight="57.0" prefWidth="209.0" text="Tour n°">
+                              <Label id="round" layoutX="48.0" layoutY="63.0" text="tour n°">
                                  <font>
                                     <Font size="26.0" />
                                  </font>
-                              </TextField>
-                              <TextArea id="characteristics" layoutX="29.0" layoutY="167.0" prefHeight="423.0" prefWidth="553.0" />
-                              <TextField id="round" editable="false" layoutX="368.0" layoutY="56.0" prefHeight="57.0" prefWidth="209.0" text="joueur">
+                              </Label>
+                              <TextArea id="characteristics" editable="false" layoutX="36.0" layoutY="132.0" prefHeight="362.0" prefWidth="553.0" />
+                              <Circle id="player_color" fill="DODGERBLUE" layoutX="331.0" layoutY="84.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                              <ProgressBar id="skill_progress" layoutX="388.0" layoutY="550.0" prefWidth="200.0" progress="0.0" />
+                              <Label layoutX="47.0" layoutY="537.0" text="compétences de l'année :">
                                  <font>
                                     <Font size="26.0" />
                                  </font>
-                              </TextField>
-                              <Circle fill="DODGERBLUE" layoutX="331.0" layoutY="84.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                              </Label>
+                              <Label id="player" layoutX="377.0" layoutY="64.0" text="joueur">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
