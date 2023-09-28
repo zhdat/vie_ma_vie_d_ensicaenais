@@ -11,4 +11,6 @@ public interface Player {
     Origin getOrigin();
     int getLevel();
     Player getType();
+    int goForward(int position, int diceValue);
+    int goBackward(int position, int diceValue);
 }
