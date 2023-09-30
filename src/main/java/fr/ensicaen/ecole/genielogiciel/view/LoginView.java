@@ -69,6 +69,10 @@ public class LoginView {
     public void initialize() {
         initializeSectorChoiceBox();
         initializeOriginChoiceBox();
+        _colorPicker.setOnAction(event -> {
+            Color selectedColor = _colorPicker.getValue();
+            _player.setFill(selectedColor);
+        });
     }
 
     private void initializeSectorChoiceBox() {
