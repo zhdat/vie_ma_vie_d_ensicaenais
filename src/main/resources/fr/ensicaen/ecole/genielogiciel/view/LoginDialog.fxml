@@ -29,18 +29,18 @@
         <TextField id="login" fx:id="_nickName" prefWidth="200.0" GridPane.columnIndex="2" />
        <Button defaultButton="true" onAction="#launchGame" prefWidth="200.0" text="%launch.button.text" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
        <Label fx:id="_errorLabel" textFill="#ef0000" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
-      <ColorPicker GridPane.rowIndex="3">
+      <ColorPicker id="color_picker" fx:id="_colorPicker" GridPane.rowIndex="3">
          <value>
             <Color red="0.11764705926179886" green="0.5647059082984924" blue="1.0" />
          </value>
       </ColorPicker>
-      <Circle id="sector" fill="DODGERBLUE" radius="50.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="1">
+      <Circle id="player" fx:id="_player" fill="DODGERBLUE" radius="50.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="21.0" />
          </GridPane.margin>
       </Circle>
-      <ChoiceBox id="filiere" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <ChoiceBox id="origin" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <ChoiceBox id="sector" fx:id="_sector" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <ChoiceBox id="origin" fx:id="_origin" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <Label alignment="CENTER" prefHeight="16.0" prefWidth="160.0" styleClass="text" text="%filiere.message.text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Label alignment="CENTER" prefHeight="16.0" prefWidth="160.0" styleClass="text" text="%provenance.message.text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
    </children>
