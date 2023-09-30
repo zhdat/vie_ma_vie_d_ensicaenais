@@ -6,8 +6,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +25,18 @@ public class LoginView {
     private TextField _nickName;
     @FXML
     private Label _errorLabel;
+
+    @FXML
+    private ColorPicker _colorPicker;
+
+    @FXML
+    private Circle _player;
+
+    @FXML
+    private ChoiceBox<String> _sector;
+
+    @FXML
+    private ChoiceBox<String> _origin;
 
     public void setPresenter( LoginPresenter presenter ) {
         _presenter = presenter;
@@ -48,8 +66,31 @@ public class LoginView {
         _errorLabel.setText(message);
     }
 
+    public void initialize() {
+        initializeSectorChoiceBox();
+        initializeOriginChoiceBox();
+        _colorPicker.setOnAction(event -> {
+            Color selectedColor = _colorPicker.getValue();
+            _player.setFill(selectedColor);
+        });
+    }
+
+    private void initializeSectorChoiceBox() {
+        _sector.getItems().addAll("Info", "MC", "Elec");
+        _sector.getSelectionModel().selectFirst();
+    }
+
+    private void initializeOriginChoiceBox() {
+        _origin.getItems().addAll("Prepa", "DUT", "Licence");
+        _origin.getSelectionModel().selectFirst();
+    }
+
     @FXML
     private void launchGame() {
         _presenter.launchGame(_nickName.getText());
     }
+
+
+
+
 }
