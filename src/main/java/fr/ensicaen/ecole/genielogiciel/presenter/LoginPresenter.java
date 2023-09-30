@@ -1,6 +1,7 @@
 package fr.ensicaen.ecole.genielogiciel.presenter;
 
 import fr.ensicaen.ecole.genielogiciel.LoginMain;
+import fr.ensicaen.ecole.genielogiciel.model.Joueur;
 import fr.ensicaen.ecole.genielogiciel.view.GameView;
 import fr.ensicaen.ecole.genielogiciel.view.LoginView;
 
@@ -24,6 +25,12 @@ public final class LoginPresenter {
             }
             _view.close();
         }
+        Joueur joueur1 = new Joueur(_view.getNickname(), null, _view.getProvenance(), _view.getFiliere());
+        System.out.println(joueur1.getName());
+        System.out.println(joueur1.getProvenance());
+        System.out.println(joueur1.getFiliere());
+        joueur1.randomSoftskill();
+        System.out.println(joueur1.getSoftskill());
     }
 
     private void createAndDisplayGameView( String nickName ) throws IOException {

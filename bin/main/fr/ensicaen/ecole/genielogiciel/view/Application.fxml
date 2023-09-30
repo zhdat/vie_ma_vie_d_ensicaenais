@@ -193,16 +193,12 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <Button fx:id="rollButton" id="roll_button" layoutX="183.0" layoutY="287.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="243.0" text="ROLL">
+                              <Button id="roll_button" layoutX="183.0" layoutY="287.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="243.0" text="ROLL">
                                  <font>
                                     <Font size="26.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="diceResult" id="de" editable="false" layoutX="260.0" layoutY="131.0" prefHeight="83.0" prefWidth="92.0" >
-                                      <font>
-                                          <Font size="20.0"/>
-                                      </font>
-                               </TextField>
+                              <TextField id="de" editable="false" layoutX="260.0" layoutY="131.0" prefHeight="83.0" prefWidth="92.0" />
                            </children>
                         </AnchorPane>
                     </items>

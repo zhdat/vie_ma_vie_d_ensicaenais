@@ -1,5 +1,8 @@
 package fr.ensicaen.ecole.genielogiciel.view;
 
+import fr.ensicaen.ecole.genielogiciel.model.Filiere;
+import fr.ensicaen.ecole.genielogiciel.model.Joueur;
+import fr.ensicaen.ecole.genielogiciel.model.Provenance;
 import fr.ensicaen.ecole.genielogiciel.presenter.LoginPresenter;
 import fr.ensicaen.ecole.genielogiciel.LoginMain;
 import javafx.fxml.FXML;
@@ -17,6 +20,10 @@ public class LoginView {
     private Stage _stage;
     @FXML
     private TextField _nickName;
+    @FXML
+    private TextField _filiere;
+    @FXML
+    private TextField _provenance;
     @FXML
     private Label _errorLabel;
 
@@ -51,5 +58,23 @@ public class LoginView {
     @FXML
     private void launchGame() {
         _presenter.launchGame(_nickName.getText());
+    }
+    public String getNickname(){
+        return _nickName.getText();
+    }
+    public Filiere getFiliere(){
+        if (_filiere.getText().equalsIgnoreCase("informatique")){
+            return Filiere.INFORMATIQUE;
+        } else if (_filiere.getText().equalsIgnoreCase("materiaux")) {
+            return Filiere.MATERIAUX;
+        } else if (_filiere.getText().equalsIgnoreCase("electronique")) {
+            return Filiere.ELECTRONIQUE;
+        }
+        return null;
+    }
+    public Provenance getProvenance(){
+        if (_provenance.getText().equalsIgnoreCase("prepa")) return Provenance.PREPA;
+        else if (_provenance.getText().equalsIgnoreCase("ast")) return Provenance.AST;
+        return null;
     }
 }
