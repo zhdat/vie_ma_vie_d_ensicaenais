@@ -1,7 +1,12 @@
 package fr.ensicaen.ecole.genielogiciel.view;
 
+import fr.ensicaen.ecole.genielogiciel.model.De;
+import fr.ensicaen.ecole.genielogiciel.model.origin.Provenance;
+import fr.ensicaen.ecole.genielogiciel.model.player.Filiere;
+import fr.ensicaen.ecole.genielogiciel.model.player.Joueur;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,13 +23,16 @@ public final class GameView {
     public TextField diceResult;
     private GamePresenter _gamePresenter;
     private Stage _stage;
+    private int result;
 
     public void initialize(){
         rollButton.setOnAction(this::handleRollButtonClick);
     }
 
-    private void handleRollButtonClick(javafx.event.ActionEvent actionEvent) {
-        _gamePresenter.runGameLoop();
+    private void handleRollButtonClick(ActionEvent actionEvent) {
+        De de = new De();
+        result = de.lancerDe();
+        update();
     }
 
     public static GameView createView() throws IOException {
@@ -50,11 +58,11 @@ public final class GameView {
     }
 
     private void onKeyPressed( KeyCode code ) {
-        if (code == KeyCode.SPACE) {
+        if (code == KeyCode.ENTER) {
             _gamePresenter.runGameLoop();
         }
     }
     public void update(){
-        diceResult.setText(String.valueOf(_gamePresenter.getResult()));
+        diceResult.setText(String.valueOf(result));
     }
 }

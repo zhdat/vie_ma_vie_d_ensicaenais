@@ -65,5 +65,8 @@ public class Joueur {
     public Softskill getSoftskill(){
         return _softskill;
     }
+    public int getPosition(){
+        return _position;
+    }
     /* Getters et Setters à ajouter si besoin */
 }
