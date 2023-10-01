@@ -95,19 +95,19 @@
                <children>
                   <AnchorPane layoutX="-5.0" layoutY="-2.0" prefHeight="1035.0" prefWidth="1223.0">
                      <children>
-                        <Circle id="tile_start" fill="#ff401f" layoutX="95.0" layoutY="890.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_1" fill="#ff401f" layoutX="198.0" layoutY="901.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_2" fill="#ff401f" layoutX="282.0" layoutY="910.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_3" fill="#ff401f" layoutX="370.0" layoutY="918.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_4" fill="#ff401f" layoutX="452.0" layoutY="924.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_5" fill="#ff401f" layoutX="544.0" layoutY="928.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_6" fill="#ff401f" layoutX="639.0" layoutY="928.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_7" fill="#ff401f" layoutX="734.0" layoutY="918.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_8" fill="#ff401f" layoutX="834.0" layoutY="898.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_9" fill="#ff401f" layoutX="903.0" layoutY="833.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_10" fill="#ff401f" layoutX="917.0" layoutY="727.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_11" fill="#ff401f" layoutX="927.0" layoutY="635.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_12" fill="#ff401f" layoutX="934.0" layoutY="539.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tileStart" id="tile_start" fill="#ff401f" layoutX="95.0" layoutY="890.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tile1" id="tile_1" fill="#ff401f" layoutX="198.0" layoutY="901.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tile2" id="tile_2" fill="#ff401f" layoutX="282.0" layoutY="910.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tile3" id="tile_3" fill="#ff401f" layoutX="370.0" layoutY="918.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tile4" id="tile_4" fill="#ff401f" layoutX="452.0" layoutY="924.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tile5" id="tile_5" fill="#ff401f" layoutX="544.0" layoutY="928.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tile6" id="tile_6" fill="#ff401f" layoutX="639.0" layoutY="928.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tile7" id="tile_7" fill="#ff401f" layoutX="734.0" layoutY="918.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tile8" id="tile_8" fill="#ff401f" layoutX="834.0" layoutY="898.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tile9" id="tile_9" fill="#ff401f" layoutX="903.0" layoutY="833.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tile10" id="tile_10" fill="#ff401f" layoutX="917.0" layoutY="727.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tile11" id="tile_11" fill="#ff401f" layoutX="927.0" layoutY="635.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="_tile12" id="tile_12" fill="#ff401f" layoutX="934.0" layoutY="539.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle id="tile_13" fill="#ff401f" layoutX="938.0" layoutY="449.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle id="tile_14" fill="#ff401f" layoutX="931.0" layoutY="359.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle id="tile_15" fill="#ff401f" layoutX="924.0" layoutY="261.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -162,7 +162,10 @@
                         <Circle id="tile_63" fill="#ff401f" layoutX="598.0" layoutY="680.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                      </children>
                   </AnchorPane>
-                  <Circle id="player_1" fill="DODGERBLUE" layoutX="92.0" layoutY="888.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="_player1" id="player_1" fill="DODGERBLUE" layoutX="92.0" layoutY="888.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="_player2" id="player_2" fill="#800100" layoutX="92.0" layoutY="888.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="_player3" id="player_3" fill="#168000" layoutX="92.0" layoutY="888.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="_player4" id="player_4" fill="#790080" layoutX="92.0" layoutY="888.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </AnchorPane>
             <VBox prefHeight="998.0" prefWidth="648.0">
