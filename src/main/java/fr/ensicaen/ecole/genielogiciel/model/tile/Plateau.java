@@ -1,4 +1,6 @@
-package fr.ensicaen.ecole.genielogiciel.model;
+package fr.ensicaen.ecole.genielogiciel.model.tile;
+
+import fr.ensicaen.ecole.genielogiciel.model.tile.Case;
 
 public class Plateau {
     private Case[] _cases;

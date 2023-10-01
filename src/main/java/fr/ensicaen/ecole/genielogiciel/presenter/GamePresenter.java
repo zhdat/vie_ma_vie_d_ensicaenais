@@ -1,9 +1,12 @@
 package fr.ensicaen.ecole.genielogiciel.presenter;
 
 import fr.ensicaen.ecole.genielogiciel.model.*;
+import fr.ensicaen.ecole.genielogiciel.model.origin.Provenance;
+import fr.ensicaen.ecole.genielogiciel.model.player.Filiere;
+import fr.ensicaen.ecole.genielogiciel.model.player.Joueur;
+import fr.ensicaen.ecole.genielogiciel.model.tile.Case;
+import fr.ensicaen.ecole.genielogiciel.model.tile.Plateau;
 import fr.ensicaen.ecole.genielogiciel.view.GameView;
-
-import java.lang.invoke.CallSite;
 
 public final class GamePresenter {
     private final Model _model;

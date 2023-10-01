@@ -1,6 +1,8 @@
-package fr.ensicaen.ecole.genielogiciel.model;
+package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-public class LV2 extends Case{
+import fr.ensicaen.ecole.genielogiciel.model.player.Joueur;
+
+public class LV2 extends Case {
     public LV2(int position) {
         super(position);
     }

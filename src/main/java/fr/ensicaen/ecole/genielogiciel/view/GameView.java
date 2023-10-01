@@ -1,12 +1,7 @@
 package fr.ensicaen.ecole.genielogiciel.view;
 
-import fr.ensicaen.ecole.genielogiciel.model.Case;
-import fr.ensicaen.ecole.genielogiciel.model.De;
-import fr.ensicaen.ecole.genielogiciel.model.Joueur;
-import fr.ensicaen.ecole.genielogiciel.model.Plateau;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

@@ -1,6 +1,9 @@
-package fr.ensicaen.ecole.genielogiciel.model;
+package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-public class Maths extends Case{
+import fr.ensicaen.ecole.genielogiciel.model.player.Joueur;
+import fr.ensicaen.ecole.genielogiciel.model.origin.Provenance;
+
+public class Maths extends Case {
     public Maths(int position) {
         super(position);
     }

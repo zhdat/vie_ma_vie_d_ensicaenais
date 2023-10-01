@@ -1,4 +1,7 @@
-package fr.ensicaen.ecole.genielogiciel.model;
+package fr.ensicaen.ecole.genielogiciel.model.player;
+
+import fr.ensicaen.ecole.genielogiciel.model.origin.Provenance;
+import fr.ensicaen.ecole.genielogiciel.model.sofskills.Softskill;
 
 public class Joueur {
     private String _nom;

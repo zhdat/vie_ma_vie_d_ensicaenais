@@ -1,6 +1,8 @@
-package fr.ensicaen.ecole.genielogiciel.model;
+package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-public class Révision extends Case{
+import fr.ensicaen.ecole.genielogiciel.model.player.Joueur;
+
+public class Révision extends Case {
     public Révision(int position) {
         super(position);
     }

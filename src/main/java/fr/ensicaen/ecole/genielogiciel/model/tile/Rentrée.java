@@ -1,6 +1,8 @@
-package fr.ensicaen.ecole.genielogiciel.model;
+package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-public class Rentrée extends Case{
+import fr.ensicaen.ecole.genielogiciel.model.player.Joueur;
+
+public class Rentrée extends Case {
     public Rentrée(int position) {
         super(position);
     }

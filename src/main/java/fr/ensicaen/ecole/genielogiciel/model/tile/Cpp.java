@@ -1,4 +1,8 @@
-package fr.ensicaen.ecole.genielogiciel.model;
+package fr.ensicaen.ecole.genielogiciel.model.tile;
+
+import fr.ensicaen.ecole.genielogiciel.model.player.Filiere;
+import fr.ensicaen.ecole.genielogiciel.model.player.Joueur;
+import fr.ensicaen.ecole.genielogiciel.model.origin.Provenance;
 
 public class Cpp extends Case{
     public Cpp(int position) {

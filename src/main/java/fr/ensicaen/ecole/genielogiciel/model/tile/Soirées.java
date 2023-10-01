@@ -1,6 +1,8 @@
-package fr.ensicaen.ecole.genielogiciel.model;
+package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-public class Soirées extends Case{
+import fr.ensicaen.ecole.genielogiciel.model.player.Joueur;
+
+public class Soirées extends Case {
     public Soirées(int position) {
         super(position);
     }

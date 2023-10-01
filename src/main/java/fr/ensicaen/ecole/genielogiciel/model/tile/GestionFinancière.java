@@ -1,6 +1,8 @@
-package fr.ensicaen.ecole.genielogiciel.model;
+package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-public class GestionFinancière extends Case{
+import fr.ensicaen.ecole.genielogiciel.model.player.Joueur;
+
+public class GestionFinancière extends Case {
     public GestionFinancière(int position) {
         super(position);
     }
