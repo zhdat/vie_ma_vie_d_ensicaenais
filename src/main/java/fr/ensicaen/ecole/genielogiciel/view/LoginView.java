@@ -58,22 +58,4 @@ public class LoginView {
     private void launchGame() {
         _presenter.launchGame(_nickName.getText());
     }
-    public String getNickname(){
-        return _nickName.getText();
-    }
-    public Filiere getFiliere(){
-        if (_filiere.getText().equalsIgnoreCase("informatique")){
-            return Filiere.INFORMATIQUE;
-        } else if (_filiere.getText().equalsIgnoreCase("materiaux")) {
-            return Filiere.MATERIAUX;
-        } else if (_filiere.getText().equalsIgnoreCase("electronique")) {
-            return Filiere.ELECTRONIQUE;
-        }
-        return null;
-    }
-    public Provenance getProvenance(){
-        if (_provenance.getText().equalsIgnoreCase("prepa")) return Provenance.PREPA;
-        else if (_provenance.getText().equalsIgnoreCase("ast")) return Provenance.AST;
-        return null;
-    }
 }

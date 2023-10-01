@@ -30,7 +30,6 @@ public final class GamePresenter {
         Joueur[] players = _model.getPlayers();
         _model.startGame();
         _model.playTurn(nbTour);
-        System.out.println(Arrays.toString(_model.getPlayers()));
         System.out.println("joueur 1" + players[0].getPosition());
         System.out.println("joueur 2" + players[1].getPosition());
         System.out.println("joueur 3" + players[2].getPosition());

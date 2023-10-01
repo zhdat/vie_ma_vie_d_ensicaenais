@@ -27,19 +27,38 @@ public class Model {
         _players[1] = joueur2;
         _players[2] = joueur3;
         _players[3] = joueur4;
+        int i = 1;
+        for (Joueur joueur : _players) {
+            System.out.println("Joueur " + i);
+            System.out.println(joueur.getName());
+            System.out.println(joueur.getPosition());
+            System.out.println(joueur.getFiliere());
+            System.out.println(joueur.getProvenance());
+            System.out.println(joueur.getSoftskill());
+            i++;
+        }
     }
 
     public void startGame() {
+        int i = 1;
         for (Joueur joueur : _players) {
+            System.out.println("joueur " + i);
+            System.out.println(joueur.getName());
             joueur.randomSoftskill();
+            System.out.println(joueur.getSoftskill());
+            i++;
         }
+
         _turn = 1;
     }
-    public void playTurn(int playerIndex){
+
+    public void playTurn(int playerIndex) {
         De de = new De();
         int result = de.lancerDe();
+        System.out.println(_players[playerIndex].getName());
         _players[playerIndex].avancer(result);
-        _cases[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);
+        System.out.println(_players[playerIndex].getPosition());
+        /*_cases[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/ // Aucune case de créer encore donc renvoie null
     }
 
     public String getNickname() {
