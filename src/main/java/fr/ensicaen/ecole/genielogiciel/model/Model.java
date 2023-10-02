@@ -12,22 +12,22 @@ public class Model {
     private Board _board;
     private Tile[] _tiles;
     private int _turn;
-    private int _nbCases = 12;
+    private int _nbCases = 63;
 
     public Model() {
         _tiles = new Tile[_nbCases];
-        _tiles[0] = new Rentrée(0);
-        _tiles[1] = new Anglais(1);
-        _tiles[2] = new Anglais(2);
-        _tiles[3] = new WEI(3);
-        _tiles[4] = new Cpp(4);
-        _tiles[5] = new LV2(5);
-        _tiles[6] = new Révision(6);
-        _tiles[7] = new Crypto(7);
-        _tiles[8] = new Soirées(8);
-        _tiles[9] = new Recruitment(9);
-        _tiles[10] = new BaseDeDonnée(10);
-        _tiles[11] = new Burnout(11);
+        _tiles[0] = new Rentree(0);
+        _tiles[1] = new English(1);
+        _tiles[2] = new English(2);
+        _tiles[3] = new IWE(3);
+        _tiles[4] = new Cplusplus(4);
+        _tiles[5] = new LVTwo(5);
+        _tiles[6] = new Revision(6);
+        _tiles[7] = new Cryptography(7);
+        _tiles[8] = new Party(8);
+        _tiles[9] = new RecruitmentCourse(9);
+        _tiles[10] = new DataBase(10);
+        _tiles[11] = new BurnOut(11);
 
         _board = new Board(_tiles);
         _players = new Player[4];
@@ -50,6 +50,7 @@ public class Model {
 
     public int playTurn(int playerIndex, int dice) {
         System.out.println(_players[playerIndex].getName());
+        int initialPosition = _players[playerIndex].getPosition();
         if (_players[playerIndex].getSoftskill() == Softskill.ASSIDUS){
             _players[playerIndex].goForward(dice);
         } else if (_players[playerIndex].getSoftskill() == Softskill.BRILLANT) {
@@ -58,10 +59,20 @@ public class Model {
             _players[playerIndex].goForward(dice / 2);
         }
         System.out.println(_players[playerIndex].getName() + "-->" + _players[playerIndex].getPosition());
-        if (_players[playerIndex].getPosition() >= _nbCases){
+        if (_players[playerIndex].getPosition() == _nbCases){
             System.out.println(_players[playerIndex].getName() + " Win !!!");
         }
-        /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/ // @TODO : Résoudre pbm --> error: incompatible types: fr.ensicaen.ecole.genielogiciel.model.player.Player cannot be converted to fr.ensicaen.ecole.genielogiciel.model.Player
+        if (_players[playerIndex].getPosition() > _nbCases){
+            if (_players[playerIndex].getSoftskill() == Softskill.ASSIDUS){
+                _players[playerIndex].goBackward(dice - (62 - initialPosition));
+            } else if (_players[playerIndex].getSoftskill() == Softskill.BRILLANT) {
+                _players[playerIndex].goBackward((dice * 2) - (62 - initialPosition));
+            } else if (_players[playerIndex].getSoftskill() == Softskill.DILETTANTE) {
+                _players[playerIndex].goBackward((dice / 2) - (62 - initialPosition));
+            }
+        }
+        /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
+        System.out.println(_players[playerIndex].getPosition());
         return _players[playerIndex].getPosition();
     }
 

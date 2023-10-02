@@ -4,8 +4,8 @@ import fr.ensicaen.ecole.genielogiciel.model.player.Sector;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
 
-public class Cpp extends Tile {
-    public Cpp(int position) {
+public class Cplusplus extends Tile {
+    public Cplusplus(int position) {
         super(position);
     }
 

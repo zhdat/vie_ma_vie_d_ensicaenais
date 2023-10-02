@@ -3,8 +3,8 @@ package fr.ensicaen.ecole.genielogiciel.model.tile;
 import fr.ensicaen.ecole.genielogiciel.model.player.Sector;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 
-public class Crypto extends Tile {
-    public Crypto(int position) {
+public class DataBase extends Tile {
+    public DataBase(int position) {
         super(position);
     }
 
