@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -87,6 +89,10 @@ public final class GameView {
     public Circle _tile61;
     public Circle _tile62;
     public Circle _tile63;
+    public TextArea _characteristics;
+    public Label _round;
+    public Circle playerColor;
+    public Label _playerNickname;
     private GamePresenter _gamePresenter;
     private Stage _stage;
     private int _result;
@@ -179,6 +185,7 @@ public final class GameView {
         _tabPlayer[1] = _player2;
         _tabPlayer[2] = _player3;
         _tabPlayer[3] = _player4;
+
         _rollButton.setOnAction(this::handleRollButtonClick);
     }
 
@@ -189,9 +196,10 @@ public final class GameView {
         System.out.println(_nbTurn);
         Dice dice = new Dice();
         _result = dice.lancerDe();
-        int position = _gamePresenter.runGameLoop(_result);
+        int position = _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);
         _tabPlayer[_nbTurn].setLayoutX(_tabX[position]);
         _tabPlayer[_nbTurn].setLayoutY(_tabY[position]);
+        playerColor.setFill(_tabPlayer[_nbTurn].getFill());
         _nbTurn++;
         update();
     }
@@ -220,7 +228,7 @@ public final class GameView {
 
     private void onKeyPressed(KeyCode code) {
         if (code == KeyCode.ENTER) {
-            _gamePresenter.runGameLoop(_result);
+            _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);
         }
     }
 
