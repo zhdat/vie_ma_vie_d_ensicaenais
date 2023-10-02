@@ -1,6 +1,6 @@
 [<img src="https://www.ensicaen.fr/wp-content/uploads/2017/02/LogoEnsicaen.gif" width="256" >](https://www.ensicaen.fr)
 
-Projet de régate
+Projet dice régate
 ================
 
 ## Description du projet
@@ -9,7 +9,7 @@ Ce projet contient un exemple d'une application graphique écrite en Java avec
 la bibliothèque graphique JavaFX. Elle est basée sur le patron d'architecture
 Modèle-Vue-Présentation.
 
-Le projet est géré par le moteur de production 'gradle'.
+Le projet est géré par le moteur dice production 'gradle'.
 
 ## Organisation du projet
  
@@ -38,4 +38,4 @@ Le projet a la structure suivante :
             │      └── fr.ensicaen.genielogiciel.mvp/*.java
             └── resources
 
-# À vous de jouer !
+# À vous dice jouer !

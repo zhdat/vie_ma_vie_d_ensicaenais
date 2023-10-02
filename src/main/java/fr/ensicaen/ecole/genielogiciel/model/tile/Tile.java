@@ -1,13 +1,13 @@
 package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-import fr.ensicaen.ecole.genielogiciel.model.player.Joueur;
+import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 
-public abstract class Case {
+public abstract class Tile {
     private int _position;
-    public Case(int position){
+    public Tile(int position){
         _position = position;
     }
-    public abstract void appliquerEffet(Joueur joueur);
+    public abstract void appliquerEffet(Player player);
     public int getPosition(){
         return _position;
     }

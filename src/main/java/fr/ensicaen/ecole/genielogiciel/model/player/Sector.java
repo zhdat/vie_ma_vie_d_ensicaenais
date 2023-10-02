@@ -1,6 +1,6 @@
 package fr.ensicaen.ecole.genielogiciel.model.player;
 
-public enum Filiere {
+public enum Sector {
     MATERIAUX,
     INFORMATIQUE,
     ELECTRONIQUE

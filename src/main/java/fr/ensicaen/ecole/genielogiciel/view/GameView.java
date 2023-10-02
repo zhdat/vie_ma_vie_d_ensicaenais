@@ -1,6 +1,6 @@
 package fr.ensicaen.ecole.genielogiciel.view;
 
-import fr.ensicaen.ecole.genielogiciel.model.De;
+import fr.ensicaen.ecole.genielogiciel.model.Dice;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
 
 import javafx.event.ActionEvent;
@@ -88,8 +88,8 @@ public final class GameView {
             _nbTurn = 0;
         }
         System.out.println(_nbTurn);
-        De de = new De();
-        _result = de.lancerDe();
+        Dice dice = new Dice();
+        _result = dice.lancerDe();
         int position = _gamePresenter.runGameLoop(_result);
         _tabPlayer[_nbTurn].setLayoutX(_tabX[position]);
         _tabPlayer[_nbTurn].setLayoutY(_tabY[position]);

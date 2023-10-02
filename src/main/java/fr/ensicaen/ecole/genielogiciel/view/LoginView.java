@@ -1,7 +1,5 @@
 package fr.ensicaen.ecole.genielogiciel.view;
 
-import fr.ensicaen.ecole.genielogiciel.model.player.Filiere;
-import fr.ensicaen.ecole.genielogiciel.model.origin.Provenance;
 import fr.ensicaen.ecole.genielogiciel.presenter.LoginPresenter;
 import fr.ensicaen.ecole.genielogiciel.LoginMain;
 import javafx.fxml.FXML;

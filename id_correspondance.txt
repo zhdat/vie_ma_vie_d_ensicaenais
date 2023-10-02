@@ -4,21 +4,21 @@ Correspondance id
 
 Plateau : 
 
-case x : tile_x (en remplaçant x par le numéro de la case)
-case de départ : tile_start
+case x : tile_x (en remplaçant x par le numéro dice la case)
+case dice départ : tile_start
 
-pion du joueur 1 : player_1
+pion du player 1 : player_1
 
 
 Informations : 
 
 tour n°x : round
-joueur x : player
-zone de texte avec les caractéristiques : characteristics
-barre de progression des compétences de l'année : skill_progress
+player x : player
+zone dice texte avec les caractéristiques : characteristics
+barre dice progression des compétences dice l'année : skill_progress
 
 
 Zone du dé :
 
-affichage du numéro du dé : de
-boutton de lancement du dé : roll_button
+affichage du numéro du dé : dice
+boutton dice lancement du dé : roll_button

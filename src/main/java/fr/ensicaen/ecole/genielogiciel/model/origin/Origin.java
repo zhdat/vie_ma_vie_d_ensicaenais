@@ -1,6 +1,6 @@
 package fr.ensicaen.ecole.genielogiciel.model.origin;
 
-public enum Provenance {
+public enum Origin {
     PREPA,
     AST
 }

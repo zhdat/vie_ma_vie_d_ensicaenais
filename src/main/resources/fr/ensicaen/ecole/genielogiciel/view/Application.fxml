@@ -182,12 +182,12 @@
                               <TextArea id="characteristics" editable="false" layoutX="36.0" layoutY="132.0" prefHeight="362.0" prefWidth="553.0" />
                               <Circle id="player_color" fill="DODGERBLUE" layoutX="331.0" layoutY="84.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
                               <ProgressBar id="skill_progress" layoutX="388.0" layoutY="550.0" prefWidth="200.0" progress="0.0" />
-                              <Label layoutX="47.0" layoutY="537.0" text="compétences de l'année :">
+                              <Label layoutX="47.0" layoutY="537.0" text="compétences dice l'année :">
                                  <font>
                                     <Font size="26.0" />
                                  </font>
                               </Label>
-                              <Label id="player" layoutX="377.0" layoutY="64.0" text="joueur">
+                              <Label id="player" layoutX="377.0" layoutY="64.0" text="player">
                                  <font>
                                     <Font size="26.0" />
                                  </font>
@@ -201,7 +201,7 @@
                                     <Font size="26.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="diceResult" id="de" editable="false" layoutX="260.0" layoutY="131.0" prefHeight="83.0" prefWidth="92.0" >
+                              <TextField fx:id="diceResult" id="dice" editable="false" layoutX="260.0" layoutY="131.0" prefHeight="83.0" prefWidth="92.0" >
                                       <font>
                                           <Font size="20.0"/>
                                       </font>

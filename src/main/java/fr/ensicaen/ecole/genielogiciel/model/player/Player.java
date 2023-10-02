@@ -1,29 +1,29 @@
 package fr.ensicaen.ecole.genielogiciel.model.player;
 
-import fr.ensicaen.ecole.genielogiciel.model.origin.Provenance;
+import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
 import fr.ensicaen.ecole.genielogiciel.model.sofskills.Softskill;
 
-public class Joueur {
+public class Player {
     private String _nom;
     private Softskill _softskill;
-    private Provenance _provenance;
-    private Filiere _filiere;
+    private Origin _origin;
+    private Sector _sector;
     private int _competence;
     private int _position;
 
-    public Joueur(String nom, Softskill softskill, Provenance provenance, Filiere filiere){
+    public Player(String nom, Softskill softskill, Origin origin, Sector sector){
         _nom = nom;
         _softskill = softskill;
-        _provenance = provenance;
-        _filiere = filiere;
+        _origin = origin;
+        _sector = sector;
         _position = 0; /* A voir avec le fichier fxml... */
         _competence = 0;
     }
-    public void avancer(int nbCases){
+    public void goForward(int nbCases){
         _position += nbCases;
         /* @TODO : Vérifier si le joueur est arriver à la fin !*/
     }
-    public void reculer(int nbCases){
+    public void goBackward(int nbCases){
         _position -= nbCases;
         /* @TODO : Vérifier si le joueur est arriver au début !*/
     }
@@ -50,14 +50,14 @@ public class Joueur {
     public void setCompetence(int i){
         _competence += i;
     }
-    public Filiere getFiliere(){
-        return _filiere;
+    public Sector getFiliere(){
+        return _sector;
     }
     public void setPosition(int i){
         _position = i;
     }
-    public Provenance getProvenance(){
-        return _provenance;
+    public Origin getProvenance(){
+        return _origin;
     }
     public String getName(){
         return _nom;

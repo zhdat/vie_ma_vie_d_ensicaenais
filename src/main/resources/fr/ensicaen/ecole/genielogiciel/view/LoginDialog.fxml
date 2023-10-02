@@ -23,10 +23,10 @@
         <Label alignment="CENTER" prefHeight="16.0" prefWidth="160.0" styleClass="text" text="%login.message.text"
                GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <TextField fx:id="_nickName" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-        <Label alignment="CENTER" prefHeight="16.0" prefWidth="160.0" styleClass="text" text="%filiere.message.text"
+        <Label alignment="CENTER" prefHeight="16.0" prefWidth="160.0" styleClass="text" text="%sector.message.text"
                GridPane.columnIndex="0" GridPane.rowIndex="1"/>
         <TextField fx:id="_filiere" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-        <Label alignment="CENTER" prefHeight="16.0" prefWidth="160.0" styleClass="text" text="%provenance.message.text"
+        <Label alignment="CENTER" prefHeight="16.0" prefWidth="160.0" styleClass="text" text="%origin.message.text"
                GridPane.columnIndex="0" GridPane.rowIndex="2"/>
         <TextField fx:id="_provenance" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
         <Button defaultButton="true" onAction="#launchGame" prefWidth="200.0" text="%launch.button.text"
