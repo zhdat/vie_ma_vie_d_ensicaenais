@@ -194,7 +194,7 @@ public final class GameView {
             _nbTurn = 0;
         }
         Dice dice = new Dice();
-        _result = dice.lancerDe();
+        _result = dice.roll();
         int position = _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);
         _tabPlayer[_nbTurn].setLayoutX(_tabX[position - 1]);
         _tabPlayer[_nbTurn].setLayoutY(_tabY[position - 1]);
