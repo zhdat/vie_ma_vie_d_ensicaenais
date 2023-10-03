@@ -15,8 +15,8 @@ public class PlayerTest {
         assertEquals(2, 1 * player.softskill());
         assertEquals(8, 4 * player.softskill());
         Player player1 = new Player("test", Softskill.DILETTANTE, Origin.PREPA, Sector.INFORMATIQUE);
-        assertEquals(3, (int) (6 * player1.softskill()));
-        assertEquals(1, (int) (1 * player1.softskill()));
+        assertEquals(3, Math.ceil (6 * player1.softskill()));
+        assertEquals(1, Math.ceil (1 * player1.softskill()));
     }
 
     @Test
