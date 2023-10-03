@@ -3,16 +3,21 @@ package fr.ensicaen.ecole.genielogiciel.model;
 import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
 import fr.ensicaen.ecole.genielogiciel.model.player.Sector;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
-import fr.ensicaen.ecole.genielogiciel.model.sofskills.Softskill;
 import fr.ensicaen.ecole.genielogiciel.model.tile.*;
+import fr.ensicaen.ecole.genielogiciel.view.Observer;
 
-public class Model {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Model implements Observable{
     private String _nickname;
     private final Player[] _players;
     private final Board _board;
     private final Tile[] _tiles;
     private int _turn;
     private final int _nbCases = 63;
+    private List<Observer> _observers;
+    private final int _nbPlayer = 4;
 
     public Model() {
         _tiles = new Tile[_nbCases];
@@ -30,7 +35,7 @@ public class Model {
         _tiles[11] = new BurnOut(11);
 
         _board = new Board(_tiles);
-        _players = new Player[4];
+        _players = new Player[_nbPlayer];
         Player player1 = new Player("Calliste", null, Origin.AST, Sector.INFORMATIQUE);
         Player player2 = new Player("Clément", null, Origin.PREPA, Sector.INFORMATIQUE);
         Player player3 = new Player("Maxime", null, Origin.PREPA, Sector.INFORMATIQUE);
@@ -39,6 +44,8 @@ public class Model {
         _players[1] = player2;
         _players[2] = player3;
         _players[3] = player4;
+
+        _observers = new ArrayList<>();
     }
 
     public void startGame() {
@@ -48,7 +55,7 @@ public class Model {
         _turn = 1;
     }
 
-    public int playTurn(int playerIndex, int dice) {
+    public void playTurn(int playerIndex, int dice) {
         System.out.println(_players[playerIndex].getName());
         int initialPosition = _players[playerIndex].getPosition();
         System.out.println("Initial Position : " + initialPosition);
@@ -56,16 +63,17 @@ public class Model {
         int i = 0;
         while (i < (int)(Math.ceil(dice * _players[playerIndex].softskill())) && (_players[playerIndex].getPosition() + 1 <= _nbCases)){
             _players[playerIndex].goForward(1);
+            notifyObservers();
             i++;
         }
         if (_players[playerIndex].getPosition() == _nbCases && (i == (int)Math.ceil(dice * _players[playerIndex].softskill()) - 1)) {
             System.out.println(_players[playerIndex].getName() + " Win !!!");
         } else if (i != (int)(Math.ceil(dice * _players[playerIndex].softskill()))) {
             _players[playerIndex].goBackward((int)Math.ceil(dice * _players[playerIndex].softskill()) - i);
+            notifyObservers();
         }
         /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
         System.out.println(_players[playerIndex].getPosition());
-        return _players[playerIndex].getPosition();
     }
 
     public String getNickname() {
@@ -92,4 +100,24 @@ public class Model {
         return _turn;
     }
 
+    public int getNbPlayer(){
+        return _nbPlayer;
+    }
+
+    @Override
+    public void addObserver(Observer O) {
+        _observers.add(O);
+    }
+
+    @Override
+    public void removeObserver(Observer O) {
+        _observers.remove(O);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer o : _observers){
+            o.update(this);
+        }
+    }
 }

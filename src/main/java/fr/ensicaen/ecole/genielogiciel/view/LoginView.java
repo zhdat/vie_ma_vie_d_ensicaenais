@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginView {
+public class LoginView{
     private LoginPresenter _presenter;
     private Stage _stage;
     @FXML
@@ -93,8 +93,5 @@ public class LoginView {
     private void launchGame() {
         _presenter.launchGame(_nickName.getText());
     }
-
-
-
 
 }
