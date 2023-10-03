@@ -1,6 +1,7 @@
 package fr.ensicaen.ecole.genielogiciel.view;
 
 import fr.ensicaen.ecole.genielogiciel.model.Dice;
+import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
 
 import javafx.event.ActionEvent;
@@ -18,7 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public final class GameView {
+public final class GameView{
     public Button _rollButton;
     public TextField _diceResult;
     public Circle _player1;
@@ -194,9 +195,7 @@ public final class GameView {
         }
         Dice dice = new Dice();
         _result = dice.roll();
-        int position = _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);
-        _tabPlayer[_nbTurn].setLayoutX(_tabX[position]);
-        _tabPlayer[_nbTurn].setLayoutY(_tabY[position]);
+        _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);
         playerColor.setFill(_tabPlayer[_nbTurn].getFill());
         _nbTurn++;
         update();
@@ -232,5 +231,9 @@ public final class GameView {
 
     public void update() {
         _diceResult.setText(String.valueOf(_result));
+    }
+    public void displayPlayer(int[] positions){
+        _tabPlayer[_nbTurn].setLayoutX(_tabX[positions[_nbTurn]]);
+        _tabPlayer[_nbTurn].setLayoutY(_tabY[positions[_nbTurn]]);
     }
 }

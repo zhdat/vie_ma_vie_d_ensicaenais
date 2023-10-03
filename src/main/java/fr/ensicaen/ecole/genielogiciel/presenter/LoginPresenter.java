@@ -3,10 +3,11 @@ package fr.ensicaen.ecole.genielogiciel.presenter;
 import fr.ensicaen.ecole.genielogiciel.LoginMain;
 import fr.ensicaen.ecole.genielogiciel.view.GameView;
 import fr.ensicaen.ecole.genielogiciel.view.LoginView;
+import fr.ensicaen.ecole.genielogiciel.view.Observer;
 
 import java.io.IOException;
 
-public final class LoginPresenter {
+public final class LoginPresenter implements Observer{
     private LoginView _view;
 
     public void setView( LoginView view ) {
@@ -32,5 +33,10 @@ public final class LoginPresenter {
         view.setPresenter(gamePresenter);
         gamePresenter.setView(view);
         view.show();
+    }
+
+    @Override
+    public void update(Object O) {
+
     }
 }
