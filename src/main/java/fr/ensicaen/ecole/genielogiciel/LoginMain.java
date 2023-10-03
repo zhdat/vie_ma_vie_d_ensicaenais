@@ -18,6 +18,7 @@ public final class LoginMain extends Application {
 
     @Override
     public void start( final Stage primaryStage ) throws Exception {
+        /* Création de la vue et presentateur */
         LoginView view = LoginView.createView(primaryStage, "LoginDialog.fxml");
         LoginPresenter presenter = new LoginPresenter();
         view.setPresenter(presenter);

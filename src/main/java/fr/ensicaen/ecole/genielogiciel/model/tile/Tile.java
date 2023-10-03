@@ -1,15 +1,14 @@
 package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
-import fr.ensicaen.ecole.genielogiciel.model.softskills.Softskills;
 
-public interface Tile {
-    public int getPlayerLevel();
-
-    public Origin getPlayerOrigin();
-
-    public Softskills getPlayerSoftskills();
-
-    public Player getPlayerType();
+public abstract class Tile {
+    private int _position;
+    public Tile(int position){
+        _position = position;
+    }
+    public abstract void appliquerEffet(Player player);
+    public int getPosition(){
+        return _position;
+    }
 }

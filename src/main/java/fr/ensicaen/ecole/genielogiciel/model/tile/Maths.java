@@ -2,27 +2,18 @@ package fr.ensicaen.ecole.genielogiciel.model.tile;
 
 import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
-import fr.ensicaen.ecole.genielogiciel.model.softskills.Softskills;
 
-public class Maths implements Tile{
-    private Player _player;
-
-    public Maths(Player _player) {
-        this._player = _player;
-    }
-    public int getPlayerLevel(){
-        return _player.getLevel();
+public class Maths extends Tile {
+    public Maths(int position) {
+        super(position);
     }
 
-    public Origin getPlayerOrigin(){
-        return _player.getOrigin();
-    }
-
-    public Softskills getPlayerSoftskills(){
-        return _player.getSoftskills();
-    }
-
-    public Player getPlayerType(){
-        return _player.getType();
+    @Override
+    public void appliquerEffet(Player player) {
+        if (player.getProvenance() == Origin.PREPA){
+            player.setCompetence(1);
+        } else {
+            player.setCompetence(-1);
+        }
     }
 }

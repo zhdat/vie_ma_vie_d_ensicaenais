@@ -1,28 +1,17 @@
 package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
+import fr.ensicaen.ecole.genielogiciel.model.player.Sector;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
-import fr.ensicaen.ecole.genielogiciel.model.softskills.Softskills;
 
-public class Cryptography implements Tile {
-    private Player _player;
-
-    public Cryptography(Player _player) {
-        this._player = _player;
-    }
-    public int getPlayerLevel(){
-        return _player.getLevel();
+public class Cryptography extends Tile {
+    public Cryptography(int position) {
+        super(position);
     }
 
-    public Origin getPlayerOrigin(){
-        return _player.getOrigin();
-    }
-
-    public Softskills getPlayerSoftskills(){
-        return _player.getSoftskills();
-    }
-
-    public Player getPlayerType(){
-        return _player.getType();
+    @Override
+    public void appliquerEffet(Player player) {
+        if (player.getFiliere() == Sector.INFORMATIQUE){
+            player.setCompetence(1);
+        }
     }
 }

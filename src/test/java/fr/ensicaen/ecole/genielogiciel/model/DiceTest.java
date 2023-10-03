@@ -9,7 +9,7 @@ public class DiceTest {
     @Test
     void rollTest() {
         Dice d = new Dice();
-        int result = d.roll(1);
+        int result = d.roll();
         System.out.println(result);
         assertTrue(result > 0 && result < 7);
     }

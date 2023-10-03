@@ -95,71 +95,74 @@
                <children>
                   <AnchorPane layoutX="-5.0" layoutY="-2.0" prefHeight="949.0" prefWidth="1005.0">
                      <children>
-                        <Circle id="tile_start" fx:id="tile_start" fill="#ff401f" layoutX="130.0" layoutY="744.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_1" fx:id="tile_1" fill="#ff401f" layoutX="286.0" layoutY="718.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_2" fx:id="tile_2" fill="#ff401f" layoutX="349.0" layoutY="721.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_3" fx:id="tile_3" fill="#ff401f" layoutX="413.0" layoutY="724.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_4" fx:id="tile_4" fill="#ff401f" layoutX="480.0" layoutY="727.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_5" fx:id="tile_5" fill="#ff401f" layoutX="544.0" layoutY="729.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_6" fx:id="tile_6" fill="#ff401f" layoutX="610.0" layoutY="732.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_7" fx:id="tile_7" fill="#ff401f" layoutX="675.0" layoutY="733.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_8" fx:id="tile_8" fill="#ff401f" layoutX="741.0" layoutY="734.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_9" fx:id="tile_9" fill="#ff401f" layoutX="805.0" layoutY="737.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_10" fx:id="tile_10" fill="#ff401f" layoutX="868.0" layoutY="736.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_11" fx:id="tile_11" fill="#ff401f" layoutX="927.0" layoutY="732.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_12" fx:id="tile_12" fill="#ff401f" layoutX="962.0" layoutY="682.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_13" fx:id="tile_13" fill="#ff401f" layoutX="967.0" layoutY="617.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_14" fx:id="tile_14" fill="#ff401f" layoutX="969.0" layoutY="552.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_15" fx:id="tile_15" fill="#ff401f" layoutX="968.0" layoutY="485.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_16" fx:id="tile_16" fill="#ff401f" layoutX="968.0" layoutY="424.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_17" fx:id="tile_17" fill="#ff401f" layoutX="965.0" layoutY="358.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_18" fx:id="tile_18" fill="#ff401f" layoutX="960.0" layoutY="295.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_19" fx:id="tile_19" fill="#ff401f" layoutX="949.0" layoutY="227.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_20" fx:id="tile_20" fill="#ff401f" layoutX="900.0" layoutY="192.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_21" fx:id="tile_21" fill="#ff401f" layoutX="838.0" layoutY="182.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_22" fx:id="tile_22" fill="#ff401f" layoutX="775.0" layoutY="178.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_23" fx:id="tile_23" fill="#ff401f" layoutX="709.0" layoutY="174.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_24" fx:id="tile_24" fill="#ff401f" layoutX="645.0" layoutY="173.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_25" fx:id="tile_25" fill="#ff401f" layoutX="581.0" layoutY="172.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_26" fx:id="tile_26" fill="#ff401f" layoutX="519.0" layoutY="169.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_27" fx:id="tile_27" fill="#ff401f" layoutX="454.0" layoutY="169.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_28" fx:id="tile_28" fill="#ff401f" layoutX="387.0" layoutY="170.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_29" fx:id="tile_29" fill="#ff401f" layoutX="324.0" layoutY="174.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_30" fx:id="tile_30" fill="#ff401f" layoutX="259.0" layoutY="182.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_31" fx:id="tile_31" fill="#ff401f" layoutX="204.0" layoutY="210.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_32" fx:id="tile_32" fill="#ff401f" layoutX="195.0" layoutY="276.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_33" fx:id="tile_33" fill="#ff401f" layoutX="191.0" layoutY="338.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_34" fx:id="tile_34" fill="#ff401f" layoutX="189.0" layoutY="403.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_35" fx:id="tile_35" fill="#ff401f" layoutX="190.0" layoutY="468.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_36" fx:id="tile_36" fill="#ff401f" layoutX="194.0" layoutY="531.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_37" fx:id="tile_37" fill="#ff401f" layoutX="207.0" layoutY="595.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_38" fx:id="tile_38" fill="#ff401f" layoutX="265.0" layoutY="618.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_39" fx:id="tile_39" fill="#ff401f" layoutX="329.0" layoutY="627.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_40" fx:id="tile_40" fill="#ff401f" layoutX="394.0" layoutY="632.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_41" fx:id="tile_41" fill="#ff401f" layoutX="456.0" layoutY="636.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_42" fx:id="tile_42" fill="#ff401f" layoutX="521.0" layoutY="641.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_43" fx:id="tile_43" fill="#ff401f" layoutX="588.0" layoutY="645.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_44" fx:id="tile_44" fill="#ff401f" layoutX="653.0" layoutY="647.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_45" fx:id="tile_45" fill="#ff401f" layoutX="718.0" layoutY="648.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_46" fx:id="tile_46" fill="#ff401f" layoutX="782.0" layoutY="648.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_47" fx:id="tile_47" fill="#ff401f" layoutX="844.0" layoutY="644.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_48" fx:id="tile_48" fill="#ff401f" layoutX="875.0" layoutY="593.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_49" fx:id="tile_49" fill="#ff401f" layoutX="884.0" layoutY="528.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_50" fx:id="tile_50" fill="#ff401f" layoutX="883.0" layoutY="469.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_51" fx:id="tile_51" fill="#ff401f" layoutX="884.0" layoutY="402.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_52" fx:id="tile_52" fill="#ff401f" layoutX="879.0" layoutY="336.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_53" fx:id="tile_53" fill="#ff401f" layoutX="856.0" layoutY="277.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_54" fx:id="tile_54" fill="#ff401f" layoutX="796.0" layoutY="264.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_55" fx:id="tile_55" fill="#ff401f" layoutX="731.0" layoutY="261.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_56" fx:id="tile_56" fill="#ff401f" layoutX="665.0" layoutY="257.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_57" fx:id="tile_57" fill="#ff401f" layoutX="602.0" layoutY="252.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_58" fx:id="tile_58" fill="#ff401f" layoutX="537.0" layoutY="251.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_59" fx:id="tile_59" fill="#ff401f" layoutX="475.0" layoutY="252.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_60" fx:id="tile_60" fill="#ff401f" layoutX="411.0" layoutY="253.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_61" fx:id="tile_61" fill="#ff401f" layoutX="346.0" layoutY="259.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_62" fx:id="tile_62" fill="#ff401f" layoutX="289.0" layoutY="278.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_63" fx:id="tile_63" fill="#ff401f" layoutX="361.0" layoutY="433.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="player_1" fx:id="_player_1" fill="DODGERBLUE" layoutX="132.0" layoutY="743.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="tile_start" fx:id="_tileStart" fill="#ff401f" layoutX="130.0" layoutY="744.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_1" fx:id="_tile1" fill="#ff401f" layoutX="286.0" layoutY="718.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_2" fx:id="_tile2" fill="#ff401f" layoutX="349.0" layoutY="721.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_3" fx:id="_tile3" fill="#ff401f" layoutX="413.0" layoutY="724.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_4" fx:id="_tile4" fill="#ff401f" layoutX="480.0" layoutY="727.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_5" fx:id="_tile5" fill="#ff401f" layoutX="544.0" layoutY="729.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_6" fx:id="_tile6" fill="#ff401f" layoutX="610.0" layoutY="732.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_7" fx:id="_tile7" fill="#ff401f" layoutX="675.0" layoutY="733.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_8" fx:id="_tile8" fill="#ff401f" layoutX="741.0" layoutY="734.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_9" fx:id="_tile9" fill="#ff401f" layoutX="805.0" layoutY="737.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_10" fx:id="_tile10" fill="#ff401f" layoutX="868.0" layoutY="736.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_11" fx:id="_tile11" fill="#ff401f" layoutX="927.0" layoutY="732.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_12" fx:id="_tile12" fill="#ff401f" layoutX="962.0" layoutY="682.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_13" fx:id="_tile13" fill="#ff401f" layoutX="967.0" layoutY="617.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_14" fx:id="_tile14" fill="#ff401f" layoutX="969.0" layoutY="552.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_15" fx:id="_tile15" fill="#ff401f" layoutX="968.0" layoutY="485.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_16" fx:id="_tile16" fill="#ff401f" layoutX="968.0" layoutY="424.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_17" fx:id="_tile17" fill="#ff401f" layoutX="965.0" layoutY="358.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_18" fx:id="_tile18" fill="#ff401f" layoutX="960.0" layoutY="295.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_19" fx:id="_tile19" fill="#ff401f" layoutX="949.0" layoutY="227.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_20" fx:id="_tile20" fill="#ff401f" layoutX="900.0" layoutY="192.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_21" fx:id="_tile21" fill="#ff401f" layoutX="838.0" layoutY="182.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_22" fx:id="_tile22" fill="#ff401f" layoutX="775.0" layoutY="178.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_23" fx:id="_tile23" fill="#ff401f" layoutX="709.0" layoutY="174.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_24" fx:id="_tile24" fill="#ff401f" layoutX="645.0" layoutY="173.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_25" fx:id="_tile25" fill="#ff401f" layoutX="581.0" layoutY="172.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_26" fx:id="_tile26" fill="#ff401f" layoutX="519.0" layoutY="169.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_27" fx:id="_tile27" fill="#ff401f" layoutX="454.0" layoutY="169.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_28" fx:id="_tile28" fill="#ff401f" layoutX="387.0" layoutY="170.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_29" fx:id="_tile29" fill="#ff401f" layoutX="324.0" layoutY="174.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_30" fx:id="_tile30" fill="#ff401f" layoutX="259.0" layoutY="182.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_31" fx:id="_tile31" fill="#ff401f" layoutX="204.0" layoutY="210.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_32" fx:id="_tile32" fill="#ff401f" layoutX="195.0" layoutY="276.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_33" fx:id="_tile33" fill="#ff401f" layoutX="191.0" layoutY="338.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_34" fx:id="_tile34" fill="#ff401f" layoutX="189.0" layoutY="403.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_35" fx:id="_tile35" fill="#ff401f" layoutX="190.0" layoutY="468.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_36" fx:id="_tile36" fill="#ff401f" layoutX="194.0" layoutY="531.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_37" fx:id="_tile37" fill="#ff401f" layoutX="207.0" layoutY="595.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_38" fx:id="_tile38" fill="#ff401f" layoutX="265.0" layoutY="618.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_39" fx:id="_tile39" fill="#ff401f" layoutX="329.0" layoutY="627.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_40" fx:id="_tile40" fill="#ff401f" layoutX="394.0" layoutY="632.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_41" fx:id="_tile41" fill="#ff401f" layoutX="456.0" layoutY="636.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_42" fx:id="_tile42" fill="#ff401f" layoutX="521.0" layoutY="641.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_43" fx:id="_tile43" fill="#ff401f" layoutX="588.0" layoutY="645.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_44" fx:id="_tile44" fill="#ff401f" layoutX="653.0" layoutY="647.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_45" fx:id="_tile45" fill="#ff401f" layoutX="718.0" layoutY="648.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_46" fx:id="_tile46" fill="#ff401f" layoutX="782.0" layoutY="648.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_47" fx:id="_tile47" fill="#ff401f" layoutX="844.0" layoutY="644.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_48" fx:id="_tile48" fill="#ff401f" layoutX="875.0" layoutY="593.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_49" fx:id="_tile49" fill="#ff401f" layoutX="884.0" layoutY="528.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_50" fx:id="_tile50" fill="#ff401f" layoutX="883.0" layoutY="469.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_51" fx:id="_tile51" fill="#ff401f" layoutX="884.0" layoutY="402.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_52" fx:id="_tile52" fill="#ff401f" layoutX="879.0" layoutY="336.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_53" fx:id="_tile53" fill="#ff401f" layoutX="856.0" layoutY="277.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_54" fx:id="_tile54" fill="#ff401f" layoutX="796.0" layoutY="264.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_55" fx:id="_tile55" fill="#ff401f" layoutX="731.0" layoutY="261.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_56" fx:id="_tile56" fill="#ff401f" layoutX="665.0" layoutY="257.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_57" fx:id="_tile57" fill="#ff401f" layoutX="602.0" layoutY="252.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_58" fx:id="_tile58" fill="#ff401f" layoutX="537.0" layoutY="251.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_59" fx:id="_tile59" fill="#ff401f" layoutX="475.0" layoutY="252.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_60" fx:id="_tile60" fill="#ff401f" layoutX="411.0" layoutY="253.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_61" fx:id="_tile61" fill="#ff401f" layoutX="346.0" layoutY="259.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_62" fx:id="_tile62" fill="#ff401f" layoutX="289.0" layoutY="278.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_63" fx:id="_tile63" fill="#ff401f" layoutX="361.0" layoutY="433.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="player_1" fx:id="_player1" fill="DODGERBLUE" layoutX="132.0" layoutY="743.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="player2" fx:id="_player2" fill="#800001" layoutX="132.0" layoutY="743.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="player3" fx:id="_player3" fill="#018000" layoutX="132.0" layoutY="743.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="player4" fx:id="_player4" fill="#790080" layoutX="132.0" layoutY="743.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </AnchorPane>
                </children>
@@ -176,14 +179,14 @@
                                  </font>
                               </Label>
                               <TextArea id="characteristics" fx:id="_characteristics" editable="false" layoutX="29.0" layoutY="196.0" prefHeight="397.0" prefWidth="347.0" />
-                              <Circle id="player_color" fx:id="player_color" fill="DODGERBLUE" layoutX="113.0" layoutY="153.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                              <ProgressBar id="skill_progress" fx:id="_skill_progress" layoutX="54.0" layoutY="685.0" prefHeight="13.0" prefWidth="289.0" progress="0.0" />
+                              <Circle id="playerColor" fx:id="playerColor" fill="DODGERBLUE" layoutX="113.0" layoutY="153.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                              <ProgressBar id="skillProgress" fx:id="_skillProgress" layoutX="54.0" layoutY="685.0" prefHeight="13.0" prefWidth="289.0" progress="0.0" />
                               <Label alignment="CENTER" layoutX="-2.0" layoutY="625.0" prefHeight="38.0" prefWidth="406.0" text="compétences de l'année :">
                                  <font>
                                     <Font size="26.0" />
                                  </font>
                               </Label>
-                              <Label id="player_nickname" fx:id="_player_nickname" layoutX="172.0" layoutY="135.0" text="joueur">
+                              <Label id="playerNickname" fx:id="_playerNickname" layoutX="172.0" layoutY="135.0" text="joueur">
                                  <font>
                                     <Font size="26.0" />
                                  </font>
@@ -192,12 +195,12 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="273.0" prefWidth="397.0">
                            <children>
-                              <Button id="roll_button" fx:id="_roll_button" layoutX="82.0" layoutY="147.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="243.0" text="ROLL">
+                              <Button id="roll_button" fx:id="_rollButton" layoutX="82.0" layoutY="147.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="243.0" text="ROLL">
                                  <font>
                                     <Font size="26.0" />
                                  </font>
                               </Button>
-                              <TextField id="de" fx:id="_de" alignment="CENTER" editable="false" layoutX="156.0" layoutY="24.0" prefHeight="83.0" prefWidth="92.0">
+                              <TextField id="diceResult" fx:id="_diceResult" alignment="CENTER" editable="false" layoutX="156.0" layoutY="24.0" prefHeight="83.0" prefWidth="92.0">
                                  <font>
                                     <Font size="26.0" />
                                  </font></TextField>
