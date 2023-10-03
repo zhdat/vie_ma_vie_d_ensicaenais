@@ -52,15 +52,16 @@ public class Model {
         System.out.println(_players[playerIndex].getName());
         int initialPosition = _players[playerIndex].getPosition();
         System.out.println("Initial Position : " + initialPosition);
-        int i = 1;
-        while (i <= ((int)(dice * _players[playerIndex].softskill())) && (_players[playerIndex].getPosition() + 1 < _nbCases)){
+        System.out.println("Résultat dé : " + (int)(Math.ceil(dice * _players[playerIndex].softskill())));
+        int i = 0;
+        while (i < (int)(Math.ceil(dice * _players[playerIndex].softskill())) && (_players[playerIndex].getPosition() + 1 <= _nbCases)){
             _players[playerIndex].goForward(1);
             i++;
         }
-        if (_players[playerIndex].getPosition() == _nbCases && (i == dice * _players[playerIndex].softskill())) {
+        if (_players[playerIndex].getPosition() == _nbCases && (i == (int)Math.ceil(dice * _players[playerIndex].softskill()) - 1)) {
             System.out.println(_players[playerIndex].getName() + " Win !!!");
-        } else if (i != (dice * _players[playerIndex].softskill())) {
-            _players[playerIndex].goBackward((int)(dice * _players[playerIndex].softskill()) - i);
+        } else if (i != (int)(Math.ceil(dice * _players[playerIndex].softskill()))) {
+            _players[playerIndex].goBackward((int)Math.ceil(dice * _players[playerIndex].softskill()) - i);
         }
         /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
         System.out.println(_players[playerIndex].getPosition());
