@@ -28,7 +28,7 @@ public class Player {
         /* @TODO : Vérifier si le joueur est arriver au début !*/
     }
     public double softskill(){
-        if (_softskill == Softskill.ASSIDUS){
+        if (_softskill == Softskill.ASSIDU){
             return 1;
         } else if (_softskill == Softskill.BRILLANT){
             return 2;
@@ -40,7 +40,7 @@ public class Player {
     public void randomSoftskill(){
         int rand = (int)(Math.random() * 3);
         if (rand == 0){
-            _softskill = Softskill.ASSIDUS;
+            _softskill = Softskill.ASSIDU;
         } else if (rand == 1){
             _softskill = Softskill.BRILLANT;
         } else if (rand == 2){

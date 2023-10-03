@@ -49,40 +49,19 @@ public class Model {
     }
 
     public int playTurn(int playerIndex, int dice) {
-        int i;
         System.out.println(_players[playerIndex].getName());
         int initialPosition = _players[playerIndex].getPosition();
         System.out.println("Initial Position : " + initialPosition);
-        for (i = 1; i <= (int)(dice * _players[playerIndex].softskill()); i++){
-            if (_players[playerIndex].getPosition() + 1 < _nbCases) {
-                _players[playerIndex].goForward(1);
-            }
+        int i = 1;
+        while (i <= ((int)(dice * _players[playerIndex].softskill())) && (_players[playerIndex].getPosition() + 1 < _nbCases)){
+            _players[playerIndex].goForward(1);
+            i++;
         }
         if (_players[playerIndex].getPosition() == _nbCases && (i == dice * _players[playerIndex].softskill())) {
             System.out.println(_players[playerIndex].getName() + " Win !!!");
         } else if (i != (dice * _players[playerIndex].softskill())) {
             _players[playerIndex].goBackward((int)(dice * _players[playerIndex].softskill()) - i);
         }
-
-        /*if (_players[playerIndex].getPosition() + ((int)(_players[playerIndex].softskill() * dice)) < _nbCases){
-            _players[playerIndex].goForward((int)(_players[playerIndex].softskill() * dice));
-        } else if (_players[playerIndex].getPosition() == _nbCases) {
-            System.out.println(_players[playerIndex].getName() + " Win !!!");
-        } else {
-            _players[playerIndex].goBackward((int)(dice * _players[playerIndex].softskill()) - (63 - initialPosition));
-        }*/
-        /*if (_players[playerIndex].getPosition() > _nbCases){
-            _players[playerIndex].goBackward((int)(dice * _players[playerIndex].softskill()) - (63 - initialPosition));
-            System.out.println("Résultat calcul : " + ((int)(dice * _players[playerIndex].softskill()) - (63 - initialPosition)));
-            System.out.println("Position après recule" + _players[playerIndex].getPosition());
-            *//*if (_players[playerIndex].getSoftskill() == Softskill.ASSIDUS){
-                _players[playerIndex].goBackward(dice - (62 - initialPosition));
-            } else if (_players[playerIndex].getSoftskill() == Softskill.BRILLANT) {
-                _players[playerIndex].goBackward((dice * 2) - (62 - initialPosition));
-            } else if (_players[playerIndex].getSoftskill() == Softskill.DILETTANTE) {
-                _players[playerIndex].goBackward((dice / 2) - (62 - initialPosition));
-            }*//*
-        }*/
         /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
         System.out.println(_players[playerIndex].getPosition());
         return _players[playerIndex].getPosition();

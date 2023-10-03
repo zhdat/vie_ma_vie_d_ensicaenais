@@ -1,7 +1,7 @@
 package fr.ensicaen.ecole.genielogiciel.model.sofskills;
 
 public enum Softskill{
-    ASSIDUS,
+    ASSIDU,
     DILETTANTE,
     BRILLANT
 }
