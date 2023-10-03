@@ -4,10 +4,10 @@ import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
 import fr.ensicaen.ecole.genielogiciel.model.sofskills.Softskill;
 
 public class Player {
-    private String _nom;
+    private final String _nom;
     private Softskill _softskill;
-    private Origin _origin;
-    private Sector _sector;
+    private final Origin _origin;
+    private final Sector _sector;
     private int _competence;
     private int _position;
 

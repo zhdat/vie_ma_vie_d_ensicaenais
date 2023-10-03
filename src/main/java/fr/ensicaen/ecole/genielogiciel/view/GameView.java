@@ -193,7 +193,6 @@ public final class GameView {
         if (_nbTurn > 3){
             _nbTurn = 0;
         }
-        System.out.println(_nbTurn);
         Dice dice = new Dice();
         _result = dice.lancerDe();
         int position = _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);

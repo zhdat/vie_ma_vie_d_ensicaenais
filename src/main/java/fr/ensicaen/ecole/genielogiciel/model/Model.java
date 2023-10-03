@@ -8,11 +8,11 @@ import fr.ensicaen.ecole.genielogiciel.model.tile.*;
 
 public class Model {
     private String _nickname;
-    private Player[] _players;
-    private Board _board;
-    private Tile[] _tiles;
+    private final Player[] _players;
+    private final Board _board;
+    private final Tile[] _tiles;
     private int _turn;
-    private int _nbCases = 63;
+    private final int _nbCases = 63;
 
     public Model() {
         _tiles = new Tile[_nbCases];
@@ -49,28 +49,40 @@ public class Model {
     }
 
     public int playTurn(int playerIndex, int dice) {
+        int i;
         System.out.println(_players[playerIndex].getName());
         int initialPosition = _players[playerIndex].getPosition();
-        if (_players[playerIndex].getSoftskill() == Softskill.ASSIDUS){
-            _players[playerIndex].goForward(dice);
-        } else if (_players[playerIndex].getSoftskill() == Softskill.BRILLANT) {
-            _players[playerIndex].goForward(dice * 2);
-        } else if (_players[playerIndex].getSoftskill() == Softskill.DILETTANTE) {
-            _players[playerIndex].goForward(dice / 2);
+        System.out.println("Initial Position : " + initialPosition);
+        for (i = 1; i <= (int)(dice * _players[playerIndex].softskill()); i++){
+            if (_players[playerIndex].getPosition() + 1 < _nbCases) {
+                _players[playerIndex].goForward(1);
+            }
         }
-        System.out.println(_players[playerIndex].getName() + "-->" + _players[playerIndex].getPosition());
-        if (_players[playerIndex].getPosition() == _nbCases){
+        if (_players[playerIndex].getPosition() == _nbCases && (i == dice * _players[playerIndex].softskill())) {
             System.out.println(_players[playerIndex].getName() + " Win !!!");
+        } else if (i != (dice * _players[playerIndex].softskill())) {
+            _players[playerIndex].goBackward((int)(dice * _players[playerIndex].softskill()) - i);
         }
-        if (_players[playerIndex].getPosition() > _nbCases){
-            if (_players[playerIndex].getSoftskill() == Softskill.ASSIDUS){
+
+        /*if (_players[playerIndex].getPosition() + ((int)(_players[playerIndex].softskill() * dice)) < _nbCases){
+            _players[playerIndex].goForward((int)(_players[playerIndex].softskill() * dice));
+        } else if (_players[playerIndex].getPosition() == _nbCases) {
+            System.out.println(_players[playerIndex].getName() + " Win !!!");
+        } else {
+            _players[playerIndex].goBackward((int)(dice * _players[playerIndex].softskill()) - (63 - initialPosition));
+        }*/
+        /*if (_players[playerIndex].getPosition() > _nbCases){
+            _players[playerIndex].goBackward((int)(dice * _players[playerIndex].softskill()) - (63 - initialPosition));
+            System.out.println("Résultat calcul : " + ((int)(dice * _players[playerIndex].softskill()) - (63 - initialPosition)));
+            System.out.println("Position après recule" + _players[playerIndex].getPosition());
+            *//*if (_players[playerIndex].getSoftskill() == Softskill.ASSIDUS){
                 _players[playerIndex].goBackward(dice - (62 - initialPosition));
             } else if (_players[playerIndex].getSoftskill() == Softskill.BRILLANT) {
                 _players[playerIndex].goBackward((dice * 2) - (62 - initialPosition));
             } else if (_players[playerIndex].getSoftskill() == Softskill.DILETTANTE) {
                 _players[playerIndex].goBackward((dice / 2) - (62 - initialPosition));
-            }
-        }
+            }*//*
+        }*/
         /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
         System.out.println(_players[playerIndex].getPosition());
         return _players[playerIndex].getPosition();
