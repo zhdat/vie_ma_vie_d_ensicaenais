@@ -1,6 +1,6 @@
 [<img src="https://www.ensicaen.fr/wp-content/uploads/2017/02/LogoEnsicaen.gif" width="256" >](https://www.ensicaen.fr)
 
-Projet dice régate
+Projet Vie_ma_vie_d_ensicaenais
 ================
 
 ## Description du projet
