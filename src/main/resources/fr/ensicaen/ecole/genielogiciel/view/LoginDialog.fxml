@@ -41,8 +41,8 @@
       </Circle>
       <ChoiceBox id="sector" fx:id="_sector" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <ChoiceBox id="origin" fx:id="_origin" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <Label alignment="CENTER" prefHeight="16.0" prefWidth="160.0" styleClass="text" text="%filiere.message.text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Label alignment="CENTER" prefHeight="16.0" prefWidth="160.0" styleClass="text" text="%provenance.message.text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label alignment="CENTER" prefHeight="16.0" prefWidth="160.0" styleClass="text" text="%sector.message.text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label alignment="CENTER" prefHeight="16.0" prefWidth="160.0" styleClass="text" text="%origin.message.text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
