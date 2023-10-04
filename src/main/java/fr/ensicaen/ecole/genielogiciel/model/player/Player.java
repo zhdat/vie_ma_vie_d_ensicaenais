@@ -2,6 +2,8 @@ package fr.ensicaen.ecole.genielogiciel.model.player;
 
 import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
 import fr.ensicaen.ecole.genielogiciel.model.sofskills.Softskill;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 public class Player {
     private final String _nom;
@@ -11,13 +13,16 @@ public class Player {
     private int _competence;
     private int _position;
 
-    public Player(String nom, Softskill softskill, Origin origin, Sector sector){
+    private Color _color;
+
+    public Player(String nom, Softskill softskill, Origin origin, Sector sector, Color color){
         _nom = nom;
         _softskill = softskill;
         _origin = origin;
         _sector = sector;
         _position = 0; /* A voir avec le fichier fxml... */
         _competence = 0;
+        _color = color;
     }
     public void goForward(int nbCases){
         _position += nbCases;
@@ -67,6 +72,9 @@ public class Player {
     }
     public int getPosition(){
         return _position;
+    }
+    public Color getColor() {
+        return _color;
     }
     /* Getters et Setters à ajouter si besoin */
 }

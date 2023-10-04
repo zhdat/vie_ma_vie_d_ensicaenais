@@ -4,6 +4,7 @@ import fr.ensicaen.ecole.genielogiciel.model.*;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 import fr.ensicaen.ecole.genielogiciel.view.GameView;
 import fr.ensicaen.ecole.genielogiciel.view.Observer;
+import javafx.scene.paint.Color;
 
 public final class GamePresenter implements Observer{
     private final Model _model;
@@ -68,15 +69,19 @@ public final class GamePresenter implements Observer{
             origin[i] = String.valueOf(_model.getPlayers()[i].getProvenance());
             softskill[i] = String.valueOf(_model.getPlayers()[i].getSoftskill());
         }
+        Color[] colors = new Color[_nbPlayer];
+        for (int i = 0; i < _nbPlayer; i++){
+            colors[i] = players[i].getColor();
+        }
 
 
-        _view.displayPlayer(positions);
+        _view.displayPlayer(positions, colors);
         _view.displayDice(_model.getDiceResult());
         _view.displayPlayerName(playersName);
         _view.displayCharacteristics(major, origin, softskill);
         _view.displayTurn(_valueTurn);
     }
-    public void createPlayer(){
-        _model.createPlayer();
+    public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer){
+        _model.createPlayer(playerName, originPlayer, majorPlayer, colorPlayer);
     }
 }

@@ -67,7 +67,7 @@
                   <Insets left="9.0" top="91.0" />
                </GridPane.margin>
             </Button>
-            <ListView prefHeight="170.0" prefWidth="373.0" />
+            <ListView fx:id="_listView" prefHeight="170.0" prefWidth="373.0" />
          </children>
       </GridPane>
    </children>

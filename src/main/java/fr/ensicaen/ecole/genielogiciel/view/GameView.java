@@ -11,6 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -223,7 +224,8 @@ public final class GameView{
             _gamePresenter.runGameLoop();
         }
     }
-    public void displayPlayer(int[] positions){
+    public void displayPlayer(int[] positions, Color[] colors){
+        _tabPlayer[_nbTurn].setFill(colors[_nbTurn]);
         _tabPlayer[_nbTurn].setLayoutX(_tabX[positions[_nbTurn]]);
         _tabPlayer[_nbTurn].setLayoutY(_tabY[positions[_nbTurn]]);
         playerColor.setFill(_tabPlayer[_nbTurn].getFill());
@@ -240,7 +242,7 @@ public final class GameView{
     public void displayTurn(int turn){
         _round.setText("Tour numéro : " + String.valueOf(turn));
     }
-    public void createPlayer(){
-        _gamePresenter.createPlayer();
+    public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer){
+        _gamePresenter.createPlayer(playerName, originPlayer, majorPlayer, colorPlayer);
     }
 }

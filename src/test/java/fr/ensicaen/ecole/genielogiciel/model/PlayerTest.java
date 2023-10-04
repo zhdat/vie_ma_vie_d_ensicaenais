@@ -11,18 +11,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PlayerTest {
     @Test
     void softSkillTest() {
-        Player player = new Player("test", Softskill.BRILLANT, Origin.PREPA, Sector.INFORMATIQUE);
+        Player player = new Player("test", Softskill.BRILLANT, Origin.PREPA, Sector.INFORMATIQUE, );
         assertEquals(2, 1 * player.softskill());
         assertEquals(8, 4 * player.softskill());
-        Player player1 = new Player("test", Softskill.DILETTANTE, Origin.PREPA, Sector.INFORMATIQUE);
+        Player player1 = new Player("test", Softskill.DILETTANTE, Origin.PREPA, Sector.INFORMATIQUE, );
         assertEquals(3, Math.ceil (6 * player1.softskill()));
         assertEquals(1, Math.ceil (1 * player1.softskill()));
     }
 
     @Test
     void movementTest(){
-        Player player = new Player("test", Softskill.BRILLANT, Origin.PREPA, Sector.INFORMATIQUE);
-        Player player1 = new Player("test", Softskill.DILETTANTE, Origin.PREPA, Sector.INFORMATIQUE);
+        Player player = new Player("test", Softskill.BRILLANT, Origin.PREPA, Sector.INFORMATIQUE, );
+        Player player1 = new Player("test", Softskill.DILETTANTE, Origin.PREPA, Sector.INFORMATIQUE, );
 
         assertEquals(0, player.getPosition());
         player.goForward(5);
