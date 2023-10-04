@@ -93,5 +93,9 @@ public class LoginView{
     private void launchGame() {
         _presenter.launchGame(_nickName.getText());
     }
+    @FXML
+    private void addPlayer(){
+
+    }
 
 }

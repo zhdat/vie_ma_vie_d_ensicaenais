@@ -33,6 +33,7 @@ public final class LoginPresenter implements Observer{
         view.setPresenter(gamePresenter);
         gamePresenter.setView(view);
         view.show();
+        view.createPlayer();
     }
 
     @Override

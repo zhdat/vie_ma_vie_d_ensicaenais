@@ -91,7 +91,7 @@
     </MenuBar>
       <HBox prefHeight="919.0" prefWidth="1610.0">
          <children>
-            <AnchorPane prefHeight="947.0" prefWidth="924.0" styleClass="board" stylesheets="@Board.css">
+            <AnchorPane prefHeight="947.0" prefWidth="924.0" styleClass="board" stylesheets="@board.css">
                <children>
                   <AnchorPane layoutX="-5.0" layoutY="-2.0" prefHeight="949.0" prefWidth="1005.0">
                      <children>
@@ -158,7 +158,8 @@
                         <Circle id="tile_60" fx:id="_tile60" fill="#ff401f" layoutX="411.0" layoutY="253.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle id="tile_61" fx:id="_tile61" fill="#ff401f" layoutX="346.0" layoutY="259.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle id="tile_62" fx:id="_tile62" fill="#ff401f" layoutX="289.0" layoutY="278.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <Circle id="tile_63" fx:id="_tile63" fill="#ff401f" layoutX="361.0" layoutY="433.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_63" fx:id="_tile63" fill="#ff401f" layoutX="283.0" layoutY="344.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle id="tile_64" fx:id="_tile64" fill="#ff401f" layoutX="408.0" layoutY="475.0" opacity="0.0" radius="21.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <Circle id="player_1" fx:id="_player1" fill="DODGERBLUE" layoutX="132.0" layoutY="743.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle id="player2" fx:id="_player2" fill="#800001" layoutX="132.0" layoutY="743.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle id="player3" fx:id="_player3" fill="#018000" layoutX="132.0" layoutY="743.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" />

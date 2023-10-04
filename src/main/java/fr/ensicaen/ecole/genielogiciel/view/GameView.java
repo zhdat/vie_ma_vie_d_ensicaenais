@@ -1,6 +1,5 @@
 package fr.ensicaen.ecole.genielogiciel.view;
 
-import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -88,6 +87,7 @@ public final class GameView{
     public Circle _tile61;
     public Circle _tile62;
     public Circle _tile63;
+    public Circle _tile64;
     public TextArea _characteristics;
     public Label _round;
     public Circle playerColor;
@@ -100,7 +100,7 @@ public final class GameView{
     private Circle[] _tabPlayer;
     private Circle[] _tabTile;
     private int _nbTurn = 0;
-    private static final int _nbCases = 64;
+    private static final int _nbCases = 65;
 
     public void initialize() {
         _tabTile = new Circle[_nbCases];
@@ -168,6 +168,7 @@ public final class GameView{
         _tabTile[61] = _tile61;
         _tabTile[62] = _tile62;
         _tabTile[63] = _tile63;
+        _tabTile[64] = _tile64;
 
         _tabX = new double[_nbCases];
         _tabY = new double[_nbCases];
@@ -230,13 +231,16 @@ public final class GameView{
     public void displayDice(int diceResult){
         _diceResult.setText(String.valueOf(diceResult));
     }
-    public void displayPlayerName(Player[] players){
-        _playerNickname.setText(players[_nbTurn].getName());
+    public void displayPlayerName(String[] playersName){
+        _playerNickname.setText(playersName[_nbTurn]);
     }
-    public void displayCharacteristics(Player[] players){
-        _characteristics.setText("Filière : " + players[_nbTurn].getFiliere() + "\n" + "Provenance : " + players[_nbTurn].getProvenance() + "\n" + "Softskill : " + players[_nbTurn].getSoftskill());
+    public void displayCharacteristics(String[] major, String[] origin, String[] softskill){
+        _characteristics.setText("Filière : " + major[_nbTurn] + "\n" + "Provenance : " + origin[_nbTurn] + "\n" + "Softskill : " + softskill[_nbTurn]);
     }
     public void displayTurn(int turn){
         _round.setText("Tour numéro : " + String.valueOf(turn));
+    }
+    public void createPlayer(){
+        _gamePresenter.createPlayer();
     }
 }

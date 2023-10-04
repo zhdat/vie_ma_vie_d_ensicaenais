@@ -15,7 +15,7 @@ public class Model implements Observable{
     private final Board _board;
     private final Tile[] _tiles;
     private int _turn;
-    private final int _nbCases = 63;
+    private final int _nbCases = 64;
     private List<Observer> _observers;
     private final int _nbPlayer = 4;
     private Dice _dice;
@@ -83,6 +83,9 @@ public class Model implements Observable{
         }
         /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
         System.out.println(_players[playerIndex].getPosition());
+    }
+    public void createPlayer(){
+
     }
 
     public String getNickname() {

@@ -12,6 +12,7 @@ public final class GamePresenter implements Observer{
     private int _nbTurn = 0;
     private int _turn = 0;
     private int _valueTurn = 0;
+    private final int _nbPlayer = 4;
 
     public GamePresenter(String nickName) {
         _model = new Model();
@@ -25,13 +26,13 @@ public final class GamePresenter implements Observer{
 
     public void runGameLoop() {
         System.out.println("Et c'est parti...");
-        if (_nbTurn > 3){
+        if (_nbTurn > (_nbPlayer - 1)){
             _nbTurn = 0;
         }
         if (_turn == 0){
             _model.startGame();
         }
-        if (_turn %4 == 0){
+        if (_turn %_nbPlayer == 0){
             _valueTurn++;
         }
         _model.playTurn(_nbTurn);
@@ -55,10 +56,27 @@ public final class GamePresenter implements Observer{
         for (int i = 0; i < _model.getNbPlayer(); i++){
             positions[i] = players[i].getPosition();
         }
+        String[] playersName = new String[_nbPlayer];
+        for (int i = 0; i < _nbPlayer; i++){
+            playersName[i] = _model.getPlayers()[i].getName();
+        }
+        String[] major = new String[_nbPlayer];
+        String[] origin = new String[_nbPlayer];
+        String[] softskill = new String[_nbPlayer];
+        for (int i = 0; i < _nbPlayer; i++){
+            major[i] = String.valueOf(_model.getPlayers()[i].getFiliere());
+            origin[i] = String.valueOf(_model.getPlayers()[i].getProvenance());
+            softskill[i] = String.valueOf(_model.getPlayers()[i].getSoftskill());
+        }
+
+
         _view.displayPlayer(positions);
         _view.displayDice(_model.getDiceResult());
-        _view.displayPlayerName(_model.getPlayers());
-        _view.displayCharacteristics(_model.getPlayers());
+        _view.displayPlayerName(playersName);
+        _view.displayCharacteristics(major, origin, softskill);
         _view.displayTurn(_valueTurn);
+    }
+    public void createPlayer(){
+        _model.createPlayer();
     }
 }
