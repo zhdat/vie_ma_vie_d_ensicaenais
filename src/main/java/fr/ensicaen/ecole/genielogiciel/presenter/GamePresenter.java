@@ -4,16 +4,14 @@ import fr.ensicaen.ecole.genielogiciel.model.*;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 import fr.ensicaen.ecole.genielogiciel.view.GameView;
 import fr.ensicaen.ecole.genielogiciel.view.Observer;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 
 public final class GamePresenter implements Observer{
     private final Model _model;
     private GameView _view;
     private boolean _end = false;
-    private int nbTour = 0;
-    private int _tour = 0;
-    private int valueTour = 0;
+    private int _nbTurn = 0;
+    private int _turn = 0;
+    private int _valueTurn = 0;
 
     public GamePresenter(String nickName) {
         _model = new Model();
@@ -25,24 +23,20 @@ public final class GamePresenter implements Observer{
         _view = view;
     }
 
-    public void runGameLoop(int dice, TextArea characteristics, Label round, Label playerNickname) {
+    public void runGameLoop() {
         System.out.println("Et c'est parti...");
-        if (nbTour > 3){
-            nbTour = 0;
+        if (_nbTurn > 3){
+            _nbTurn = 0;
         }
-        if (_tour == 0){
+        if (_turn == 0){
             _model.startGame();
         }
-        if (_tour%4 == 0){
-            valueTour++;
+        if (_turn %4 == 0){
+            _valueTurn++;
         }
-        _model.playTurn(nbTour, dice);
-        Player[] players = _model.getPlayers();
-        playerNickname.setText(players[nbTour].getName());
-        characteristics.setText("Filière : " + players[nbTour].getFiliere() + "\n" + "Provenance : " + players[nbTour].getProvenance() + "\n" + "Softskill : " + players[nbTour].getSoftskill());
-        round.setText("Tour numéro : " + String.valueOf(valueTour));
-        nbTour++;
-        _tour++;
+        _model.playTurn(_nbTurn);
+        _nbTurn++;
+        _turn++;
     }
 
     private void update() {
@@ -62,5 +56,9 @@ public final class GamePresenter implements Observer{
             positions[i] = players[i].getPosition();
         }
         _view.displayPlayer(positions);
+        _view.displayDice(_model.getDiceResult());
+        _view.displayPlayerName(_model.getPlayers());
+        _view.displayCharacteristics(_model.getPlayers());
+        _view.displayTurn(_valueTurn);
     }
 }

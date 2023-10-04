@@ -1,6 +1,6 @@
 package fr.ensicaen.ecole.genielogiciel.view;
 
-import fr.ensicaen.ecole.genielogiciel.model.Dice;
+import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -191,12 +191,8 @@ public final class GameView{
         if (_nbTurn > 3){
             _nbTurn = 0;
         }
-        Dice dice = new Dice();
-        _result = dice.roll();
-        _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);
-        playerColor.setFill(_tabPlayer[_nbTurn].getFill());
+        _gamePresenter.runGameLoop();
         _nbTurn++;
-        update();
     }
 
     public static GameView createView() throws IOException {
@@ -223,15 +219,24 @@ public final class GameView{
 
     private void onKeyPressed(KeyCode code) {
         if (code == KeyCode.ENTER) {
-            _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);
+            _gamePresenter.runGameLoop();
         }
-    }
-
-    public void update() {
-        _diceResult.setText(String.valueOf(_result));
     }
     public void displayPlayer(int[] positions){
         _tabPlayer[_nbTurn].setLayoutX(_tabX[positions[_nbTurn]]);
         _tabPlayer[_nbTurn].setLayoutY(_tabY[positions[_nbTurn]]);
+        playerColor.setFill(_tabPlayer[_nbTurn].getFill());
+    }
+    public void displayDice(int diceResult){
+        _diceResult.setText(String.valueOf(diceResult));
+    }
+    public void displayPlayerName(Player[] players){
+        _playerNickname.setText(players[_nbTurn].getName());
+    }
+    public void displayCharacteristics(Player[] players){
+        _characteristics.setText("Filière : " + players[_nbTurn].getFiliere() + "\n" + "Provenance : " + players[_nbTurn].getProvenance() + "\n" + "Softskill : " + players[_nbTurn].getSoftskill());
+    }
+    public void displayTurn(int turn){
+        _round.setText("Tour numéro : " + String.valueOf(turn));
     }
 }

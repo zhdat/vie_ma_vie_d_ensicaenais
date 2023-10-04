@@ -18,6 +18,8 @@ public class Model implements Observable{
     private final int _nbCases = 63;
     private List<Observer> _observers;
     private final int _nbPlayer = 4;
+    private Dice _dice;
+    private int _diceResult;
 
     public Model() {
         _tiles = new Tile[_nbCases];
@@ -46,6 +48,8 @@ public class Model implements Observable{
         _players[3] = player4;
 
         _observers = new ArrayList<>();
+
+        _dice = new Dice();
     }
 
     public void startGame() {
@@ -55,21 +59,26 @@ public class Model implements Observable{
         _turn = 1;
     }
 
-    public void playTurn(int playerIndex, int dice) {
+    public void playTurn(int playerIndex) {
         System.out.println(_players[playerIndex].getName());
+        _diceResult = _dice.roll();
+        play(playerIndex);
+    }
+
+    private void play(int playerIndex) {
         int initialPosition = _players[playerIndex].getPosition();
         System.out.println("Initial Position : " + initialPosition);
-        System.out.println("Résultat dé : " + (int)(Math.ceil(dice * _players[playerIndex].softskill())));
+        System.out.println("Résultat dé : " + (int)(Math.ceil(_diceResult * _players[playerIndex].softskill())));
         int i = 0;
-        while (i < (int)(Math.ceil(dice * _players[playerIndex].softskill())) && (_players[playerIndex].getPosition() + 1 <= _nbCases)){
+        while (i < (int)(Math.ceil(_diceResult * _players[playerIndex].softskill())) && (_players[playerIndex].getPosition() + 1 <= _nbCases)){
             _players[playerIndex].goForward(1);
             notifyObservers();
             i++;
         }
-        if (_players[playerIndex].getPosition() == _nbCases && (i == (int)Math.ceil(dice * _players[playerIndex].softskill()) - 1)) {
+        if (_players[playerIndex].getPosition() == _nbCases && (i == (int)Math.ceil(_diceResult * _players[playerIndex].softskill()) - 1)) {
             System.out.println(_players[playerIndex].getName() + " Win !!!");
-        } else if (i != (int)(Math.ceil(dice * _players[playerIndex].softskill()))) {
-            _players[playerIndex].goBackward((int)Math.ceil(dice * _players[playerIndex].softskill()) - i);
+        } else if (i != (int)(Math.ceil(_diceResult * _players[playerIndex].softskill()))) {
+            _players[playerIndex].goBackward((int)Math.ceil(_diceResult * _players[playerIndex].softskill()) - i);
             notifyObservers();
         }
         /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
@@ -102,6 +111,9 @@ public class Model implements Observable{
 
     public int getNbPlayer(){
         return _nbPlayer;
+    }
+    public int getDiceResult() {
+        return _diceResult;
     }
 
     @Override
