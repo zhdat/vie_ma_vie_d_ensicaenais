@@ -7,6 +7,8 @@ public abstract class Tile {
     public Tile(int position){
         _position = position;
     }
+
+    // FIXME en anglais
     public abstract void appliquerEffet(Player player);
     public int getPosition(){
         return _position;
