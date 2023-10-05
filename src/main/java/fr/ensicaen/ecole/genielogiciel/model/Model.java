@@ -76,6 +76,12 @@ public class Model implements Observable {
             _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softskill()) - i);
             notifyObservers();
         }
+        for (int j = 0; j < _nbPlayer; j++){
+            if (_players[playerIndex].getPosition() == _players[j].getPosition() && (j != playerIndex)){
+                _players[j].setPosition(initialPosition);
+                notifyObservers();
+            }
+        }
         /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
         System.out.println(_players[playerIndex].getPosition());
     }

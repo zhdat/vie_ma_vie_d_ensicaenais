@@ -76,5 +76,6 @@ public class Player {
     public Color getColor() {
         return _color;
     }
+
     /* Getters et Setters à ajouter si besoin */
 }

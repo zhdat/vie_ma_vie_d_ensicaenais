@@ -225,10 +225,16 @@ public final class GameView{
         }
     }
     public void displayPlayer(int[] positions, Color[] colors){
-        _tabPlayer[_nbTurn].setFill(colors[_nbTurn]);
+        for (int i = 0; i < 4; i++){
+            _tabPlayer[i].setFill(colors[i]);
+            _tabPlayer[i].setLayoutX(_tabX[positions[i]]);
+            _tabPlayer[i].setLayoutY(_tabY[positions[i]]);
+            playerColor.setFill(_tabPlayer[i].getFill());
+        }
+        /*_tabPlayer[_nbTurn].setFill(colors[_nbTurn]);
         _tabPlayer[_nbTurn].setLayoutX(_tabX[positions[_nbTurn]]);
         _tabPlayer[_nbTurn].setLayoutY(_tabY[positions[_nbTurn]]);
-        playerColor.setFill(_tabPlayer[_nbTurn].getFill());
+        playerColor.setFill(_tabPlayer[_nbTurn].getFill());*/
     }
     public void displayDice(int diceResult){
         _diceResult.setText(String.valueOf(diceResult));
