@@ -152,6 +152,18 @@ public class Model implements Observable {
             } if (majorPlayer[i].equalsIgnoreCase("Electronique")) {
                 _majors[i] = Sector.ELECTRONIQUE;
             }
+
+            if (originPlayer[i].equalsIgnoreCase("prep school")) {
+                _origins[i] = Origin.PREPA;
+            } if (originPlayer[i].equalsIgnoreCase("aot")) {
+                _origins[i] = Origin.AST;
+            } if (majorPlayer[i].equalsIgnoreCase("Computer Science")) {
+                _majors[i] = Sector.INFORMATIQUE;
+            } if (majorPlayer[i].equalsIgnoreCase("Chemistry")) {
+                _majors[i] = Sector.MATERIAUX;
+            } if (majorPlayer[i].equalsIgnoreCase("Electronics")) {
+                _majors[i] = Sector.ELECTRONIQUE;
+            }
         }
 
         for (int i = 0; i < _nbPlayer; i++) {

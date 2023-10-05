@@ -45,8 +45,8 @@
             </Circle>
             <ChoiceBox id="sector" fx:id="_sector" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <ChoiceBox id="origin" fx:id="_origin" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="280.0" styleClass="text" text="%sector.message.text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="277.0" styleClass="text" text="%origin.message.text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="_sectorText" alignment="CENTER" prefHeight="17.0" prefWidth="280.0" styleClass="text" text="%sector.message.text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="_originText" alignment="CENTER" prefHeight="17.0" prefWidth="277.0" styleClass="text" text="%origin.message.text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button fx:id="_addPlayerButton" alignment="CENTER" contentDisplay="TOP" defaultButton="true" onAction="#addPlayer" prefWidth="200.0" text="%addplayer.button.text" GridPane.columnIndex="2" GridPane.rowIndex="3" />
          </children>
          <padding>
