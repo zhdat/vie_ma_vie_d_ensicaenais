@@ -6,6 +6,8 @@ import fr.ensicaen.ecole.genielogiciel.view.GameView;
 import fr.ensicaen.ecole.genielogiciel.view.Observer;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public final class GamePresenter implements Observer{
     private final Model _model;
@@ -25,7 +27,7 @@ public final class GamePresenter implements Observer{
         _view = view;
     }
 
-    public void runGameLoop(int dice, TextArea characteristics, Label round, Label playerNickname) {
+    public void runGameLoop(int dice, TextArea characteristics, Label round, Label playerNickname, ImageView softSkill) {
         System.out.println("Et c'est parti...");
         if (nbTour > 3){
             nbTour = 0;
@@ -36,11 +38,13 @@ public final class GamePresenter implements Observer{
         if (_tour%4 == 0){
             valueTour++;
         }
+        Image softSkillImage = new Image("file:src/main/resources/fr/ensicaen/ecole/genielogiciel/view/images/" + _model.getPlayers()[nbTour].getSoftskill() + ".png");
         _model.playTurn(nbTour, dice);
         Player[] players = _model.getPlayers();
         playerNickname.setText(players[nbTour].getName());
         characteristics.setText("Filière : " + players[nbTour].getFiliere() + "\n" + "Provenance : " + players[nbTour].getProvenance() + "\n" + "Softskill : " + players[nbTour].getSoftskill());
         round.setText("Tour numéro : " + String.valueOf(valueTour));
+        softSkill.setImage(softSkillImage);
         nbTour++;
         _tour++;
     }

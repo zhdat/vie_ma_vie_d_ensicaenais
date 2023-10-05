@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Circle;
@@ -19,7 +21,8 @@ import java.io.IOException;
 
 public final class GameView{
     public Button _rollButton;
-    public TextField _diceResult;
+    public ImageView _diceResult;
+    public ImageView _softSkill;
     public Circle _player1;
     public Circle _tileStart;
     public Circle _tile1;
@@ -193,7 +196,7 @@ public final class GameView{
         }
         Dice dice = new Dice();
         _result = dice.roll();
-        _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);
+        _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname, _softSkill);
         playerColor.setFill(_tabPlayer[_nbTurn].getFill());
         _nbTurn++;
         update();
@@ -205,7 +208,7 @@ public final class GameView{
         Parent root = fxmlLoader.load();
         final GameView view = fxmlLoader.getController();
         fxmlLoader.setController(view);
-        Scene scene = new Scene(root, 1400, 913);
+        Scene scene = new Scene(root, 1423, 947);
         Stage stage = new Stage();
         stage.setScene(scene);
         view._stage = stage;
@@ -223,12 +226,13 @@ public final class GameView{
 
     private void onKeyPressed(KeyCode code) {
         if (code == KeyCode.ENTER) {
-            _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);
+            _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname, _softSkill);
         }
     }
 
     public void update() {
-        _diceResult.setText(String.valueOf(_result));
+        Image diceImage = new Image("file:src/main/resources/fr/ensicaen/ecole/genielogiciel/view/images/" + String.valueOf(_result) + ".png");
+        _diceResult.setImage(diceImage);
     }
     public void displayPlayer(int[] positions){
         _tabPlayer[_nbTurn].setLayoutX(_tabX[positions[_nbTurn]]);
