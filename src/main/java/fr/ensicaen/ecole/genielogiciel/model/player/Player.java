@@ -36,8 +36,7 @@ public class Player {
             return 0.5;
         }
         return 1;
-    }
-    public void randomSoftskill(){
+    }    public void randomSoftskill(){
         int rand = (int)(Math.random() * 3);
         if (rand == 0){
             _softskill = Softskill.ASSIDUS;
@@ -47,6 +46,7 @@ public class Player {
             _softskill = Softskill.DILETTANTE;
         }
     }
+
     public void setCompetence(int i){
         _competence += i;
     }
