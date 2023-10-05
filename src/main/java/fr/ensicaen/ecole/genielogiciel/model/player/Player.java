@@ -2,8 +2,8 @@ package fr.ensicaen.ecole.genielogiciel.model.player;
 
 import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
 import fr.ensicaen.ecole.genielogiciel.model.sofskills.Softskill;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
+import javafx.scene.paint.Color; //TODO: pas d'imports graphiques
+import javafx.scene.paint.Paint; //TODO: pas d'imports graphiques
 
 public class Player {
     private final String _nom;

@@ -5,7 +5,7 @@ import fr.ensicaen.ecole.genielogiciel.model.player.Sector;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 import fr.ensicaen.ecole.genielogiciel.model.tile.*;
 import fr.ensicaen.ecole.genielogiciel.view.Observer;
-import javafx.scene.paint.Color;
+import javafx.scene.paint.Color; //TODO: pas d'imports d'éléments graphiques dans le modèle
 
 import java.util.ArrayList;
 import java.util.List;

@@ -4,7 +4,7 @@ import fr.ensicaen.ecole.genielogiciel.model.*;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 import fr.ensicaen.ecole.genielogiciel.view.GameView;
 import fr.ensicaen.ecole.genielogiciel.view.Observer;
-import javafx.scene.paint.Color;
+import javafx.scene.paint.Color; //TODO: pas d'imports graphiques dans la présentation
 
 public final class GamePresenter implements Observer{
     private final Model _model;
