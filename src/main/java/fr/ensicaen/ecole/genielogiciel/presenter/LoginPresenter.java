@@ -4,6 +4,7 @@ import fr.ensicaen.ecole.genielogiciel.LoginMain;
 import fr.ensicaen.ecole.genielogiciel.view.GameView;
 import fr.ensicaen.ecole.genielogiciel.view.LoginView;
 import fr.ensicaen.ecole.genielogiciel.view.Observer;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 
@@ -14,12 +15,12 @@ public final class LoginPresenter implements Observer{
         _view = view;
     }
 
-    public void launchGame( String nickName ) {
+    public void launchGame(String nickName, String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer) {
         if (nickName.isEmpty()) {
             _view.displayError(LoginMain.getMessageBundle().getString("error.nickname"));
         } else {
             try {
-                createAndDisplayGameView(nickName);
+                createAndDisplayGameView(nickName, playerName, originPlayer, majorPlayer, colorPlayer);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -27,12 +28,13 @@ public final class LoginPresenter implements Observer{
         }
     }
 
-    private void createAndDisplayGameView( String nickName ) throws IOException {
+    private void createAndDisplayGameView(String nickName, String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer) throws IOException {
         GameView view = GameView.createView();
         GamePresenter gamePresenter = new GamePresenter(nickName);
         view.setPresenter(gamePresenter);
         gamePresenter.setView(view);
         view.show();
+        view.createPlayer(playerName, originPlayer, majorPlayer, colorPlayer);
     }
 
     @Override

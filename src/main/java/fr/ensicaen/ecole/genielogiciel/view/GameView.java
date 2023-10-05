@@ -1,6 +1,5 @@
 package fr.ensicaen.ecole.genielogiciel.view;
 
-import fr.ensicaen.ecole.genielogiciel.model.Dice;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -88,6 +88,7 @@ public final class GameView{
     public Circle _tile61;
     public Circle _tile62;
     public Circle _tile63;
+    public Circle _tile64;
     public TextArea _characteristics;
     public Label _round;
     public Circle playerColor;
@@ -100,7 +101,7 @@ public final class GameView{
     private Circle[] _tabPlayer;
     private Circle[] _tabTile;
     private int _nbTurn = 0;
-    private static final int _nbCases = 64;
+    private static final int _nbCases = 65;
 
     public void initialize() {
         _tabTile = new Circle[_nbCases];
@@ -168,6 +169,7 @@ public final class GameView{
         _tabTile[61] = _tile61;
         _tabTile[62] = _tile62;
         _tabTile[63] = _tile63;
+        _tabTile[64] = _tile64;
 
         _tabX = new double[_nbCases];
         _tabY = new double[_nbCases];
@@ -191,12 +193,8 @@ public final class GameView{
         if (_nbTurn > 3){
             _nbTurn = 0;
         }
-        Dice dice = new Dice();
-        _result = dice.roll();
-        _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);
-        playerColor.setFill(_tabPlayer[_nbTurn].getFill());
+        _gamePresenter.runGameLoop();
         _nbTurn++;
-        update();
     }
 
     public static GameView createView() throws IOException {
@@ -223,15 +221,30 @@ public final class GameView{
 
     private void onKeyPressed(KeyCode code) {
         if (code == KeyCode.ENTER) {
-            _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);
+            _gamePresenter.runGameLoop();
         }
     }
-
-    public void update() {
-        _diceResult.setText(String.valueOf(_result));
+    public void displayPlayer(int[] positions, Color[] colors){
+        for (int i = 0; i < 4; i++){
+            _tabPlayer[i].setFill(colors[i]);
+            _tabPlayer[i].setLayoutX(_tabX[positions[i]]);
+            _tabPlayer[i].setLayoutY(_tabY[positions[i]]);
+        }
+        playerColor.setFill(_tabPlayer[_nbTurn].getFill());
     }
-    public void displayPlayer(int[] positions){
-        _tabPlayer[_nbTurn].setLayoutX(_tabX[positions[_nbTurn]]);
-        _tabPlayer[_nbTurn].setLayoutY(_tabY[positions[_nbTurn]]);
+    public void displayDice(int diceResult){
+        _diceResult.setText(String.valueOf(diceResult));
+    }
+    public void displayPlayerName(String[] playersName){
+        _playerNickname.setText(playersName[_nbTurn]);
+    }
+    public void displayCharacteristics(String[] major, String[] origin, String[] softskill){
+        _characteristics.setText("Filière : " + major[_nbTurn] + "\n" + "Provenance : " + origin[_nbTurn] + "\n" + "Softskill : " + softskill[_nbTurn]);
+    }
+    public void displayTurn(int turn){
+        _round.setText("Tour numéro : " + String.valueOf(turn));
+    }
+    public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer){
+        _gamePresenter.createPlayer(playerName, originPlayer, majorPlayer, colorPlayer);
     }
 }

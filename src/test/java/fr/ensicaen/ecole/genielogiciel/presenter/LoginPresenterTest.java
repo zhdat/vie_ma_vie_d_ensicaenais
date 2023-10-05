@@ -2,6 +2,7 @@ package fr.ensicaen.ecole.genielogiciel.presenter;
 
 import fr.ensicaen.ecole.genielogiciel.LoginMain;
 import fr.ensicaen.ecole.genielogiciel.view.LoginView;
+import javafx.scene.paint.Color;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,10 @@ public class LoginPresenterTest {
     @Mock
     private LoginView _view;
     private AutoCloseable closeable;
+    private String[] _playerName;
+    private String[] _originPlayer;
+    private String[] _majorPlayer;
+    private Color[] _colorPlayer;
 
     @BeforeEach
     public void initMocks() {
@@ -36,7 +41,7 @@ public class LoginPresenterTest {
         presenter.setView(_view);
 
         // when
-        presenter.launchGame("");
+        presenter.launchGame("", _playerName, _originPlayer, _majorPlayer, _colorPlayer);
 
         // then
         verify(_view, times(1)).displayError(LoginMain.getMessageBundle().getString("error.nickname"));
