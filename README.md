@@ -1,15 +1,12 @@
 [<img src="https://www.ensicaen.fr/wp-content/uploads/2017/02/LogoEnsicaen.gif" width="256" >](https://www.ensicaen.fr)
 
-Projet Vie_ma_vie_d_ensicaenais
+Projet Vis_ma_vie_d_ensicaenai
 ================
 
 ## Description du projet
 
-Ce projet contient un exemple d'une application graphique écrite en Java avec
-la bibliothèque graphique JavaFX. Elle est basée sur le patron d'architecture
-Modèle-Vue-Présentation.
-
-Le projet est géré par le moteur dice production 'gradle'.
+Ce projet contient un jeu de l'oie basé sur les années d'étude à l'ENSICAEN. 
+Il s'agit d'un jeu développé lors du projet de Génie Logiciel par un groupe composé de 7 étudiants.
 
 ## Organisation du projet
  
