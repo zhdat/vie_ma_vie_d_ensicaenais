@@ -70,14 +70,18 @@ public class Model implements Observable {
             notifyObservers();
             i++;
         }
-        if (_players[playerIndex].getPosition() == _nbCases && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softskill()) - 1)) {
+        System.out.println("Valeur de i : " + i);
+        System.out.println("Valeur de l'avance : " + ((int) Math.ceil(_diceResult * _players[playerIndex].softskill())));
+        if (_players[playerIndex].getPosition() == _nbCases && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softskill()))) {
             System.out.println(_players[playerIndex].getName() + " Win !!!");
+            _players[playerIndex].setFinsh();
+
         } else if (i != (int) (Math.ceil(_diceResult * _players[playerIndex].softskill()))) {
             _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softskill()) - i);
             notifyObservers();
         }
         for (int j = 0; j < _nbPlayer; j++){
-            if (_players[playerIndex].getPosition() == _players[j].getPosition() && (j != playerIndex)){
+            if (_players[playerIndex].getPosition() == _players[j].getPosition() && (j != playerIndex) && !(_players[playerIndex].getFinish())){
                 _players[j].setPosition(initialPosition);
                 notifyObservers();
             }
@@ -155,4 +159,5 @@ public class Model implements Observable {
             o.update(this);
         }
     }
+
 }

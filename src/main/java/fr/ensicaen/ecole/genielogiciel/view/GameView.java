@@ -224,13 +224,13 @@ public final class GameView{
             _gamePresenter.runGameLoop();
         }
     }
-    public void displayPlayer(int[] positions, Color[] colors){
+    public void displayPlayer(int[] positions, Color[] colors, int nbTurn){
         for (int i = 0; i < 4; i++){
             _tabPlayer[i].setFill(colors[i]);
             _tabPlayer[i].setLayoutX(_tabX[positions[i]]);
             _tabPlayer[i].setLayoutY(_tabY[positions[i]]);
         }
-        playerColor.setFill(_tabPlayer[_nbTurn].getFill());
+        playerColor.setFill(_tabPlayer[nbTurn].getFill());
     }
     public void displayDice(int diceResult){
         _diceResult.setText(String.valueOf(diceResult));

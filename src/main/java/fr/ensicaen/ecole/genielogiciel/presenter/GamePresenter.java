@@ -13,7 +13,8 @@ public final class GamePresenter implements Observer{
     private int _nbTurn = 0;
     private int _turn = 0;
     private int _valueTurn = 0;
-    private final int _nbPlayer = 4;
+    private int _nbPlayer = 4;
+    private final int _nbTiles = 64;
 
     public GamePresenter(String nickName) {
         _model = new Model();
@@ -26,7 +27,22 @@ public final class GamePresenter implements Observer{
     }
 
     public void runGameLoop() {
+        int count = 0;
         System.out.println("Et c'est parti...");
+        if (_nbTurn > (_nbPlayer - 1)){
+            _nbTurn = 0;
+        }
+        Player[] players = _model.getPlayers();
+        while (players[_nbTurn].getFinish()){
+            count++;
+            _nbTurn++;
+            if (_nbTurn > (_nbPlayer - 1)){
+                _nbTurn = 0;
+            }
+            if (count >= 8){
+                break;
+            }
+        }
         if (_nbTurn > (_nbPlayer - 1)){
             _nbTurn = 0;
         }
@@ -36,7 +52,9 @@ public final class GamePresenter implements Observer{
         if (_turn %_nbPlayer == 0){
             _valueTurn++;
         }
-        _model.playTurn(_nbTurn);
+        if (players[_nbTurn].getPosition() != _nbTiles){
+            _model.playTurn(_nbTurn);
+        }
         _nbTurn++;
         _turn++;
     }
@@ -74,8 +92,7 @@ public final class GamePresenter implements Observer{
             colors[i] = players[i].getColor();
         }
 
-
-        _view.displayPlayer(positions, colors);
+        _view.displayPlayer(positions, colors, _nbTurn);
         _view.displayDice(_model.getDiceResult());
         _view.displayPlayerName(playersName);
         _view.displayCharacteristics(major, origin, softskill);

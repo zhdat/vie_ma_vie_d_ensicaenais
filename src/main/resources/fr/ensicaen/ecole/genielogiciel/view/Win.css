@@ -1,0 +1,17 @@
+.emoji {
+    -fx-background-image:url('Emoji.png');
+    -fx-background-size: 150px 100px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.confettis {
+    -fx-background-image:url('confetti.gif');
+}
+
+.dialog {
+    -fx-background-color: #00838F;
+    -fx-padding: 10;
+    -fx-border-color: white;
+    -fx-border-width: 5;
+}

@@ -12,6 +12,7 @@ public class Player {
     private final Sector _sector;
     private int _competence;
     private int _position;
+    private boolean _finsh;
 
     private Color _color;
 
@@ -23,6 +24,7 @@ public class Player {
         _position = 0; /* A voir avec le fichier fxml... */
         _competence = 0;
         _color = color;
+        _finsh = false;
     }
     public void goForward(int nbCases){
         _position += nbCases;
@@ -75,6 +77,12 @@ public class Player {
     }
     public Color getColor() {
         return _color;
+    }
+    public void setFinsh(){
+        _finsh = true;
+    }
+    public boolean getFinish(){
+        return _finsh;
     }
 
     /* Getters et Setters à ajouter si besoin */
