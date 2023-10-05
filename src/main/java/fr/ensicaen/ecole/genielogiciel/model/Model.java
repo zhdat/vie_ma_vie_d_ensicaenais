@@ -90,7 +90,6 @@ public class Model implements Observable {
         _tiles[61] = new Waves(61);
         _tiles[62] = new English(62);
         _tiles[63] = new DDRS(63);
-        _tiles[64] = new Examens(64);
 
 
         _board = new Board(_tiles);
