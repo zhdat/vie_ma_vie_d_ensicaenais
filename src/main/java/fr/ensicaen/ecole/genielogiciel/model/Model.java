@@ -13,8 +13,8 @@ import java.util.List;
 public class Model implements Observable {
     private String _nickname;
     private final Player[] _players;
-    private Origin[] _origins;
-    private Sector[] _majors;
+    private Origin[] _origins; //TODO:à enlever car déjà dans player
+    private Sector[] _majors; //TODO:à enlever car déjà dans player
     private final Board _board;
     private final Tile[] _tiles;
     private int _turn;
