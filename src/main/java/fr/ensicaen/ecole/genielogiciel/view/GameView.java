@@ -1,6 +1,6 @@
 package fr.ensicaen.ecole.genielogiciel.view;
 
-import fr.ensicaen.ecole.genielogiciel.model.Dice;
+import fr.ensicaen.ecole.genielogiciel.model.Dice; // FIXME !!! interdit !!  pas de lien entre View et Model
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
 
@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+// FIXME a retravailler pour être plus générique
 public final class GameView{
     public Button _rollButton;
     public TextField _diceResult;
@@ -97,11 +98,11 @@ public final class GameView{
     private GamePresenter _gamePresenter;
     private Stage _stage;
     private int _result;
-    private double[] _tabX;
+    private double[] _tabX; // FIXME je ne comprends pas ce nom
     private double[] _tabY;
     private Circle[] _tabPlayer;
     private Circle[] _tabTile;
-    private int _nbTurn = 0;
+    private int _nbTurn = 0; // FIXME n'est pas plutôt turn tout court ?
     private static final int _nbCases = 64;
 
     public void initialize() {
@@ -193,7 +194,7 @@ public final class GameView{
         if (_nbTurn > 3){
             _nbTurn = 0;
         }
-        Dice dice = new Dice();
+        Dice dice = new Dice(); // FIXME Interdit doit passer par le présentateur (il ne doit pas y avoir de logique dans la vue)
         _result = dice.roll();
         _gamePresenter.runGameLoop(_result, _characteristics, _round, _playerNickname);
         playerColor.setFill(_tabPlayer[_nbTurn].getFill());

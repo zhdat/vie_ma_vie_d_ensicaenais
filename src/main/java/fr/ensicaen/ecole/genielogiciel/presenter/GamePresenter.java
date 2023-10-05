@@ -11,9 +11,9 @@ public final class GamePresenter implements Observer{
     private final Model _model;
     private GameView _view;
     private boolean _end = false;
-    private int nbTour = 0;
-    private int _tour = 0;
-    private int valueTour = 0;
+    private int nbTour = 0; //camel TODO péferer _nbTour mais surtout ne pas mélanger anglais français.
+    private int _tour = 0; // FIXME anglais
+    private int valueTour = 0; // FIXME anglais
 
     public GamePresenter(String nickName) {
         _model = new Model();
@@ -45,17 +45,17 @@ public final class GamePresenter implements Observer{
         _tour++;
     }
 
-    private void update() {
+    private void update() { // FIXME jamais utilisée donc doit disparaitre en production...
         // Update the model
     }
 
-    private void render() {
+    private void render() { // FIXME jamais utilisée donc doit disparaitre en production...
         // Display the result on the view
         //_view.toto();
     }
 
     @Override
-    public void update(Object O) {
+    public void update(Object O) { // FIXME Les paramètres doivent être en camelCase
         int[] positions = new int[_model.getNbPlayer()];
         Player[] players = ((Model)O).getPlayers();
         for (int i = 0; i < _model.getNbPlayer(); i++){

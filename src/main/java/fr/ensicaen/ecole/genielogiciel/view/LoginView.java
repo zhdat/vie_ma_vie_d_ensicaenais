@@ -24,9 +24,9 @@ public class LoginView{
     @FXML
     private TextField _nickName;
     @FXML
-    private TextField _filiere;
+    private TextField _filiere; // FIXME anglais
     @FXML
-    private TextField _provenance;
+    private TextField _provenance; // FIXME anglais
     @FXML
     private Label _errorLabel;
 

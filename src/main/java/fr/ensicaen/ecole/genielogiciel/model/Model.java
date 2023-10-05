@@ -15,9 +15,9 @@ public class Model implements Observable{
     private final Board _board;
     private final Tile[] _tiles;
     private int _turn;
-    private final int _nbCases = 63;
-    private List<Observer> _observers;
-    private final int _nbPlayer = 4;
+    private final int _nbCases = 63; // FIXME case français -> cell et donc préférer le nom _cellCount
+    private List<Observer> _observers; // FIXME mettre en final
+    private final int _nbPlayer = 4; // Préferer _playerCount
 
     public Model() {
         _tiles = new Tile[_nbCases];
