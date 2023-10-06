@@ -5,8 +5,8 @@ import javafx.scene.paint.Color;
 public class Player {
     private final String _name;
     private SoftSkill _softSkill;
-    private final FormerStudies _formerStudies;
-    private final Major _major;
+    private FormerStudies _formerStudies;
+    private Major _major;
     private int _skillLevel;
     private int _position;
     private boolean _finish;
@@ -91,6 +91,12 @@ public class Player {
     }
     public int getSkillLevel() {
         return _skillLevel;
+    }
+    public void setFormerStudies(FormerStudies formerStudies) {
+        _formerStudies = formerStudies;
+    }
+    public void setMajor(Major major) {
+        _major = major;
     }
     /* Getters et Setters à ajouter si besoin */
 }
