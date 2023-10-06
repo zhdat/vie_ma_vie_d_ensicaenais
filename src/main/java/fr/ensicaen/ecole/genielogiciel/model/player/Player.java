@@ -86,6 +86,11 @@ public class Player {
     public boolean getFinish(){
         return _finish;
     }
-
+    public void setSoftSkill(SoftSkill softSkill) {
+        _softSkill = softSkill;
+    }
+    public int getSkillLevel() {
+        return _skillLevel;
+    }
     /* Getters et Setters à ajouter si besoin */
 }
