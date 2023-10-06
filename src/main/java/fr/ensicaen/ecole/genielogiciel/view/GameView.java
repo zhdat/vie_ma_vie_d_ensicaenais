@@ -1,5 +1,6 @@
 package fr.ensicaen.ecole.genielogiciel.view;
 
+import fr.ensicaen.ecole.genielogiciel.LoginMain;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -16,10 +19,11 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public final class GameView{
     public Button _rollButton;
-    public TextField _diceResult;
+    public ImageView _diceResult;
     public Circle _player1;
     public Circle _tileStart;
     public Circle _tile1;
@@ -197,13 +201,12 @@ public final class GameView{
         _nbTurn++;
     }
 
-    public static GameView createView() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(GameView.class.getResource("Application.fxml"));
+    public static GameView createView(Locale selectedLanguage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(GameView.class.getResource("Application.fxml"), LoginMain.getMessageBundle(selectedLanguage));
         Parent root = fxmlLoader.load();
         final GameView view = fxmlLoader.getController();
         fxmlLoader.setController(view);
-        Scene scene = new Scene(root, 1400, 913);
+        Scene scene = new Scene(root, 1423, 947);
         Stage stage = new Stage();
         stage.setScene(scene);
         view._stage = stage;
@@ -233,7 +236,8 @@ public final class GameView{
         playerColor.setFill(_tabPlayer[_nbTurn].getFill());
     }
     public void displayDice(int diceResult){
-        _diceResult.setText(String.valueOf(diceResult));
+        Image _diceImage = new Image("file:src/main/ressources/fr/ensicaen/ecole/genielogicel/view/images/" + String.valueOf(diceResult) + ".png");
+        _diceResult.setImage(_diceImage);
     }
     public void displayPlayerName(String[] playersName){
         _playerNickname.setText(playersName[_nbTurn]);

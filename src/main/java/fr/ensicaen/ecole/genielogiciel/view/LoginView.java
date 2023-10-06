@@ -110,7 +110,7 @@ public class LoginView {
 
     @FXML
     private void launchGame() {
-        _presenter.launchGame(_nickName.getText(), _playerName, _originPlayer, _majorPlayer, _colorPlayer);
+        _presenter.launchGame(_nickName.getText(), _playerName, _originPlayer, _majorPlayer, _colorPlayer, _selectedLocale);
     }
 
     @FXML

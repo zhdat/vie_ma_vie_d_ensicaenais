@@ -44,12 +44,12 @@ public final class LoginMain extends Application {
 
         // Exemple de code pour afficher une boîte de dialogue :
         Alert languageDialog = new Alert(Alert.AlertType.CONFIRMATION);
-        languageDialog.setTitle("Choisir la langue");
-        languageDialog.setHeaderText("Sélectionnez la langue préférée :");
+        languageDialog.setTitle("Choose the language");
+        languageDialog.setHeaderText("Select your language :");
 
         ButtonType frenchButton = new ButtonType("Français", ButtonBar.ButtonData.OK_DONE);
-        ButtonType englishButton = new ButtonType("Anglais", ButtonBar.ButtonData.OK_DONE);
-        ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType englishButton = new ButtonType("English", ButtonBar.ButtonData.OK_DONE);
+        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
 
         languageDialog.getButtonTypes().setAll(frenchButton, englishButton, cancelButton);
 

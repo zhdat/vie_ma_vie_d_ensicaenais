@@ -23,6 +23,7 @@ public class LoginPresenterTest {
     private String[] _originPlayer;
     private String[] _majorPlayer;
     private Color[] _colorPlayer;
+    private Locale _selectedLocale;
 
     @BeforeEach
     public void initMocks() {
@@ -43,7 +44,7 @@ public class LoginPresenterTest {
         presenter.setView(_view);
 
         // when
-        presenter.launchGame("", _playerName, _originPlayer, _majorPlayer, _colorPlayer);
+        presenter.launchGame("", _playerName, _originPlayer, _majorPlayer, _colorPlayer, _selectedLocale);
 
         // then
         Locale selectedLocale = Locale.FRENCH;

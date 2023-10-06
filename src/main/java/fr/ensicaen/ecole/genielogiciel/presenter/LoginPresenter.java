@@ -16,13 +16,12 @@ public final class LoginPresenter implements Observer{
         _view = view;
     }
 
-    public void launchGame(String nickName, String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer) {
+    public void launchGame(String nickName, String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer, Locale selectedLanguage) {
         if (nickName.isEmpty()) {
-            // @TODO: fix this locale
-            _view.displayError(LoginMain.getMessageBundle(Locale.FRENCH).getString("error.nickname"));
+            _view.displayError(LoginMain.getMessageBundle(selectedLanguage).getString("error.nickname"));
         } else {
             try {
-                createAndDisplayGameView(nickName, playerName, originPlayer, majorPlayer, colorPlayer);
+                createAndDisplayGameView(nickName, playerName, originPlayer, majorPlayer, colorPlayer, selectedLanguage);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -30,8 +29,8 @@ public final class LoginPresenter implements Observer{
         }
     }
 
-    private void createAndDisplayGameView(String nickName, String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer) throws IOException {
-        GameView view = GameView.createView();
+    private void createAndDisplayGameView(String nickName, String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer, Locale selectedLanguage) throws IOException {
+        GameView view = GameView.createView(selectedLanguage);
         GamePresenter gamePresenter = new GamePresenter(nickName);
         view.setPresenter(gamePresenter);
         gamePresenter.setView(view);
