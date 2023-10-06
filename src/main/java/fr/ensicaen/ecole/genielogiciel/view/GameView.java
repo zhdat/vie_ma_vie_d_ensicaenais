@@ -100,15 +100,15 @@ public final class GameView{
     private GamePresenter _gamePresenter;
     private Stage _stage;
     private int _result;
-    private double[] _tabX;
-    private double[] _tabY;
+    private double[] _xPosOfTile;
+    private double[] _yPosOfTile;
     private Circle[] _tabPlayer;
     private Circle[] _tabTile;
-    private int _nbTurn = 0;
-    private static final int _nbCases = 65;
+    private int _turn = 0;
+    private static final int _numberOfTiles = 65;
 
     public void initialize() {
-        _tabTile = new Circle[_nbCases];
+        _tabTile = new Circle[_numberOfTiles];
         _tabTile[0] = _tileStart;
         _tabTile[1] = _tile1;
         _tabTile[2] = _tile2;
@@ -175,13 +175,13 @@ public final class GameView{
         _tabTile[63] = _tile63;
         _tabTile[64] = _tile64;
 
-        _tabX = new double[_nbCases];
-        _tabY = new double[_nbCases];
-        for (int i = 0; i < _nbCases; i++){
-            _tabX[i] = _tabTile[i].getLayoutX();
+        _xPosOfTile = new double[_numberOfTiles];
+        _yPosOfTile = new double[_numberOfTiles];
+        for (int i = 0; i < _numberOfTiles; i++){
+            _xPosOfTile[i] = _tabTile[i].getLayoutX();
         }
-        for (int i = 0; i < _nbCases; i++){
-            _tabY[i] = _tabTile[i].getLayoutY();
+        for (int i = 0; i < _numberOfTiles; i++){
+            _yPosOfTile[i] = _tabTile[i].getLayoutY();
         }
 
         _tabPlayer = new Circle[4];
@@ -194,11 +194,11 @@ public final class GameView{
     }
 
     private void handleRollButtonClick(ActionEvent actionEvent) {
-        if (_nbTurn > 3){
-            _nbTurn = 0;
+        if (_turn > 3){
+            _turn = 0;
         }
         _gamePresenter.runGameLoop();
-        _nbTurn++;
+        _turn++;
     }
 
     public static GameView createView(Locale selectedLanguage) throws IOException {
@@ -230,20 +230,20 @@ public final class GameView{
     public void displayPlayer(int[] positions, Color[] colors){
         for (int i = 0; i < 4; i++){
             _tabPlayer[i].setFill(colors[i]);
-            _tabPlayer[i].setLayoutX(_tabX[positions[i]]);
-            _tabPlayer[i].setLayoutY(_tabY[positions[i]]);
+            _tabPlayer[i].setLayoutX(_xPosOfTile[positions[i]]);
+            _tabPlayer[i].setLayoutY(_yPosOfTile[positions[i]]);
         }
-        playerColor.setFill(_tabPlayer[_nbTurn].getFill());
+        playerColor.setFill(_tabPlayer[_turn].getFill());
     }
     public void displayDice(int diceResult){
         Image _diceImage = new Image("file:src/main/ressources/fr/ensicaen/ecole/genielogicel/view/images/" + String.valueOf(diceResult) + ".png");
         _diceResult.setImage(_diceImage);
     }
     public void displayPlayerName(String[] playersName){
-        _playerNickname.setText(playersName[_nbTurn]);
+        _playerNickname.setText(playersName[_turn]);
     }
     public void displayCharacteristics(String[] major, String[] origin, String[] softskill){
-        _characteristics.setText("Filière : " + major[_nbTurn] + "\n" + "Provenance : " + origin[_nbTurn] + "\n" + "Softskill : " + softskill[_nbTurn]);
+        _characteristics.setText("Filière : " + major[_turn] + "\n" + "Provenance : " + origin[_turn] + "\n" + "Softskill : " + softskill[_turn]);
     }
     public void displayTurn(int turn){
         _round.setText("Tour numéro : " + String.valueOf(turn));

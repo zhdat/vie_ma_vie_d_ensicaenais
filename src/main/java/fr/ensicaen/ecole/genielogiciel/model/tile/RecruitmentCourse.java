@@ -8,7 +8,7 @@ public class RecruitmentCourse extends Tile {
     }
 
     @Override
-    public void appliquerEffet(Player player) {
-        player.setCompetence(1);
+    public void applyTileEffect(Player player) {
+        player.increaseSkillLevel(1);
     }
 }

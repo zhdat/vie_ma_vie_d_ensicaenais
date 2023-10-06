@@ -39,7 +39,7 @@ public final class LoginPresenter implements Observer{
     }
 
     @Override
-    public void update(Object O) {
+    public void update(Object object) {
 
     }
 }

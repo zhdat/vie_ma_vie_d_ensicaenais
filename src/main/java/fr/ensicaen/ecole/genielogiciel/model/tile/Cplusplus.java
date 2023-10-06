@@ -1,8 +1,8 @@
 package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-import fr.ensicaen.ecole.genielogiciel.model.player.Sector;
+import fr.ensicaen.ecole.genielogiciel.model.player.FormerStudies;
+import fr.ensicaen.ecole.genielogiciel.model.player.Major;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
-import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
 
 public class Cplusplus extends Tile {
     public Cplusplus(int position) {
@@ -10,12 +10,12 @@ public class Cplusplus extends Tile {
     }
 
     @Override
-    public void appliquerEffet(Player player) {
-        if (player.getFiliere() == Sector.INFORMATIQUE){
-            if (player.getProvenance() == Origin.AST){
-                player.setCompetence(1);
-            } else if (player.getProvenance() == Origin.PREPA) {
-                player.setCompetence(-1);
+    public void applyTileEffect(Player player) {
+        if (player.getMajor() == Major.COMPUTER_SCIENCE){
+            if (player.getFormerStudies() == FormerStudies.AST){
+                player.increaseSkillLevel(1);
+            } else if (player.getFormerStudies() == FormerStudies.PREPA) {
+                player.increaseSkillLevel(-1);
             }
         }
     }

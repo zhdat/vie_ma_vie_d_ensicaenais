@@ -1,6 +1,6 @@
 package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
+import fr.ensicaen.ecole.genielogiciel.model.player.FormerStudies;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 
 public class Maths extends Tile {
@@ -9,11 +9,11 @@ public class Maths extends Tile {
     }
 
     @Override
-    public void appliquerEffet(Player player) {
-        if (player.getProvenance() == Origin.PREPA){
-            player.setCompetence(1);
+    public void applyTileEffect(Player player) {
+        if (player.getFormerStudies() == FormerStudies.PREPA){
+            player.increaseSkillLevel(1);
         } else {
-            player.setCompetence(-1);
+            player.increaseSkillLevel(-1);
         }
     }
 }

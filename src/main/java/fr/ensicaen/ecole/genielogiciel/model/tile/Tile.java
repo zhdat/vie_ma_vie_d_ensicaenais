@@ -7,7 +7,7 @@ public abstract class Tile {
     public Tile(int position){
         _position = position;
     }
-    public abstract void appliquerEffet(Player player);
+    public abstract void applyTileEffect(Player player);
     public int getPosition(){
         return _position;
     }

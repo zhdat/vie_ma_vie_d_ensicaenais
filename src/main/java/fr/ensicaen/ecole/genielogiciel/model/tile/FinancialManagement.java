@@ -2,8 +2,8 @@ package fr.ensicaen.ecole.genielogiciel.model.tile;
 
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 
-public class LVTwo extends Tile {
-    public LVTwo(int position) {
+public class FinancialManagement extends Tile {
+    public FinancialManagement(int position) {
         super(position);
     }
 

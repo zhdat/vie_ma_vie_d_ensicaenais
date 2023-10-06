@@ -9,7 +9,7 @@ public class SylvieMaloMeeting extends Tile {
         }
 
         @Override
-        public void appliquerEffet(Player player) {
+        public void applyTileEffect(Player player) {
 
         }
 
