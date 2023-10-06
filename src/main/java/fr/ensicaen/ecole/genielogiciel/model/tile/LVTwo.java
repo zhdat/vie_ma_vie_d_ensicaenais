@@ -9,6 +9,6 @@ public class LVTwo extends Tile {
 
     @Override
     public void applyTileEffect(Player player) {
-        player.setSkillLevel(1);
+        player.increaseSkillLevel(1);
     }
 }

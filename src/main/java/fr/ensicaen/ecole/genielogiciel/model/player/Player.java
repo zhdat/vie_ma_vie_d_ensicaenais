@@ -51,7 +51,7 @@ public class Player {
         }
     }
 
-    public void setSkillLevel(int i){
+    public void increaseSkillLevel(int i){
         _skillLevel += i;
     }
     public Major getMajor(){

@@ -10,7 +10,7 @@ public class Waves extends Tile{
         @Override
         public void applyTileEffect(Player player) {
             if (player.getMajor() == Major.ELECTRONICS){
-                player.setSkillLevel(1);
+                player.increaseSkillLevel(1);
             }
         }
 }

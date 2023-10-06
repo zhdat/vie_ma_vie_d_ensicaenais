@@ -11,7 +11,7 @@ public class DataBase extends Tile {
     @Override
     public void applyTileEffect(Player player) {
         if (player.getMajor() == Major.COMPUTER_SCIENCE){
-            player.setSkillLevel(1);
+            player.increaseSkillLevel(1);
         }
     }
 }
