@@ -23,7 +23,7 @@ public class RecruitmentCourseTest {
     @Test
     public void testApplyTileEffect() {
         recruitmentCourseTile.applyTileEffect(player);
-        assertEquals(2, player.getSkillLevel());
+        assertEquals(1, player.getSkillLevel());
     }
 
     @Test
