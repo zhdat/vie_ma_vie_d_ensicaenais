@@ -89,6 +89,7 @@ public final class GamePresenter implements Observer{
         _view.displayPlayer(positions, colors, _nbTurn);
         _view.displayDice(_model.getDiceResult());
         _view.displayPlayerName(playersName);
+        _view.displayPlayerSoftskill(softskill);
         _view.displayCharacteristics(major, origin, softskill);
         _view.displayTurn(_valueTurn);
 

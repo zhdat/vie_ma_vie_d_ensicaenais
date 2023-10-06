@@ -1,12 +1,18 @@
 package fr.ensicaen.ecole.genielogiciel.view;
 
+import fr.ensicaen.ecole.genielogiciel.LoginMain;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
 import fr.ensicaen.ecole.genielogiciel.presenter.WinningPresenter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -14,10 +20,12 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public final class GameView{
     public Button _rollButton;
-    public TextField _diceResult;
+    public ImageView _diceResult;
+    public ImageView _softSkill;
     public Circle _player1;
     public Circle _tileStart;
     public Circle _tile1;
@@ -100,6 +108,8 @@ public final class GameView{
     private Circle[] _tabTile;
     private int _turn = 0;
     private static final int _numberOfTiles = 65;
+
+    private Locale _selectedLanguage;
 
     public void initialize() {
         _tabTile = new Circle[_numberOfTiles];
@@ -195,13 +205,12 @@ public final class GameView{
         _turn++;
     }
 
-    public static GameView createView() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(GameView.class.getResource("Application.fxml"));
+    public static GameView createView(Locale selectedLanguage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(GameView.class.getResource("Application.fxml"), LoginMain.getMessageBundle(selectedLanguage));
         Parent root = fxmlLoader.load();
         final GameView view = fxmlLoader.getController();
         fxmlLoader.setController(view);
-        Scene scene = new Scene(root, 1400, 913);
+        Scene scene = new Scene(root, 1423, 947);
         Stage stage = new Stage();
         stage.setScene(scene);
         view._stage = stage;
@@ -231,7 +240,14 @@ public final class GameView{
         playerColor.setFill(_tabPlayer[_turn].getFill());
     }
     public void displayDice(int diceResult){
-        _diceResult.setText(String.valueOf(diceResult));
+        Image _diceImage = new Image("file:src/main/resources/fr/ensicaen/ecole/genielogiciel/view/images/" + diceResult + ".png");
+        _diceResult.setImage(_diceImage);
+    }
+
+    public void displayPlayerSoftskill(String[] softskill){
+        System.out.println(softskill[_turn]);
+        Image _softSkillImage = new Image("file:src/main/resources/fr/ensicaen/ecole/genielogiciel/view/images/" + softskill[_turn] + ".png");
+        _softSkill.setImage(_softSkillImage);
     }
     public void displayPlayerName(String[] playersName){
         _playerNickname.setText(playersName[_turn]);
