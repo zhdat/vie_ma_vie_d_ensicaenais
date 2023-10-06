@@ -27,10 +27,8 @@ public final class LoginMain extends Application {
 
     @Override
     public void start( final Stage primaryStage ) throws Exception {
-        /* Création de la vue et presentateur */
-        Locale selectedLocale = determineSelectedLocale(); // Vous devez implémenter cette méthode
+        Locale selectedLocale = determineSelectedLocale();
 
-        /* Création de la vue et présentateur en fonction de la locale sélectionnée */
         LoginView view = LoginView.createView(primaryStage, "LoginDialog.fxml", selectedLocale);
         LoginPresenter presenter = new LoginPresenter();
         view.setPresenter(presenter);
@@ -39,10 +37,6 @@ public final class LoginMain extends Application {
     }
 
     private Locale determineSelectedLocale() {
-        // Affichez une boîte de dialogue ou un menu déroulant pour que l'utilisateur sélectionne la nouvelle langue.
-        // Ensuite, retournez la locale correspondante en fonction du choix de l'utilisateur.
-
-        // Exemple de code pour afficher une boîte de dialogue :
         Alert languageDialog = new Alert(Alert.AlertType.CONFIRMATION);
         languageDialog.setTitle("Choisir la langue");
         languageDialog.setHeaderText("Sélectionnez la langue préférée :");
@@ -65,8 +59,6 @@ public final class LoginMain extends Application {
                 return Locale.ENGLISH;
             }
         }
-
-        // Si l'utilisateur annule, retournez la locale actuelle.
         return ResourceBundle.getBundle("fr.ensicaen.ecole.genielogiciel.MessageBundle").getLocale();
     }
 

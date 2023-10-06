@@ -1,6 +1,6 @@
 package fr.ensicaen.ecole.genielogiciel.model.tile;
 
-import fr.ensicaen.ecole.genielogiciel.model.player.Sector;
+import fr.ensicaen.ecole.genielogiciel.model.player.Major;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 
 public class DataBase extends Tile {
@@ -9,9 +9,9 @@ public class DataBase extends Tile {
     }
 
     @Override
-    public void appliquerEffet(Player player) {
-        if (player.getFiliere() == Sector.INFORMATIQUE){
-            player.setCompetence(1);
+    public void applyTileEffect(Player player) {
+        if (player.getMajor() == Major.COMPUTER_SCIENCE){
+            player.setSkillLevel(1);
         }
     }
 }

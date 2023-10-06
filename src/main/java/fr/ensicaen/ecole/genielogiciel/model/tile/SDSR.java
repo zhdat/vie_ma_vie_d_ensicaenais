@@ -2,13 +2,13 @@ package fr.ensicaen.ecole.genielogiciel.model.tile;
 
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 
-public class DDRS extends Tile {
-    public DDRS(int position) {
+public class SDSR extends Tile {
+    public SDSR(int position) {
         super(position);
     }
 
     @Override
-    public void appliquerEffet(Player player) {
-        player.setCompetence(1);
+    public void applyTileEffect(Player player) {
+        player.setSkillLevel(1);
     }
 }
