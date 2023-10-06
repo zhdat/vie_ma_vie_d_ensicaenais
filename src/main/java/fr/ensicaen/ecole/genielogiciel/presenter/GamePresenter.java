@@ -61,19 +61,11 @@ public final class GamePresenter implements Observer{
         _turn++;
     }
 
-    private void update() {
-        // Update the model
-    }
-
-    private void render() {
-        // Display the result on the view
-        //_view.toto();
-    }
 
     @Override
-    public void update(Object O) {
+    public void update(Object object) {
         int[] positions = new int[_model.getNbPlayer()];
-        Player[] players = ((Model)O).getPlayers();
+        Player[] players = ((Model)object).getPlayers();
         for (int i = 0; i < _model.getNbPlayer(); i++){
             positions[i] = players[i].getPosition();
         }
@@ -85,9 +77,9 @@ public final class GamePresenter implements Observer{
         String[] origin = new String[_nbPlayer];
         String[] softskill = new String[_nbPlayer];
         for (int i = 0; i < _nbPlayer; i++){
-            major[i] = String.valueOf(_model.getPlayers()[i].getFiliere());
-            origin[i] = String.valueOf(_model.getPlayers()[i].getProvenance());
-            softskill[i] = String.valueOf(_model.getPlayers()[i].getSoftskill());
+            major[i] = String.valueOf(_model.getPlayers()[i].getMajor());
+            origin[i] = String.valueOf(_model.getPlayers()[i].getFormerStudies());
+            softskill[i] = String.valueOf(_model.getPlayers()[i].getSoftSkill());
         }
         Color[] colors = new Color[_nbPlayer];
         for (int i = 0; i < _nbPlayer; i++){

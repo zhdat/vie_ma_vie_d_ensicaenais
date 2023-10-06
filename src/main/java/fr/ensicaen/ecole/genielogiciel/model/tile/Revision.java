@@ -8,7 +8,6 @@ public class Revision extends Tile {
     }
 
     @Override
-    public void appliquerEffet(Player player) {
-        /* @TODO : méthode rejoue à faire */
+    public void applyTileEffect(Player player) {
     }
 }

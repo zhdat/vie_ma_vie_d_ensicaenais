@@ -4,14 +4,14 @@ import fr.ensicaen.ecole.genielogiciel.model.player.FormerStudies;
 import fr.ensicaen.ecole.genielogiciel.model.player.Major;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 
-public class Cplusplus extends Tile {
-    public Cplusplus(int position) {
+public class SmartCard extends Tile{
+    public SmartCard(int position) {
         super(position);
     }
 
     @Override
     public void applyTileEffect(Player player) {
-        if (player.getMajor() == Major.COMPUTER_SCIENCE){
+        if (player.getMajor() == Major.ELECTRONICS){
             if (player.getFormerStudies() == FormerStudies.AST){
                 player.increaseSkillLevel(1);
             } else if (player.getFormerStudies() == FormerStudies.PREPA) {

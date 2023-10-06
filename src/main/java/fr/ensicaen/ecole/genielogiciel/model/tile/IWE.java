@@ -8,7 +8,7 @@ public class IWE extends Tile {
     }
 
     @Override
-    public void appliquerEffet(Player player) {
-        player.randomSoftskill();
+    public void applyTileEffect(Player player) {
+        player.setRandomSoftSkill();
     }
 }
