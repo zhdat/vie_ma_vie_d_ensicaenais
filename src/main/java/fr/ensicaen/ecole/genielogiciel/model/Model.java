@@ -52,7 +52,8 @@ public class Model implements Observable {
             _players[playerIndex].goForward(1);
             i++;
         }
-        if (_players[playerIndex].getPosition() == _board.getNumberOfTiles() - 1 && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - 1)) {
+        System.out.println(_board.getNumberOfTiles());
+        if (_players[playerIndex].getPosition() == (_board.getNumberOfTiles() - 1) && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()))) {
             _players[playerIndex].setFinish();
         } else if (i != (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()))) {
             _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - i);
@@ -65,6 +66,7 @@ public class Model implements Observable {
             }
         }
         /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
+        System.out.println(_players[playerIndex].getPosition());
         notifyObservers();
     }
 
