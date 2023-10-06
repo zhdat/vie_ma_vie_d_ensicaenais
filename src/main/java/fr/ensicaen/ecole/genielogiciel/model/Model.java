@@ -52,7 +52,6 @@ public class Model implements Observable {
         int i = 0;
         while (i < (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect())) && (_players[playerIndex].getPosition() + 1 <= _board.getNumberOfTiles())) {
             _players[playerIndex].goForward(1);
-            notifyObservers();
             i++;
         }
         if (_players[playerIndex].getPosition() == _board.getNumberOfTiles() && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - 1)) {
@@ -61,14 +60,15 @@ public class Model implements Observable {
             _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - i);
             notifyObservers();
         }
-        for (int j = 0; j < _nbPlayer; j++){
-            if (_players[playerIndex].getPosition() == _players[j].getPosition() && (j != playerIndex)){
-                _players[j].setPosition(initialPosition);
-                notifyObservers();
+        for (int j = 0; j < _nbPlayer; j++) {
+            if (playerIndex != j){
+                if (_players[playerIndex].getPosition() == _players[j].getPosition() && !(_players[j].getFinish())) {
+                    _players[j].setPosition(initialPosition);
+                }
             }
         }
         /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
-        System.out.println(_players[playerIndex].getPosition());
+        notifyObservers();
     }
 
     public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer) {
@@ -148,4 +148,5 @@ public class Model implements Observable {
             o.update(this);
         }
     }
+
 }
