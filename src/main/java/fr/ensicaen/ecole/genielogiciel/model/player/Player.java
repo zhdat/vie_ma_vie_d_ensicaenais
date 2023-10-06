@@ -77,7 +77,7 @@ public class Player {
     public Color getColor() {
         return _color;
     }
-    public void setFinsh(){
+    public void setFinish(){
         _finsh = true;
     }
     public boolean getFinish(){

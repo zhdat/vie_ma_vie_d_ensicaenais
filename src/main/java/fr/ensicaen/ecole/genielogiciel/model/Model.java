@@ -47,18 +47,15 @@ public class Model implements Observable {
 
     private void play(int playerIndex) {
         int initialPosition = _players[playerIndex].getPosition();
-        System.out.println("Initial Position : " + initialPosition);
-        System.out.println("Résultat dé : " + (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect())));
         int i = 0;
         while (i < (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect())) && (_players[playerIndex].getPosition() + 1 <= _board.getNumberOfTiles())) {
             _players[playerIndex].goForward(1);
             i++;
         }
         if (_players[playerIndex].getPosition() == _board.getNumberOfTiles() && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - 1)) {
-            System.out.println(_players[playerIndex].getName() + " Win !!!");
+            _players[playerIndex].setFinish();
         } else if (i != (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()))) {
             _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - i);
-            notifyObservers();
         }
         for (int j = 0; j < _nbPlayer; j++) {
             if (playerIndex != j){
