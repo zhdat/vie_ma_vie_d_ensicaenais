@@ -51,7 +51,7 @@ public class Player {
         }
     }
 
-    public void setSkillLevel(int i){
+    public void increaseSkillLevel(int i){
         _skillLevel += i;
     }
     public Major getMajor(){
@@ -69,8 +69,8 @@ public class Player {
     public SoftSkill getSoftSkill(){
         return _softSkill;
     }
-    public int getCompetence(){
-        return _competence;
+    public int getSkillLevel(){
+        return _skillLevel;
     }
     public int getPosition(){
         return _position;

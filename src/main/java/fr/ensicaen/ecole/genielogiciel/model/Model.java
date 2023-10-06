@@ -18,7 +18,7 @@ public class Model implements Observable {
     private final Board _board;
     private final Tile[] _tiles;
     private int _turn;
-    private final int _numberOfTiles = 64;
+    private final int _numberOfTiles = 65;
     private final List<Observer> _observers;
     private final int _nbPlayer = 4;
     private Dice _dice;
@@ -90,6 +90,7 @@ public class Model implements Observable {
         _tiles[61] = new Waves(61);
         _tiles[62] = new English(62);
         _tiles[63] = new SDSR(63);
+        _tiles[64] = new FinalExam(64);
 
 
         _board = new Board(_tiles);
@@ -118,13 +119,15 @@ public class Model implements Observable {
         System.out.println("Initial Position : " + initialPosition);
         System.out.println("Résultat dé : " + (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect())));
         int i = 0;
+        int effectApplied = 0;
         while (i < (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect())) && (_players[playerIndex].getPosition() + 1 <= _numberOfTiles)) {
             _players[playerIndex].goForward(1);
             notifyObservers();
             i++;
         }
         if (_players[playerIndex].getPosition() == _numberOfTiles && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - 1)) {
-            System.out.println(_players[playerIndex].getName() + " Win !!!");
+            applyFinalExamEffect(playerIndex);
+            effectApplied = 1;
         } else if (i != (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()))) {
             _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - i);
             notifyObservers();
@@ -135,8 +138,24 @@ public class Model implements Observable {
                 notifyObservers();
             }
         }
-        /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
+        if (didPlayerHoverExam(playerIndex) && effectApplied == 0){
+            _tiles[_players[playerIndex].getPosition()].applyTileEffect(_players[playerIndex]);
+        }
         System.out.println(_players[playerIndex].getPosition());
+    }
+
+    public void applyFinalExamEffect(int playerIndex){
+        _tiles[_numberOfTiles - 1].applyTileEffect(_players[playerIndex]);
+    }
+    public boolean didPlayerHoverExam(int playerIndex){
+        if (_players[playerIndex].getPosition() - _diceResult < 21 && _players[playerIndex].getPosition() >= 21){
+            _tiles[21].applyTileEffect(_players[playerIndex]);
+            return true;
+        } else if ( _players[playerIndex].getPosition() - _diceResult < 42 && _players[playerIndex].getPosition() >= 42){
+            _tiles[42].applyTileEffect(_players[playerIndex]);
+            return true;
+        }
+        return false;
     }
 
     public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer) {
@@ -155,11 +174,11 @@ public class Model implements Observable {
 
             if (originPlayer[i].equalsIgnoreCase("prep school")) {
                 _formerStudies[i] = FormerStudies.PREPA;
-            } if (originPlayer[i].equalsIgnoreCase("aot")) {
+            } if (originPlayer[i].equalsIgnoreCase("ast")) {
                 _formerStudies[i] = FormerStudies.AST;
             } if (majorPlayer[i].equalsIgnoreCase("Computer Science")) {
                 _majors[i] = Major.COMPUTER_SCIENCE;
-            } if (majorPlayer[i].equalsIgnoreCase("Chemistry")) {
+            } if (majorPlayer[i].equalsIgnoreCase("Materials")) {
                 _majors[i] = Major.MATERIALS;
             } if (majorPlayer[i].equalsIgnoreCase("Electronics")) {
                 _majors[i] = Major.ELECTRONICS;
@@ -186,6 +205,10 @@ public class Model implements Observable {
 
     public Board getBoard() {
         return _board;
+    }
+
+    public void setDiceResult(int diceResult){
+        _diceResult = diceResult; // Used only for test so compile only during tests
     }
 
     public Tile[] getCases() {

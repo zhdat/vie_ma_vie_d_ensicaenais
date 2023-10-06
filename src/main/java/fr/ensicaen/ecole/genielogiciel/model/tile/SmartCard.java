@@ -13,9 +13,9 @@ public class SmartCard extends Tile{
     public void applyTileEffect(Player player) {
         if (player.getMajor() == Major.ELECTRONICS){
             if (player.getFormerStudies() == FormerStudies.AST){
-                player.setSkillLevel(1);
+                player.increaseSkillLevel(1);
             } else if (player.getFormerStudies() == FormerStudies.PREPA) {
-                player.setSkillLevel(-1);
+                player.increaseSkillLevel(-1);
             }
         }
     }

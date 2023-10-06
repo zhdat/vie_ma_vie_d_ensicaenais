@@ -11,9 +11,9 @@ public class Maths extends Tile {
     @Override
     public void applyTileEffect(Player player) {
         if (player.getFormerStudies() == FormerStudies.PREPA){
-            player.setSkillLevel(1);
+            player.increaseSkillLevel(1);
         } else {
-            player.setSkillLevel(-1);
+            player.increaseSkillLevel(-1);
         }
     }
 }

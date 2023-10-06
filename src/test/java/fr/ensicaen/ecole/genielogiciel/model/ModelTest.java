@@ -4,8 +4,11 @@ import fr.ensicaen.ecole.genielogiciel.model.player.FormerStudies;
 import fr.ensicaen.ecole.genielogiciel.model.player.Major;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 import fr.ensicaen.ecole.genielogiciel.model.player.SoftSkill;
+import fr.ensicaen.ecole.genielogiciel.model.tile.FinalExam;
 import org.junit.jupiter.api.Test;
 import javafx.scene.paint.Color;
+
+import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -68,4 +71,67 @@ class ModelTest {
         int moves = mock.getPlayers()[0].getPosition() - oldPos;
         assertTrue(moves > 0 && moves < 13);
     }
+
+    @Test
+    void testHoverExam1() {
+        Model mock = new Model();
+
+        mock.createPlayer(new String[]{"a", "b", "c", "d"},
+                new String[]{"prepa", "prepa", "prepa", "prepa"},
+                new String[]{"informatique", "informatique", "informatique", "informatique"},
+                new Color[]{new Color(0, 0, 0, 0), new Color(0, 0, 0, 0), new Color(0, 0, 0, 0), new Color(0, 0, 0, 0)});
+
+        mock.getPlayers()[0].setPosition(20);
+        mock.getPlayers()[0].increaseSkillLevel(3);
+        mock.setDiceResult(2);
+        mock.getPlayers()[0].goForward(2);
+        mock.didPlayerHoverExam(0);
+        assertTrue(mock.getPlayers()[0].getPosition() == 0);
+
+        mock.getPlayers()[1].setPosition(20);
+        mock.getPlayers()[1].increaseSkillLevel(5);
+        mock.setDiceResult(4);
+        mock.getPlayers()[1].goForward(4);
+        mock.didPlayerHoverExam(1);
+        assertTrue(mock.getPlayers()[1].getPosition() == 22);
+
+        mock.getPlayers()[2].setPosition(40);
+        mock.getPlayers()[2].increaseSkillLevel(6);
+        mock.setDiceResult(2);
+        mock.getPlayers()[2].goForward(2);
+        mock.didPlayerHoverExam(2);
+        assertTrue(mock.getPlayers()[2].getPosition() == 22);
+
+        mock.getPlayers()[3].setPosition(40);
+        mock.getPlayers()[3].increaseSkillLevel(9);
+        mock.setDiceResult(4);
+        mock.getPlayers()[3].goForward(4);
+        mock.didPlayerHoverExam(3);
+        assertTrue(mock.getPlayers()[3].getPosition() == 43);
+    }
+
+    @Test
+    void testFinalExam() {
+        Model mock = new Model();
+
+        mock.createPlayer(new String[]{"a", "b", "c", "d"},
+                new String[]{"prepa", "prepa", "prepa", "prepa"},
+                new String[]{"informatique", "informatique", "informatique", "informatique"},
+                new Color[]{new Color(0, 0, 0, 0), new Color(0, 0, 0, 0), new Color(0, 0, 0, 0), new Color(0, 0, 0, 0)});
+
+        mock.getPlayers()[0].setPosition(62);
+        mock.getPlayers()[0].increaseSkillLevel(11);
+        mock.setDiceResult(2);
+        mock.getPlayers()[0].goForward(2);
+        mock.applyFinalExamEffect(0);
+        assertTrue(mock.getPlayers()[0].getPosition() == 43);
+
+        mock.getPlayers()[1].setPosition(62);
+        mock.getPlayers()[1].increaseSkillLevel(13);
+        mock.setDiceResult(2);
+        mock.getPlayers()[1].goForward(2);
+        mock.applyFinalExamEffect(1);
+        assertTrue(mock.getPlayers()[1].getPosition() == 64);
+    }
+
 }

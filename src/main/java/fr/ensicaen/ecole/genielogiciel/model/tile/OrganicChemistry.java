@@ -9,7 +9,7 @@ public class OrganicChemistry extends Tile{
     @Override
     public void applyTileEffect(Player player) {
         if (player.getMajor() == Major.MATERIALS){
-            player.setSkillLevel(1);
+            player.increaseSkillLevel(1);
         }
     }
 }
