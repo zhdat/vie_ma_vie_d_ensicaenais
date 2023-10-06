@@ -7,6 +7,7 @@ import fr.ensicaen.ecole.genielogiciel.view.Observer;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public final class LoginPresenter implements Observer{
     private LoginView _view;
@@ -17,7 +18,8 @@ public final class LoginPresenter implements Observer{
 
     public void launchGame(String nickName, String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer) {
         if (nickName.isEmpty()) {
-            _view.displayError(LoginMain.getMessageBundle().getString("error.nickname"));
+            // @TODO: fix this locale
+            _view.displayError(LoginMain.getMessageBundle(Locale.FRENCH).getString("error.nickname"));
         } else {
             try {
                 createAndDisplayGameView(nickName, playerName, originPlayer, majorPlayer, colorPlayer);
@@ -38,7 +40,7 @@ public final class LoginPresenter implements Observer{
     }
 
     @Override
-    public void update(Object O) {
+    public void update(Object object) {
 
     }
 }

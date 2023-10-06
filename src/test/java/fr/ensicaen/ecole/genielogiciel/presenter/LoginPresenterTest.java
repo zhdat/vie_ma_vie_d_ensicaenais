@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Locale;
+
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -33,8 +35,7 @@ public class LoginPresenterTest {
     }
 
     @Test
-    void should_activate_view_error_display() {
-        // TODO Interest of this test holds on the use of Mockito
+    void shouldActivateViewErrorDisplay() {
 
         // given
         LoginPresenter presenter = new LoginPresenter();
@@ -44,6 +45,8 @@ public class LoginPresenterTest {
         presenter.launchGame("", _playerName, _originPlayer, _majorPlayer, _colorPlayer);
 
         // then
-        verify(_view, times(1)).displayError(LoginMain.getMessageBundle().getString("error.nickname"));
+        Locale selectedLocale = Locale.FRENCH;
+        // @TODO: fix this test
+        verify(_view, times(1)).displayError(LoginMain.getMessageBundle(selectedLocale).getString("error.nickname"));
     }
 }

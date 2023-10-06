@@ -1,74 +1,73 @@
 package fr.ensicaen.ecole.genielogiciel.model.player;
 
-import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
-import fr.ensicaen.ecole.genielogiciel.model.sofskills.Softskill;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 
 public class Player {
-    private final String _nom;
-    private Softskill _softskill;
-    private final Origin _origin;
-    private final Sector _sector;
-    private int _competence;
+    private final String _name;
+    private SoftSkill _softSkill;
+    private final FormerStudies _formerStudies;
+    private final Major _major;
+    private int _skillLevel;
     private int _position;
 
     private Color _color;
 
-    public Player(String nom, Softskill softskill, Origin origin, Sector sector, Color color){
-        _nom = nom;
-        _softskill = softskill;
-        _origin = origin;
-        _sector = sector;
+    public Player(String name, SoftSkill softSkill, FormerStudies formerStudies, Major major, Color color){
+        _name = name;
+        _softSkill = softSkill;
+        _formerStudies = formerStudies;
+        _major = major;
         _position = 0; /* A voir avec le fichier fxml... */
-        _competence = 0;
+        _skillLevel = 0;
         _color = color;
     }
-    public void goForward(int nbCases){
-        _position += nbCases;
-        /* @TODO : Vérifier si le joueur est arriver à la fin !*/
+    public void goForward(int numberOfTiles){
+        _position += numberOfTiles;
     }
-    public void goBackward(int nbCases){
-        _position -= nbCases;
-        /* @TODO : Vérifier si le joueur est arriver au début !*/
+    public void goBackward(int numberOfTiles){
+        _position -= numberOfTiles;
     }
-    public double softskill(){
-        if (_softskill == Softskill.ASSIDU){
-            return 1;
-        } else if (_softskill == Softskill.BRILLANT){
-            return 2;
-        } else if (_softskill == Softskill.DILETTANTE) {
-            return 0.5;
-        }
-        return 1;
-    }
-    public void randomSoftskill(){
-        int rand = (int)(Math.random() * 3);
-        if (rand == 0){
-            _softskill = Softskill.ASSIDU;
-        } else if (rand == 1){
-            _softskill = Softskill.BRILLANT;
-        } else if (rand == 2){
-            _softskill = Softskill.DILETTANTE;
+    public double softSkillEffect(){
+        switch (_softSkill){
+            case HARDWORKING :
+                return 1;
+            case BRILLIANT:
+                return 2;
+            case DILETTANTE:
+                return 0.5;
+            default :
+                return 1;
         }
     }
-    public void setCompetence(int i){
-        _competence += i;
+    public void setRandomSoftSkill() {
+        int rand = (int) (Math.random() * 3);
+        switch (rand) {
+            case 0:
+                _softSkill = SoftSkill.HARDWORKING;
+            case 1:
+                _softSkill = SoftSkill.HARDWORKING;
+            case 2:
+                _softSkill = SoftSkill.BRILLIANT;
+        }
     }
-    public Sector getFiliere(){
-        return _sector;
+
+    public void setSkillLevel(int i){
+        _skillLevel += i;
+    }
+    public Major getMajor(){
+        return _major;
     }
     public void setPosition(int i){
         _position = i;
     }
-    public Origin getProvenance(){
-        return _origin;
+    public FormerStudies getFormerStudies(){
+        return _formerStudies;
     }
     public String getName(){
-        return _nom;
+        return _name;
     }
-    public Softskill getSoftskill(){
-        return _softskill;
+    public SoftSkill getSoftSkill(){
+        return _softSkill;
     }
     public int getCompetence(){
         return _competence;

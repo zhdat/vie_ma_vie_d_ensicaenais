@@ -2,8 +2,8 @@ package fr.ensicaen.ecole.genielogiciel.model.tile;
 
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 
-public class Hollidays extends Tile{
-    public Hollidays(int position) {
+public class Exams extends Tile {
+    public Exams(int position) {
         super(position);
     }
 
@@ -11,5 +11,4 @@ public class Hollidays extends Tile{
     public void applyTileEffect(Player player) {
 
     }
-
 }

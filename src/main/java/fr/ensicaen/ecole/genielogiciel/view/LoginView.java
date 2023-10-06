@@ -9,12 +9,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public class LoginView {
     public ListView<String> _listView;
@@ -23,9 +23,9 @@ public class LoginView {
     @FXML
     private TextField _nickName;
     @FXML
-    private TextField _filiere;
+    private TextField _major;
     @FXML
-    private TextField _provenance;
+    private TextField _formerStudies;
     @FXML
     private Label _errorLabel;
 
@@ -47,13 +47,15 @@ public class LoginView {
     private String[] _majorPlayer = new String[_nbPlayer];
     private ObservableList<String> items = FXCollections.observableArrayList();
     private Color[] _colorPlayer = new Color[_nbPlayer];
+    private static Locale _selectedLocale;
 
     public void setPresenter(LoginPresenter presenter) {
         _presenter = presenter;
     }
 
-    public static LoginView createView(Stage primaryStage, String resourceName) throws IOException {
-        FXMLLoader loader = new FXMLLoader(LoginView.class.getResource(resourceName), LoginMain.getMessageBundle());
+    public static LoginView createView(Stage primaryStage, String resourceName, Locale selectedLocale) throws IOException {
+        FXMLLoader loader = new FXMLLoader(LoginView.class.getResource(resourceName), LoginMain.getMessageBundle(selectedLocale));
+        _selectedLocale = selectedLocale;
         Parent root = loader.load();
         // getController() does not return a presenter but actually a class of the View
         // if we want the presenter independent of the API JavaFX.
@@ -86,12 +88,23 @@ public class LoginView {
     }
 
     private void initializeSectorChoiceBox() {
-        _sector.getItems().addAll("Informatique", "MC", "Electronique");
+        System.out.println(_selectedLocale);
+        if (_selectedLocale == Locale.FRENCH)
+            _sector.getItems().addAll("Informatique", "MC", "Electronique");
+        else if (_selectedLocale == Locale.ENGLISH)
+            _sector.getItems().addAll("Computer Science", "Chemistry", "Electronics");
+        else
+            _sector.getItems().addAll("Informatique", "MC", "Electronique");
         _sector.getSelectionModel().selectFirst();
     }
 
     private void initializeOriginChoiceBox() {
-        _origin.getItems().addAll("Prepa", "AST");
+        if (_selectedLocale == Locale.FRENCH)
+            _origin.getItems().addAll("Prepa", "AST");
+        else if (_selectedLocale == Locale.ENGLISH)
+            _origin.getItems().addAll("Prep School", "AOT");
+        else
+            _origin.getItems().addAll("Prepa", "AST");
         _origin.getSelectionModel().selectFirst();
     }
 
@@ -113,4 +126,7 @@ public class LoginView {
         _playerIndex++;
     }
 
+    public Locale get_selectedLocale() {
+        return _selectedLocale;
+    }
 }

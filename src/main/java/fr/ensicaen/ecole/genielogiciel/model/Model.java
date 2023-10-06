@@ -1,7 +1,7 @@
 package fr.ensicaen.ecole.genielogiciel.model;
 
-import fr.ensicaen.ecole.genielogiciel.model.origin.Origin;
-import fr.ensicaen.ecole.genielogiciel.model.player.Sector;
+import fr.ensicaen.ecole.genielogiciel.model.player.FormerStudies;
+import fr.ensicaen.ecole.genielogiciel.model.player.Major;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 import fr.ensicaen.ecole.genielogiciel.model.tile.*;
 import fr.ensicaen.ecole.genielogiciel.view.Observer;
@@ -13,20 +13,20 @@ import java.util.List;
 public class Model implements Observable {
     private String _nickname;
     private final Player[] _players;
-    private Origin[] _origins;
-    private Sector[] _majors;
+    private FormerStudies[] _formerStudies;
+    private Major[] _majors;
     private final Board _board;
     private final Tile[] _tiles;
     private int _turn;
-    private final int _nbCases = 64;
-    private List<Observer> _observers;
+    private final int _numberOfTiles = 64;
+    private final List<Observer> _observers;
     private final int _nbPlayer = 4;
     private Dice _dice;
     private int _diceResult;
 
     public Model() {
-        _tiles = new Tile[_nbCases];
-        _tiles[0] = new Rentree(0);
+        _tiles = new Tile[_numberOfTiles];
+        _tiles[0] = new StartOfTheYear(0);
         _tiles[1] = new English(1);
         _tiles[2] = new Sensor(2);
         _tiles[3] = new English(3);
@@ -37,18 +37,18 @@ public class Model implements Observable {
         _tiles[8] = new Thermodynamics(8);
         _tiles[9] = new ChemistryManipulation(9);
         _tiles[10] = new Party(10);
-        _tiles[11] = new DDRS(11);
+        _tiles[11] = new SDSR(11);
         _tiles[12] = new Maths(12);
         _tiles[13] = new English(13);
         _tiles[14] = new LVTwo(14);
-        _tiles[15] = new GestionFinancière(15);
+        _tiles[15] = new FinancialManagement(15);
         _tiles[16] = new SmartCard(16);
         _tiles[17] = new BurnOut(17);
-        _tiles[18] = new GestionFinancière(18);
+        _tiles[18] = new FinancialManagement(18);
         _tiles[19] = new Cryptography(19);
-        _tiles[20] = new DDRS(20);
-        _tiles[21] = new Examens(21);
-        _tiles[22] = new Rentree(22);
+        _tiles[20] = new SDSR(20);
+        _tiles[21] = new Exams(21);
+        _tiles[22] = new StartOfTheYear(22);
         _tiles[23] = new Party(23);
         _tiles[24] = new English(24);
         _tiles[25] = new SmartCard(25);
@@ -62,17 +62,17 @@ public class Model implements Observable {
         _tiles[33] = new SylvieMaloMeeting(33);
         _tiles[34] = new Maths(34);
         _tiles[35] = new Hollidays(35);
-        _tiles[36] = new DDRS(36);
+        _tiles[36] = new SDSR(36);
         _tiles[37] = new Party(37);
         _tiles[38] = new Waves(38);
         _tiles[39] = new RecruitmentCourse(39);
         _tiles[40] = new OrganicChemistry(40);
         _tiles[41] = new Cplusplus(41);
-        _tiles[42] = new Examens(42);
-        _tiles[43] = new Rentree(43);
+        _tiles[42] = new Exams(42);
+        _tiles[43] = new StartOfTheYear(43);
         _tiles[44] = new RecruitmentCourse(44);
         _tiles[45] = new Maths(45);
-        _tiles[46] = new DDRS(46);
+        _tiles[46] = new SDSR(46);
         _tiles[47] = new SmartCard(47);
         _tiles[48] = new Sensor(48);
         _tiles[49] = new Party(49);
@@ -89,20 +89,20 @@ public class Model implements Observable {
         _tiles[60] = new LVTwo(60);
         _tiles[61] = new Waves(61);
         _tiles[62] = new English(62);
-        _tiles[63] = new DDRS(63);
+        _tiles[63] = new SDSR(63);
 
 
         _board = new Board(_tiles);
         _players = new Player[_nbPlayer];
-        _origins = new Origin[_nbPlayer];
-        _majors = new Sector[_nbPlayer];
+        _formerStudies = new FormerStudies[_nbPlayer];
+        _majors = new Major[_nbPlayer];
         _observers = new ArrayList<>();
         _dice = new Dice();
     }
 
     public void startGame() {
         for (Player player : _players) {
-            player.randomSoftskill();
+            player.setRandomSoftSkill();
         }
         _turn = 1;
     }
@@ -116,20 +116,17 @@ public class Model implements Observable {
     private void play(int playerIndex) {
         int initialPosition = _players[playerIndex].getPosition();
         System.out.println("Initial Position : " + initialPosition);
-        System.out.println("Résultat dé : " + (int) (Math.ceil(_diceResult * _players[playerIndex].softskill())));
+        System.out.println("Résultat dé : " + (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect())));
         int i = 0;
-        while (i < (int) (Math.ceil(_diceResult * _players[playerIndex].softskill())) && (_players[playerIndex].getPosition() + 1 <= _nbCases)) {
+        while (i < (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect())) && (_players[playerIndex].getPosition() + 1 <= _numberOfTiles)) {
             _players[playerIndex].goForward(1);
             notifyObservers();
             i++;
         }
-        if (_players[playerIndex].getPosition() == _nbCases && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softskill()) - 1)) {
-            _tiles[_nbCases].appliquerEffet(_players[playerIndex]);
-            if (_players[playerIndex].getPosition() == _nbCases) { //TODO: Faire une méthode pour pouvoir test
-                System.out.println(_players[playerIndex].getName() + " Win !!!");
-            }
-        } else if (i != (int) (Math.ceil(_diceResult * _players[playerIndex].softskill()))) {
-            _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softskill()) - i);
+        if (_players[playerIndex].getPosition() == _numberOfTiles && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - 1)) {
+            System.out.println(_players[playerIndex].getName() + " Win !!!");
+        } else if (i != (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()))) {
+            _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - i);
             notifyObservers();
         }
         for (int j = 0; j < _nbPlayer; j++){
@@ -138,37 +135,39 @@ public class Model implements Observable {
                 notifyObservers();
             }
         }
-        if (_players[playerIndex].getPosition() - _diceResult < 21 && _players[playerIndex].getPosition() >= 21){
-            _tiles[21].appliquerEffet(_players[playerIndex]);
-        } else if ( _players[playerIndex].getPosition() - _diceResult < 42 && _players[playerIndex].getPosition() >= 42){
-            _tiles[42].appliquerEffet(_players[playerIndex]); //TODO : Faire une méthode pour pouvoir test
-        } else {
-            _tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);
-        }
+        /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
         System.out.println(_players[playerIndex].getPosition());
-    }
-
-    public void detectExamTile(){
-
     }
 
     public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer) {
         for (int i = 0; i < _nbPlayer; i++) {
             if (originPlayer[i].equalsIgnoreCase("prepa")) {
-                _origins[i] = Origin.PREPA;
+                _formerStudies[i] = FormerStudies.PREPA;
             } if (originPlayer[i].equalsIgnoreCase("ast")) {
-                _origins[i] = Origin.AST;
+                _formerStudies[i] = FormerStudies.AST;
             } if (majorPlayer[i].equalsIgnoreCase("Informatique")) {
-                _majors[i] = Sector.INFORMATIQUE;
+                _majors[i] = Major.COMPUTER_SCIENCE;
             } if (majorPlayer[i].equalsIgnoreCase("MC")) {
-                _majors[i] = Sector.MATERIAUX;
+                _majors[i] = Major.MATERIALS;
             } if (majorPlayer[i].equalsIgnoreCase("Electronique")) {
-                _majors[i] = Sector.ELECTRONIQUE;
+                _majors[i] = Major.ELECTRONICS;
+            }
+
+            if (originPlayer[i].equalsIgnoreCase("prep school")) {
+                _formerStudies[i] = FormerStudies.PREPA;
+            } if (originPlayer[i].equalsIgnoreCase("aot")) {
+                _formerStudies[i] = FormerStudies.AST;
+            } if (majorPlayer[i].equalsIgnoreCase("Computer Science")) {
+                _majors[i] = Major.COMPUTER_SCIENCE;
+            } if (majorPlayer[i].equalsIgnoreCase("Chemistry")) {
+                _majors[i] = Major.MATERIALS;
+            } if (majorPlayer[i].equalsIgnoreCase("Electronics")) {
+                _majors[i] = Major.ELECTRONICS;
             }
         }
 
         for (int i = 0; i < _nbPlayer; i++) {
-            _players[i] = new Player(playerName[i], null, _origins[i], _majors[i], colorPlayer[i]);
+            _players[i] = new Player(playerName[i], null, _formerStudies[i], _majors[i], colorPlayer[i]);
         }
 
     }
@@ -206,13 +205,13 @@ public class Model implements Observable {
     }
 
     @Override
-    public void addObserver(Observer O) {
-        _observers.add(O);
+    public void addObserver(Observer observer) {
+        _observers.add(observer);
     }
 
     @Override
-    public void removeObserver(Observer O) {
-        _observers.remove(O);
+    public void removeObserver(Observer observer) {
+        _observers.remove(observer);
     }
 
     @Override
