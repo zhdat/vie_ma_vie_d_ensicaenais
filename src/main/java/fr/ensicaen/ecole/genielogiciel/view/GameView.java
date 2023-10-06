@@ -2,6 +2,7 @@ package fr.ensicaen.ecole.genielogiciel.view;
 
 import fr.ensicaen.ecole.genielogiciel.LoginMain;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
+import fr.ensicaen.ecole.genielogiciel.presenter.WinningPresenter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -230,7 +231,7 @@ public final class GameView{
             _gamePresenter.runGameLoop();
         }
     }
-    public void displayPlayer(int[] positions, Color[] colors){
+    public void displayPlayer(int[] positions, Color[] colors, int nbTurn){
         for (int i = 0; i < 4; i++){
             _tabPlayer[i].setFill(colors[i]);
             _tabPlayer[i].setLayoutX(_xPosOfTile[positions[i]]);
@@ -259,5 +260,11 @@ public final class GameView{
     }
     public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer){
         _gamePresenter.createPlayer(playerName, originPlayer, majorPlayer, colorPlayer);
+    }
+    public void popupFinish(String winner){
+        Alert languageDialog = new Alert(Alert.AlertType.INFORMATION);
+        languageDialog.setTitle("Fin de jeu");
+        languageDialog.setHeaderText("Bien joué à :" + winner);
+        languageDialog.showAndWait();
     }
 }
