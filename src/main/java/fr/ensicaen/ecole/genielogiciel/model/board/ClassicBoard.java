@@ -4,11 +4,15 @@ import fr.ensicaen.ecole.genielogiciel.model.tile.*;
 
 public class ClassicBoard extends Board{
     public ClassicBoard() {
-        _numberOfTiles = 64;
+        _numberOfTiles = 65;
+        _examsPositions = new int[3];
+        _holidaysPositions = new int[2];
+        _newYearsPositions = new int[3];
 
         Tile[] tiles;
         tiles = new Tile[_numberOfTiles];
         tiles[0] = new StartOfTheYear(0);
+        _newYearsPositions[0] = 0;
         tiles[1] = new English(1);
         tiles[2] = new Sensor(2);
         tiles[3] = new English(3);
@@ -30,12 +34,15 @@ public class ClassicBoard extends Board{
         tiles[19] = new Cryptography(19);
         tiles[20] = new SDSR(20);
         tiles[21] = new Exams(21);
+        _examsPositions[0] = 21;
         tiles[22] = new StartOfTheYear(22);
+        _newYearsPositions[1] = 22;
         tiles[23] = new Party(23);
         tiles[24] = new English(24);
         tiles[25] = new SmartCard(25);
         tiles[26] = new IWE(26);
         tiles[27] = new Hollidays(27);
+        _holidaysPositions[0] = 27;
         tiles[28] = new Party(28);
         tiles[29] = new DataBase(29);
         tiles[30] = new Revision(30);
@@ -44,6 +51,7 @@ public class ClassicBoard extends Board{
         tiles[33] = new SylvieMaloMeeting(33);
         tiles[34] = new Maths(34);
         tiles[35] = new Hollidays(35);
+        _holidaysPositions[1] = 35;
         tiles[36] = new SDSR(36);
         tiles[37] = new Party(37);
         tiles[38] = new Waves(38);
@@ -51,7 +59,9 @@ public class ClassicBoard extends Board{
         tiles[40] = new OrganicChemistry(40);
         tiles[41] = new Cplusplus(41);
         tiles[42] = new Exams(42);
+        _examsPositions[1] = 42;
         tiles[43] = new StartOfTheYear(43);
+        _newYearsPositions[2] = 43;
         tiles[44] = new RecruitmentCourse(44);
         tiles[45] = new Maths(45);
         tiles[46] = new SDSR(46);
@@ -72,6 +82,8 @@ public class ClassicBoard extends Board{
         tiles[61] = new Waves(61);
         tiles[62] = new English(62);
         tiles[63] = new SDSR(63);
+        tiles[64] = new FinalExam(64);
+        _examsPositions[2] = 64;
         _tiles = tiles;
     }
 }
