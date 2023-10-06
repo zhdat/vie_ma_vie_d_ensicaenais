@@ -18,7 +18,7 @@ public class Model implements Observable {
     private final Board _board;
     private final Tile[] _tiles;
     private int _turn;
-    private final int _nbCases = 64;
+    private final int _nbCases = 65;
     private List<Observer> _observers;
     private final int _nbPlayer = 4;
     private Dice _dice;
@@ -62,45 +62,43 @@ public class Model implements Observable {
 
     private void play(int playerIndex) {
         int initialPosition = _players[playerIndex].getPosition();
-        System.out.println("Initial Position : " + initialPosition);
-        System.out.println("Résultat dé : " + (int) (Math.ceil(_diceResult * _players[playerIndex].softskill())));
         int i = 0;
-        while (i < (int) (Math.ceil(_diceResult * _players[playerIndex].softskill())) && (_players[playerIndex].getPosition() + 1 <= _nbCases)) {
+        while (i < (int) (Math.ceil(_diceResult * _players[playerIndex].softskill())) && (_players[playerIndex].getPosition() + 1 <= _nbCases - 1)) {
             _players[playerIndex].goForward(1);
-            notifyObservers();
             i++;
         }
-        System.out.println("Valeur de i : " + i);
-        System.out.println("Valeur de l'avance : " + ((int) Math.ceil(_diceResult * _players[playerIndex].softskill())));
-        if (_players[playerIndex].getPosition() == _nbCases && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softskill()))) {
-            System.out.println(_players[playerIndex].getName() + " Win !!!");
+        if (_players[playerIndex].getPosition() == _nbCases - 1 && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softskill()))) {
             _players[playerIndex].setFinsh();
 
         } else if (i != (int) (Math.ceil(_diceResult * _players[playerIndex].softskill()))) {
             _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softskill()) - i);
-            notifyObservers();
         }
-        for (int j = 0; j < _nbPlayer; j++){
-            if (_players[playerIndex].getPosition() == _players[j].getPosition() && (j != playerIndex) && !(_players[playerIndex].getFinish())){
-                _players[j].setPosition(initialPosition);
-                notifyObservers();
+        for (int j = 0; j < _nbPlayer; j++) {
+            if (playerIndex != j){
+                if (_players[playerIndex].getPosition() == _players[j].getPosition() && !(_players[j].getFinish())) {
+                    _players[j].setPosition(initialPosition);
+                }
             }
         }
         /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
-        System.out.println(_players[playerIndex].getPosition());
+        notifyObservers();
     }
 
     public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer) {
         for (int i = 0; i < _nbPlayer; i++) {
             if (originPlayer[i].equalsIgnoreCase("prepa")) {
                 _origins[i] = Origin.PREPA;
-            } if (originPlayer[i].equalsIgnoreCase("ast")) {
+            }
+            if (originPlayer[i].equalsIgnoreCase("ast")) {
                 _origins[i] = Origin.AST;
-            } if (majorPlayer[i].equalsIgnoreCase("Informatique")) {
+            }
+            if (majorPlayer[i].equalsIgnoreCase("Informatique")) {
                 _majors[i] = Sector.INFORMATIQUE;
-            } if (majorPlayer[i].equalsIgnoreCase("MC")) {
+            }
+            if (majorPlayer[i].equalsIgnoreCase("MC")) {
                 _majors[i] = Sector.MATERIAUX;
-            } if (majorPlayer[i].equalsIgnoreCase("Electronique")) {
+            }
+            if (majorPlayer[i].equalsIgnoreCase("Electronique")) {
                 _majors[i] = Sector.ELECTRONIQUE;
             }
         }

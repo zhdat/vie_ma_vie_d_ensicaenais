@@ -6,6 +6,8 @@ import fr.ensicaen.ecole.genielogiciel.view.GameView;
 import fr.ensicaen.ecole.genielogiciel.view.Observer;
 import javafx.scene.paint.Color;
 
+import java.io.IOException;
+
 public final class GamePresenter implements Observer{
     private final Model _model;
     private GameView _view;
@@ -97,6 +99,10 @@ public final class GamePresenter implements Observer{
         _view.displayPlayerName(playersName);
         _view.displayCharacteristics(major, origin, softskill);
         _view.displayTurn(_valueTurn);
+
+        if (_model.getPlayers()[_nbTurn].getFinish()){
+            _view.popupFinish(playersName[_nbTurn]);
+        }
     }
     public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer){
         _model.createPlayer(playerName, originPlayer, majorPlayer, colorPlayer);
