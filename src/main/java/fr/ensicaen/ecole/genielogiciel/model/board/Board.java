@@ -8,6 +8,9 @@ public abstract class Board {
     protected int[] _holidaysPositions;
     protected int[] _examsPositions;
     protected int[] _newYearsPositions;
+    public Tile getTile(int position) {
+        return _tiles[position];
+    }
 
     public int[] getHolidaysPositions() {
         return _holidaysPositions;

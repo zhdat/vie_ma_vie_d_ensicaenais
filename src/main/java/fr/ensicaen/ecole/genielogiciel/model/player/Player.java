@@ -21,7 +21,7 @@ public class Player {
         _position = 0; /* A voir avec le fichier fxml... */
         _skillLevel = 0;
         _color = color;
-        _finsh = false;
+        _finish = false;
     }
     public void goForward(int numberOfTiles){
         _position += numberOfTiles;
