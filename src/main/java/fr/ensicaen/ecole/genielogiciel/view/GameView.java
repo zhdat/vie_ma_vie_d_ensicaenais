@@ -208,6 +208,7 @@ public final class GameView{
         if (_turn > 3){
             _turn = 0;
         }
+        System.out.println("Appui sur roll");
         _gamePresenter.runGameLoop();
         _turn++;
     }
