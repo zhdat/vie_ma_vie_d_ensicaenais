@@ -1,9 +1,10 @@
 package fr.ensicaen.ecole.genielogiciel.model;
 
+import fr.ensicaen.ecole.genielogiciel.model.board.Board;
+import fr.ensicaen.ecole.genielogiciel.model.board.ClassicBoard;
 import fr.ensicaen.ecole.genielogiciel.model.player.FormerStudies;
 import fr.ensicaen.ecole.genielogiciel.model.player.Major;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
-import fr.ensicaen.ecole.genielogiciel.model.tile.*;
 import fr.ensicaen.ecole.genielogiciel.view.Observer;
 import javafx.scene.paint.Color;
 
@@ -16,83 +17,14 @@ public class Model implements Observable {
     private FormerStudies[] _formerStudies;
     private Major[] _majors;
     private final Board _board;
-    private final Tile[] _tiles;
     private int _turn;
-    private final int _numberOfTiles = 64;
     private final List<Observer> _observers;
     private final int _nbPlayer = 4;
     private Dice _dice;
     private int _diceResult;
 
     public Model() {
-        _tiles = new Tile[_numberOfTiles];
-        _tiles[0] = new StartOfTheYear(0);
-        _tiles[1] = new English(1);
-        _tiles[2] = new Sensor(2);
-        _tiles[3] = new English(3);
-        _tiles[4] = new IWE(4);
-        _tiles[5] = new Cplusplus(5);
-        _tiles[6] = new LVTwo(6);
-        _tiles[7] = new Revision(7);
-        _tiles[8] = new Thermodynamics(8);
-        _tiles[9] = new ChemistryManipulation(9);
-        _tiles[10] = new Party(10);
-        _tiles[11] = new SDSR(11);
-        _tiles[12] = new Maths(12);
-        _tiles[13] = new English(13);
-        _tiles[14] = new LVTwo(14);
-        _tiles[15] = new FinancialManagement(15);
-        _tiles[16] = new SmartCard(16);
-        _tiles[17] = new BurnOut(17);
-        _tiles[18] = new FinancialManagement(18);
-        _tiles[19] = new Cryptography(19);
-        _tiles[20] = new SDSR(20);
-        _tiles[21] = new Exams(21);
-        _tiles[22] = new StartOfTheYear(22);
-        _tiles[23] = new Party(23);
-        _tiles[24] = new English(24);
-        _tiles[25] = new SmartCard(25);
-        _tiles[26] = new IWE(26);
-        _tiles[27] = new Hollidays(27);
-        _tiles[28] = new Party(28);
-        _tiles[29] = new DataBase(29);
-        _tiles[30] = new Revision(30);
-        _tiles[31] = new LVTwo(31);
-        _tiles[32] = new ChemistryManipulation(32);
-        _tiles[33] = new SylvieMaloMeeting(33);
-        _tiles[34] = new Maths(34);
-        _tiles[35] = new Hollidays(35);
-        _tiles[36] = new SDSR(36);
-        _tiles[37] = new Party(37);
-        _tiles[38] = new Waves(38);
-        _tiles[39] = new RecruitmentCourse(39);
-        _tiles[40] = new OrganicChemistry(40);
-        _tiles[41] = new Cplusplus(41);
-        _tiles[42] = new Exams(42);
-        _tiles[43] = new StartOfTheYear(43);
-        _tiles[44] = new RecruitmentCourse(44);
-        _tiles[45] = new Maths(45);
-        _tiles[46] = new SDSR(46);
-        _tiles[47] = new SmartCard(47);
-        _tiles[48] = new Sensor(48);
-        _tiles[49] = new Party(49);
-        _tiles[50] = new OrganicChemistry(50);
-        _tiles[51] = new Revision(51);
-        _tiles[52] = new Thermodynamics(52);
-        _tiles[53] = new ChemistryManipulation(53);
-        _tiles[54] = new Cplusplus(54);
-        _tiles[55] = new SylvieMaloMeeting(55);
-        _tiles[56] = new DataBase(56);
-        _tiles[57] = new Cryptography(57);
-        _tiles[58] = new IWE(58);
-        _tiles[59] = new Party(59);
-        _tiles[60] = new LVTwo(60);
-        _tiles[61] = new Waves(61);
-        _tiles[62] = new English(62);
-        _tiles[63] = new SDSR(63);
-
-
-        _board = new Board(_tiles);
+        _board = new ClassicBoard();
         _players = new Player[_nbPlayer];
         _formerStudies = new FormerStudies[_nbPlayer];
         _majors = new Major[_nbPlayer];
@@ -118,12 +50,12 @@ public class Model implements Observable {
         System.out.println("Initial Position : " + initialPosition);
         System.out.println("Résultat dé : " + (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect())));
         int i = 0;
-        while (i < (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect())) && (_players[playerIndex].getPosition() + 1 <= _numberOfTiles)) {
+        while (i < (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect())) && (_players[playerIndex].getPosition() + 1 <= _board.getNumberOfTiles())) {
             _players[playerIndex].goForward(1);
             notifyObservers();
             i++;
         }
-        if (_players[playerIndex].getPosition() == _numberOfTiles && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - 1)) {
+        if (_players[playerIndex].getPosition() == _board.getNumberOfTiles() && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - 1)) {
             System.out.println(_players[playerIndex].getName() + " Win !!!");
         } else if (i != (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()))) {
             _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - i);
@@ -186,10 +118,6 @@ public class Model implements Observable {
 
     public Board getBoard() {
         return _board;
-    }
-
-    public Tile[] getCases() {
-        return _tiles;
     }
 
     public int getTurn() {
