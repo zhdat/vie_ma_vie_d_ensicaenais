@@ -71,7 +71,10 @@ public class Model implements Observable {
             i++;
         }
         if (_players[playerIndex].getPosition() == _nbCases && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softskill()) - 1)) {
-            System.out.println(_players[playerIndex].getName() + " Win !!!");
+            _tiles[_nbCases].appliquerEffet(_players[playerIndex]);
+            if (_players[playerIndex].getPosition() == _nbCases) { //TODO: Faire une méthode pour pouvoir test
+                System.out.println(_players[playerIndex].getName() + " Win !!!");
+            }
         } else if (i != (int) (Math.ceil(_diceResult * _players[playerIndex].softskill()))) {
             _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softskill()) - i);
             notifyObservers();
@@ -82,8 +85,18 @@ public class Model implements Observable {
                 notifyObservers();
             }
         }
-        /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
+        if (_players[playerIndex].getPosition() - _diceResult < 21 && _players[playerIndex].getPosition() >= 21){
+            _tiles[21].appliquerEffet(_players[playerIndex]);
+        } else if ( _players[playerIndex].getPosition() - _diceResult < 42 && _players[playerIndex].getPosition() >= 42){
+            _tiles[42].appliquerEffet(_players[playerIndex]); //TODO : Faire une méthode pour pouvoir test
+        } else {
+            _tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);
+        }
         System.out.println(_players[playerIndex].getPosition());
+    }
+
+    public void detectExamTile(){
+
     }
 
     public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer) {

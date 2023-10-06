@@ -70,6 +70,9 @@ public class Player {
     public Softskill getSoftskill(){
         return _softskill;
     }
+    public int getCompetence(){
+        return _competence;
+    }
     public int getPosition(){
         return _position;
     }
