@@ -1,9 +1,10 @@
 package fr.ensicaen.ecole.genielogiciel.model;
 
+import fr.ensicaen.ecole.genielogiciel.model.board.Board;
+import fr.ensicaen.ecole.genielogiciel.model.board.ClassicBoard;
 import fr.ensicaen.ecole.genielogiciel.model.player.FormerStudies;
 import fr.ensicaen.ecole.genielogiciel.model.player.Major;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
-import fr.ensicaen.ecole.genielogiciel.model.tile.*;
 import fr.ensicaen.ecole.genielogiciel.view.Observer;
 import javafx.scene.paint.Color;
 
@@ -16,7 +17,6 @@ public class Model implements Observable {
     private FormerStudies[] _formerStudies;
     private Major[] _majors;
     private final Board _board;
-    private final Tile[] _tiles;
     private int _turn;
     private final int _numberOfTiles = 65;
     private final List<Observer> _observers;
@@ -91,9 +91,8 @@ public class Model implements Observable {
         _tiles[62] = new English(62);
         _tiles[63] = new SDSR(63);
         _tiles[64] = new FinalExam(64);
+        _board = new ClassicBoard();
 
-
-        _board = new Board(_tiles);
         _players = new Player[_nbPlayer];
         _formerStudies = new FormerStudies[_nbPlayer];
         _majors = new Major[_nbPlayer];
@@ -116,13 +115,11 @@ public class Model implements Observable {
 
     private void play(int playerIndex) {
         int initialPosition = _players[playerIndex].getPosition();
-        System.out.println("Initial Position : " + initialPosition);
-        System.out.println("Résultat dé : " + (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect())));
         int i = 0;
+
         int effectApplied = 0;
         while (i < (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect())) && (_players[playerIndex].getPosition() + 1 <= _numberOfTiles)) {
             _players[playerIndex].goForward(1);
-            notifyObservers();
             i++;
         }
         if (_players[playerIndex].getPosition() == _numberOfTiles && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - 1)) {
@@ -130,14 +127,15 @@ public class Model implements Observable {
             effectApplied = 1;
         } else if (i != (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()))) {
             _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - i);
-            notifyObservers();
         }
-        for (int j = 0; j < _nbPlayer; j++){
-            if (_players[playerIndex].getPosition() == _players[j].getPosition() && (j != playerIndex)){
-                _players[j].setPosition(initialPosition);
-                notifyObservers();
+        for (int j = 0; j < _nbPlayer; j++) {
+            if (playerIndex != j){
+                if (_players[playerIndex].getPosition() == _players[j].getPosition() && !(_players[j].getFinish())) {
+                    _players[j].setPosition(initialPosition);
+                }
             }
         }
+
         if (didPlayerHoverExam(playerIndex) && effectApplied == 0){
             _tiles[_players[playerIndex].getPosition()].applyTileEffect(_players[playerIndex]);
         }
@@ -211,10 +209,6 @@ public class Model implements Observable {
         _diceResult = diceResult; // Used only for test so compile only during tests
     }
 
-    public Tile[] getCases() {
-        return _tiles;
-    }
-
     public int getTurn() {
         return _turn;
     }
@@ -243,4 +237,5 @@ public class Model implements Observable {
             o.update(this);
         }
     }
+
 }

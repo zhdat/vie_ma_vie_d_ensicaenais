@@ -9,6 +9,7 @@ public class Player {
     private final Major _major;
     private int _skillLevel;
     private int _position;
+    private boolean _finish;
 
     private Color _color;
 
@@ -20,6 +21,7 @@ public class Player {
         _position = 0; /* A voir avec le fichier fxml... */
         _skillLevel = 0;
         _color = color;
+        _finsh = false;
     }
     public void goForward(int numberOfTiles){
         _position += numberOfTiles;
@@ -43,11 +45,14 @@ public class Player {
         int rand = (int) (Math.random() * 3);
         switch (rand) {
             case 0:
-                _softSkill = SoftSkill.HARDWORKING;
+                _softSkill = SoftSkill.DILETTANTE;
+                break;
             case 1:
                 _softSkill = SoftSkill.HARDWORKING;
+                break;
             case 2:
                 _softSkill = SoftSkill.BRILLIANT;
+                break;
         }
     }
 
@@ -77,6 +82,12 @@ public class Player {
     }
     public Color getColor() {
         return _color;
+    }
+    public void setFinish(){
+        _finish = true;
+    }
+    public boolean getFinish(){
+        return _finish;
     }
 
     /* Getters et Setters à ajouter si besoin */
