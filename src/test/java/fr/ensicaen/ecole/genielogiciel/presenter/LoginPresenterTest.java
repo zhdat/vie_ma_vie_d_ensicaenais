@@ -35,8 +35,7 @@ public class LoginPresenterTest {
     }
 
     @Test
-    void should_activate_view_error_display() {
-        // TODO Interest of this test holds on the use of Mockito
+    void shouldActivateViewErrorDisplay() {
 
         // given
         LoginPresenter presenter = new LoginPresenter();
