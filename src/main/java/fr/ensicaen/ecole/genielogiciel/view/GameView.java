@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -27,6 +28,7 @@ public final class GameView{
     public Button _rollButton;
     public ImageView _diceResult;
     public ImageView _softSkill;
+    public AnchorPane _board;
     public Circle _player1;
     public Circle _tileStart;
     public Circle _tile1;
@@ -215,6 +217,10 @@ public final class GameView{
         Stage stage = new Stage();
         stage.setScene(scene);
         view._stage = stage;
+        if (selectedLanguage == Locale.ENGLISH){
+            view._board.getStyleClass().clear();
+            view._board.getStyleClass().add("board_en");
+        }
         scene.addEventHandler(KeyEvent.KEY_PRESSED, event -> view.onKeyPressed(event.getCode()));
         return view;
     }

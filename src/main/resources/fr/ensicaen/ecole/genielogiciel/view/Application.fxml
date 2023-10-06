@@ -49,7 +49,7 @@
   <children>
       <HBox prefHeight="947.0" prefWidth="1630.0">
          <children>
-            <AnchorPane prefHeight="947.0" prefWidth="924.0" styleClass="board_fr" stylesheets="@Board.css">
+            <AnchorPane fx:id="_board" prefHeight="947.0" prefWidth="924.0" styleClass="board_fr" stylesheets="@Board.css">
                <children>
                   <AnchorPane layoutX="-5.0" layoutY="-2.0" prefHeight="949.0" prefWidth="1005.0">
                      <children>
@@ -140,7 +140,7 @@
                               <TextArea id="characteristics" fx:id="_characteristics" editable="false" layoutX="29.0" layoutY="196.0" prefHeight="397.0" prefWidth="347.0" />
                               <Circle id="playerColor" fx:id="playerColor" fill="DODGERBLUE" layoutX="113.0" layoutY="153.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
                               <ProgressBar id="skillProgress" fx:id="_skillProgress" layoutX="54.0" layoutY="685.0" prefHeight="13.0" prefWidth="289.0" progress="0.0" />
-                              <Label alignment="CENTER" layoutX="-2.0" layoutY="625.0" prefHeight="38.0" prefWidth="406.0" text="compétences de l'année :">
+                              <Label alignment="CENTER" layoutX="-2.0" layoutY="625.0" prefHeight="38.0" prefWidth="406.0" text="%skill.message.text">
                                  <font>
                                     <Font size="26.0" />
                                  </font>
@@ -154,7 +154,7 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="273.0" prefWidth="397.0">
                            <children>
-                              <Button id="roll_button" fx:id="_rollButton" layoutX="82.0" layoutY="147.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="243.0" text="ROLL">
+                              <Button id="roll_button" fx:id="_rollButton" layoutX="82.0" layoutY="147.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="243.0" text="%roll.button.text">
                                  <font>
                                     <Font size="26.0" />
                                  </font>
