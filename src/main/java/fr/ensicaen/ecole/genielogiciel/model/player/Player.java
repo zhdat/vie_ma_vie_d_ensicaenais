@@ -9,7 +9,7 @@ public class Player {
     private final Major _major;
     private int _skillLevel;
     private int _position;
-    private boolean _finsh;
+    private boolean _finish;
 
     private Color _color;
 
@@ -21,7 +21,7 @@ public class Player {
         _position = 0; /* A voir avec le fichier fxml... */
         _skillLevel = 0;
         _color = color;
-        _finsh = false;
+        _finish = false;
     }
     public void goForward(int numberOfTiles){
         _position += numberOfTiles;
@@ -81,10 +81,10 @@ public class Player {
         return _color;
     }
     public void setFinish(){
-        _finsh = true;
+        _finish = true;
     }
     public boolean getFinish(){
-        return _finsh;
+        return _finish;
     }
 
     /* Getters et Setters à ajouter si besoin */

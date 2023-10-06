@@ -15,8 +15,9 @@ public final class GamePresenter implements Observer{
     private int _nbTurn = 0;
     private int _turn = 0;
     private int _valueTurn = 0;
-    private int _nbPlayer = 4;
+    private final int _nbPlayer = 4;
     private final int _nbTiles = 64;
+    private int _nbPlayerFinish = 0;
 
     public GamePresenter(String nickName) {
         _model = new Model();
@@ -51,7 +52,7 @@ public final class GamePresenter implements Observer{
         if (_turn == 0){
             _model.startGame();
         }
-        if (_turn %_nbPlayer == 0){
+        if (_turn % (_nbPlayer - _nbPlayerFinish) == 0){
             _valueTurn++;
         }
         if (players[_nbTurn].getPosition() != _nbTiles){
@@ -94,6 +95,7 @@ public final class GamePresenter implements Observer{
         _view.displayTurn(_valueTurn);
 
         if (_model.getPlayers()[_nbTurn].getFinish()){
+            _nbPlayerFinish++;
             _view.popupFinish(playersName[_nbTurn]);
         }
     }

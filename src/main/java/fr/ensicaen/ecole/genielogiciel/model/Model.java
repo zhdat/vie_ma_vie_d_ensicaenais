@@ -40,7 +40,6 @@ public class Model implements Observable {
     }
 
     public void playTurn(int playerIndex) {
-        System.out.println(_players[playerIndex].getName());
         _diceResult = _dice.roll();
         play(playerIndex);
     }
@@ -52,7 +51,6 @@ public class Model implements Observable {
             _players[playerIndex].goForward(1);
             i++;
         }
-        System.out.println(_board.getNumberOfTiles());
         if (_players[playerIndex].getPosition() == (_board.getNumberOfTiles() - 1) && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()))) {
             _players[playerIndex].setFinish();
         } else if (i != (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()))) {
@@ -66,7 +64,6 @@ public class Model implements Observable {
             }
         }
         /*_tiles[_players[playerIndex].getPosition()].appliquerEffet(_players[playerIndex]);*/
-        System.out.println(_players[playerIndex].getPosition());
         notifyObservers();
     }
 
