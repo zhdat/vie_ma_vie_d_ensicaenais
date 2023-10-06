@@ -43,11 +43,14 @@ public class Player {
         int rand = (int) (Math.random() * 3);
         switch (rand) {
             case 0:
-                _softSkill = SoftSkill.HARDWORKING;
+                _softSkill = SoftSkill.DILETTANTE;
+                break;
             case 1:
                 _softSkill = SoftSkill.HARDWORKING;
+                break;
             case 2:
                 _softSkill = SoftSkill.BRILLIANT;
+                break;
         }
     }
 

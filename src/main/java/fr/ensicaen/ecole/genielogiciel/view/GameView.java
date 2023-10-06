@@ -24,6 +24,7 @@ import java.util.Locale;
 public final class GameView{
     public Button _rollButton;
     public ImageView _diceResult;
+    public ImageView _softSkill;
     public Circle _player1;
     public Circle _tileStart;
     public Circle _tile1;
@@ -106,6 +107,8 @@ public final class GameView{
     private Circle[] _tabTile;
     private int _turn = 0;
     private static final int _numberOfTiles = 65;
+
+    private Locale _selectedLanguage;
 
     public void initialize() {
         _tabTile = new Circle[_numberOfTiles];
@@ -236,8 +239,14 @@ public final class GameView{
         playerColor.setFill(_tabPlayer[_turn].getFill());
     }
     public void displayDice(int diceResult){
-        Image _diceImage = new Image("file:src/main/ressources/fr/ensicaen/ecole/genielogicel/view/images/" + String.valueOf(diceResult) + ".png");
+        Image _diceImage = new Image("file:src/main/resources/fr/ensicaen/ecole/genielogiciel/view/images/" + diceResult + ".png");
         _diceResult.setImage(_diceImage);
+    }
+
+    public void displayPlayerSoftskill(String[] softskill){
+        System.out.println(softskill[_turn]);
+        Image _softSkillImage = new Image("file:src/main/resources/fr/ensicaen/ecole/genielogiciel/view/images/" + softskill[_turn] + ".png");
+        _softSkill.setImage(_softSkillImage);
     }
     public void displayPlayerName(String[] playersName){
         _playerNickname.setText(playersName[_turn]);
