@@ -14,6 +14,7 @@ public class FinalExam extends Tile {
         if (player.getSkillLevel() < 12){
             player.setPosition(43);
         } else {
+            player.setFinish();
             System.out.println(player.getName() + " Win !!!");
         }
     }

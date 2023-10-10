@@ -55,9 +55,9 @@ public class Model implements Observable {
             _players[playerIndex].goForward(1);
             i++;
         }
-        if (_players[playerIndex].getPosition() == _board.getNumberOfTiles() && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - 1)) {
+
+        if (_players[playerIndex].getPosition() == (_board.getNumberOfTiles() - 1) && (i == (int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()))) {
             applyFinalExamEffect(playerIndex);
-            _players[playerIndex].setFinish();
             effectApplied = 1;
         } else if (i != (int) (Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()))) {
             _players[playerIndex].goBackward((int) Math.ceil(_diceResult * _players[playerIndex].softSkillEffect()) - i);
@@ -74,6 +74,9 @@ public class Model implements Observable {
             _board.getTile(_players[playerIndex].getPosition()).applyTileEffect(_players[playerIndex]);
         }
         System.out.println(_players[playerIndex].getPosition());
+        notifyObservers();
+        System.out.println("Compétence");
+        System.out.println(_players[playerIndex].getSkillLevel());
     }
 
     public void applyFinalExamEffect(int playerIndex){

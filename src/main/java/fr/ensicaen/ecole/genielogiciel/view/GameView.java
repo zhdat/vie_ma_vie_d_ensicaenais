@@ -244,7 +244,7 @@ public final class GameView{
             _tabPlayer[i].setLayoutX(_xPosOfTile[positions[i]]);
             _tabPlayer[i].setLayoutY(_yPosOfTile[positions[i]]);
         }
-        playerColor.setFill(_tabPlayer[_turn].getFill());
+        playerColor.setFill(_tabPlayer[nbTurn].getFill());
     }
     public void displayDice(int diceResult){
         Image _diceImage = new Image("file:src/main/resources/fr/ensicaen/ecole/genielogiciel/view/images/" + diceResult + ".png");
