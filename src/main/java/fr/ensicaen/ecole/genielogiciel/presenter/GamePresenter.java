@@ -15,12 +15,15 @@ public final class GamePresenter implements Observer{
     private int _nbTurn = 0;
     private int _turn = 0;
     private int _valueTurn = 0;
-    private int _nbPlayer = 4;
+    private final int _nbPlayer = 4;
     private final int _nbTiles = 64;
+    private int _nbPlayerFinish = 0;
+    private GameLogic _gameLogic;
 
     public GamePresenter(String nickName) {
-        _model = new Model();
-        _model.setNickname(nickName);
+        _gameLogic = new GameLogic();
+        _model = new Model(_gameLogic);
+        _gameLogic.setNickname(nickName);
         _model.addObserver(this);
     }
 
@@ -34,7 +37,7 @@ public final class GamePresenter implements Observer{
         if (_nbTurn > (_nbPlayer - 1)){
             _nbTurn = 0;
         }
-        Player[] players = _model.getPlayers();
+        Player[] players = _gameLogic.getPlayers();
         while (players[_nbTurn].getFinish()){
             count++;
             _nbTurn++;
@@ -51,7 +54,7 @@ public final class GamePresenter implements Observer{
         if (_turn == 0){
             _model.startGame();
         }
-        if (_turn %_nbPlayer == 0){
+        if (_turn % (_nbPlayer - _nbPlayerFinish) == 0){
             _valueTurn++;
         }
         if (players[_nbTurn].getPosition() != _nbTiles){
@@ -64,22 +67,22 @@ public final class GamePresenter implements Observer{
 
     @Override
     public void update(Object object) {
-        int[] positions = new int[_model.getNbPlayer()];
-        Player[] players = ((Model)object).getPlayers();
-        for (int i = 0; i < _model.getNbPlayer(); i++){
+        int[] positions = new int[_gameLogic.getNbPlayer()];
+        Player[] players = _gameLogic.getPlayers();
+        for (int i = 0; i < _gameLogic.getNbPlayer(); i++){
             positions[i] = players[i].getPosition();
         }
         String[] playersName = new String[_nbPlayer];
         for (int i = 0; i < _nbPlayer; i++){
-            playersName[i] = _model.getPlayers()[i].getName();
+            playersName[i] = _gameLogic.getPlayers()[i].getName();
         }
         String[] major = new String[_nbPlayer];
         String[] origin = new String[_nbPlayer];
         String[] softskill = new String[_nbPlayer];
         for (int i = 0; i < _nbPlayer; i++){
-            major[i] = String.valueOf(_model.getPlayers()[i].getMajor());
-            origin[i] = String.valueOf(_model.getPlayers()[i].getFormerStudies());
-            softskill[i] = String.valueOf(_model.getPlayers()[i].getSoftSkill());
+            major[i] = String.valueOf(_gameLogic.getPlayers()[i].getMajor());
+            origin[i] = String.valueOf(_gameLogic.getPlayers()[i].getFormerStudies());
+            softskill[i] = String.valueOf(_gameLogic.getPlayers()[i].getSoftSkill());
         }
         Color[] colors = new Color[_nbPlayer];
         for (int i = 0; i < _nbPlayer; i++){
@@ -87,13 +90,14 @@ public final class GamePresenter implements Observer{
         }
 
         _view.displayPlayer(positions, colors, _nbTurn);
-        _view.displayDice(_model.getDiceResult());
+        _view.displayDice(_gameLogic.getDiceResult());
         _view.displayPlayerName(playersName);
         _view.displayPlayerSoftskill(softskill);
         _view.displayCharacteristics(major, origin, softskill);
         _view.displayTurn(_valueTurn);
 
-        if (_model.getPlayers()[_nbTurn].getFinish()){
+        if (_gameLogic.getPlayers()[_nbTurn].getFinish()){
+            _nbPlayerFinish++;
             _view.popupFinish(playersName[_nbTurn]);
         }
     }
