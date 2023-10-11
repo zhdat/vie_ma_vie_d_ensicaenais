@@ -24,10 +24,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Locale;
 
-import static fr.ensicaen.ecole.genielogiciel.model.player.SoftSkill.*;
-import static fr.ensicaen.ecole.genielogiciel.model.player.FormerStudies.*;
-import static fr.ensicaen.ecole.genielogiciel.model.player.Major.*;
-
 public final class GameView{
     public Button _rollButton;
     public ImageView _diceResult;
@@ -208,7 +204,6 @@ public final class GameView{
         if (_turn > 3){
             _turn = 0;
         }
-        System.out.println("Appui sur roll");
         _gamePresenter.runGameLoop();
         _turn++;
     }
@@ -226,7 +221,6 @@ public final class GameView{
             view._board.getStyleClass().clear();
             view._board.getStyleClass().add("board_en");
         }
-        view._selectedLanguage = selectedLanguage;
         scene.addEventHandler(KeyEvent.KEY_PRESSED, event -> view.onKeyPressed(event.getCode()));
         return view;
     }
@@ -266,68 +260,18 @@ public final class GameView{
         _playerNickname.setText(playersName[_turn]);
     }
     public void displayCharacteristics(String[] major, String[] origin, String[] softskill){
-        if (_selectedLanguage == Locale.ENGLISH)
-            _characteristics.setText("Major : " + major[_turn] + "\n" + "Former Studies : " + origin[_turn] + "\n" + "Softskill : " + softskill[_turn]);
-        else if (_selectedLanguage == Locale.FRENCH) {
-            String majorFR = "";
-            String originFR = "";
-            String softskillFR = "";
-
-            switch (softskill[_turn]) {
-                case "HARDWORKING":
-                    softskillFR = "Assidu";
-                    break;
-                case "BRILLIANT":
-                    softskillFR = "Brillant";
-                    break;
-                case "DILETTANTE":
-                    softskillFR = "Dilettante";
-                    break;
-            }
-
-            switch (origin[_turn]){
-                case "PREPA":
-                    originFR = "Prépa";
-                    break;
-                case "AST":
-                    originFR = "AST";
-                    break;
-            }
-
-            switch (major[_turn]){
-                case "COMPUTER_SCIENCE":
-                    majorFR = "Informatique";
-                    break;
-            case "MATERIALS":
-                    majorFR = "Matériaux";
-                    break;
-            case "ELECTRONICS":
-                    majorFR = "Electronique";
-                    break;
-            }
-
-            _characteristics.setText("Filière : " + majorFR + "\n" + "Provenance : " + originFR + "\n" + "Softskill : " + softskillFR);
-        }
+        _characteristics.setText("Filière : " + major[_turn] + "\n" + "Provenance : " + origin[_turn] + "\n" + "Softskill : " + softskill[_turn]);
     }
     public void displayTurn(int turn){
-        if (_selectedLanguage == Locale.ENGLISH)
-            _round.setText("Turn number : " + String.valueOf(turn));
-        else if (_selectedLanguage == Locale.FRENCH)
-            _round.setText("Tour numéro : " + String.valueOf(turn));
+        _round.setText("Tour numéro : " + String.valueOf(turn));
     }
     public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer){
         _gamePresenter.createPlayer(playerName, originPlayer, majorPlayer, colorPlayer);
     }
     public void popupFinish(String winner){
         Alert languageDialog = new Alert(Alert.AlertType.INFORMATION);
-        if (_selectedLanguage == Locale.ENGLISH){
-            languageDialog.setTitle("End of game");
-            languageDialog.setHeaderText("Well played to :" + winner);
-        }
-        else if (_selectedLanguage == Locale.FRENCH){
-            languageDialog.setTitle("Fin de jeu");
-            languageDialog.setHeaderText("Bien joué à :" + winner);
-        }
+        languageDialog.setTitle("Fin de jeu");
+        languageDialog.setHeaderText("Bien joué à :" + winner);
         languageDialog.showAndWait();
     }
 }
