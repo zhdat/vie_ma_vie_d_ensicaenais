@@ -2,7 +2,6 @@ package fr.ensicaen.ecole.genielogiciel.view;
 
 import fr.ensicaen.ecole.genielogiciel.LoginMain;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
-import fr.ensicaen.ecole.genielogiciel.presenter.WinningPresenter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
