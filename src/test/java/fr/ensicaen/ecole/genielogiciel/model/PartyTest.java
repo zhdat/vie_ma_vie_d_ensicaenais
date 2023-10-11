@@ -18,12 +18,13 @@ public class PartyTest {
     public void setUp() {
         player = new Player("Bob", SoftSkill.HARDWORKING, FormerStudies.PREPA, Major.COMPUTER_SCIENCE, Color.BLUE);
         partyTile = new Party(10);
+        player.setSkillLevel(20);
     }
 
     @Test
     public void testApplyTileEffect() {
         partyTile.applyTileEffect(player);
-        assertEquals(-1, player.getSkillLevel());
+        assertEquals(19, player.getSkillLevel());
     }
 
     @Test

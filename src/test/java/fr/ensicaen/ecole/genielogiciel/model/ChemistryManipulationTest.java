@@ -19,18 +19,20 @@ public class ChemistryManipulationTest {
     public void setUp() {
         player = new Player("Alice", SoftSkill.BRILLIANT, FormerStudies.PREPA, Major.MATERIALS, Color.RED);
         chemistryTile = new ChemistryManipulation(5);
+        player.setSkillLevel(20);
     }
 
     @Test
     public void testApplyTileEffect() {
         chemistryTile.applyTileEffect(player);
-        assertEquals(-1, player.getSkillLevel());
+        assertEquals(19, player.getSkillLevel());
 
         player = new Player("Bob", SoftSkill.BRILLIANT, FormerStudies.AST, Major.MATERIALS, Color.GREEN);
         chemistryTile = new ChemistryManipulation(10);
+        player.setSkillLevel(20);
 
         chemistryTile.applyTileEffect(player);
-        assertEquals(1, player.getSkillLevel());
+        assertEquals(21, player.getSkillLevel());
     }
 
     @Test
