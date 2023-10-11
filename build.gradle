@@ -35,7 +35,6 @@ dependencies {
             ['org.mockito:mockito-core:4.+'],
             [files("lib")]
     )
-    testImplementation 'junit:junit:4.13.1'
 }
 
 task copyLibFolder(type: Copy) {
