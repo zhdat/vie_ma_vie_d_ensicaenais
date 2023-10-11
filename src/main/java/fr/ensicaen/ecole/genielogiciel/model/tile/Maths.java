@@ -12,7 +12,7 @@ public class Maths extends Tile {
     public void applyTileEffect(Player player) {
         if (player.getFormerStudies() == FormerStudies.PREPA){
             player.increaseSkillLevel(1);
-        } else {
+        } else if(player.getSkillLevel() > 0) {
             player.increaseSkillLevel(-1);
         }
     }

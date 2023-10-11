@@ -9,6 +9,7 @@ public class Party extends Tile {
 
     @Override
     public void applyTileEffect(Player player) {
-        player.increaseSkillLevel(-1);
+        if (player.getSkillLevel() > 0)
+            player.increaseSkillLevel(-1);
     }
 }

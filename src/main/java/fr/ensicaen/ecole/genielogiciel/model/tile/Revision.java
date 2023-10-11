@@ -9,5 +9,6 @@ public class Revision extends Tile {
 
     @Override
     public void applyTileEffect(Player player) {
+        player.increaseSkillLevel(2);
     }
 }

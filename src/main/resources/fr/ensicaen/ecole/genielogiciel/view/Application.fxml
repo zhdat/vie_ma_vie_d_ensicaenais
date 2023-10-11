@@ -132,7 +132,7 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="709.0" prefWidth="689.0">
                            <children>
-                              <Label id="round" fx:id="_round" layoutX="22.0" layoutY="26.0" text="Lancez le dé">
+                              <Label id="round" fx:id="_round" layoutX="22.0" layoutY="26.0" text="">
                                  <font>
                                     <Font size="26.0" />
                                  </font>
@@ -145,7 +145,7 @@
                                     <Font size="26.0" />
                                  </font>
                               </Label>
-                              <Label id="playerNickname" fx:id="_playerNickname" layoutX="172.0" layoutY="135.0" text="joueur">
+                              <Label id="playerNickname" fx:id="_playerNickname" layoutX="172.0" layoutY="135.0" text="">
                                  <font>
                                     <Font size="26.0" />
                                  </font>
