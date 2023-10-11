@@ -28,6 +28,9 @@ public final class LoginMain extends Application {
     @Override
     public void start( final Stage primaryStage ) throws Exception {
         Locale selectedLocale = determineSelectedLocale();
+        if (selectedLocale == null){
+            return;
+        }
 
         LoginView view = LoginView.createView(primaryStage, "LoginDialog.fxml", selectedLocale);
         LoginPresenter presenter = new LoginPresenter();
@@ -57,6 +60,8 @@ public final class LoginMain extends Application {
                 System.out.println(Locale.ENGLISH);
                 System.out.println(Locale.getDefault());
                 return Locale.ENGLISH;
+            } else {
+                return null;
             }
         }
         return ResourceBundle.getBundle("fr.ensicaen.ecole.genielogiciel.MessageBundle").getLocale();

@@ -28,7 +28,7 @@ public class Model implements Observable {
     public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer) {
         _gameLogic.createPlayers(playerName, originPlayer, majorPlayer, colorPlayer);
         notifyObservers();
-    }
+        }
 
     @Override
     public void addObserver(Observer observer) {

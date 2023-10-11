@@ -9,6 +9,18 @@ public class Exams extends Tile {
 
     @Override
     public void applyTileEffect(Player player) {
-
+        if (player.getPosition() >= 21 && player.getPosition() < 42){
+            if (player.getSkillLevel() < 4){
+                player.setPosition(0);
+            } else {
+                player.setPosition(22);
+            }
+        } else if (player.getPosition() >= 42){
+            if (player.getSkillLevel() < 8){
+                player.setPosition(22);
+            } else {
+                player.setPosition(43);
+            }
+        }
     }
 }

@@ -10,5 +10,7 @@ public class English extends Tile {
     @Override
     public void applyTileEffect(Player player) {
         player.increaseSkillLevel(1);
+        System.out.println("English!!");
+        System.out.println(player.getSkillLevel());
     }
 }

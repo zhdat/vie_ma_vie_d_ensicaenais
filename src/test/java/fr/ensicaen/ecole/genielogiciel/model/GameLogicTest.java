@@ -91,5 +91,63 @@ public class GameLogicTest {
         assertEquals(Major.COMPUTER_SCIENCE, majors[2]);
         assertEquals(Major.MATERIALS, majors[3]);
     }
+    @Test
+    public void testHoverExam() {
+        Model mock = new Model(new GameLogic());
+        gameLogic.createPlayers(new String[]{"Player1", "Player2", "Player3", "Player4"},
+                new String[]{"prepa", "prepa", "ast", "ast"},
+                new String[]{"Informatique", "Informatique", "electronique", "mc"},
+                new Color[]{Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW});
 
+        gameLogic.getPlayers()[0].setPosition(20);
+        gameLogic.getPlayers()[0].increaseSkillLevel(3);
+        gameLogic.setDiceResult(2);
+        gameLogic.getPlayers()[0].goForward(2);
+        gameLogic.didPlayerHoverExam(0);
+        assertTrue(gameLogic.getPlayers()[0].getPosition() == 0);
+
+        gameLogic.getPlayers()[1].setPosition(20);
+        gameLogic.getPlayers()[1].increaseSkillLevel(5);
+        gameLogic.setDiceResult(4);
+        gameLogic.getPlayers()[1].goForward(4);
+        gameLogic.didPlayerHoverExam(1);
+        assertTrue(gameLogic.getPlayers()[1].getPosition() == 22);
+
+        gameLogic.getPlayers()[2].setPosition(40);
+        gameLogic.getPlayers()[2].increaseSkillLevel(6);
+        gameLogic.setDiceResult(2);
+        gameLogic.getPlayers()[2].goForward(2);
+        gameLogic.didPlayerHoverExam(2);
+        assertTrue(gameLogic.getPlayers()[2].getPosition() == 22);
+
+        gameLogic.getPlayers()[3].setPosition(40);
+        gameLogic.getPlayers()[3].increaseSkillLevel(9);
+        gameLogic.setDiceResult(4);
+        gameLogic.getPlayers()[3].goForward(4);
+        gameLogic.didPlayerHoverExam(3);
+        assertTrue(gameLogic.getPlayers()[3].getPosition() == 43);
+    }
+
+    @Test
+    void testFinalExam() {
+        Model mock = new Model(new GameLogic());
+        gameLogic.createPlayers(new String[]{"Player1", "Player2", "Player3", "Player4"},
+                new String[]{"prepa", "prepa", "ast", "ast"},
+                new String[]{"Informatique", "Informatique", "electronique", "mc"},
+                new Color[]{Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW});
+
+        gameLogic.getPlayers()[0].setPosition(62);
+        gameLogic.getPlayers()[0].increaseSkillLevel(11);
+        gameLogic.setDiceResult(2);
+        gameLogic.getPlayers()[0].goForward(2);
+        gameLogic.applyFinalExamEffect(0);
+        assertTrue(gameLogic.getPlayers()[0].getPosition() == 43);
+
+        gameLogic.getPlayers()[1].setPosition(62);
+        gameLogic.getPlayers()[1].increaseSkillLevel(13);
+        gameLogic.setDiceResult(2);
+        gameLogic.getPlayers()[1].goForward(2);
+        gameLogic.applyFinalExamEffect(1);
+        assertTrue(gameLogic.getPlayers()[1].getPosition() == 64);
+    }
 }

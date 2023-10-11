@@ -49,6 +49,7 @@ public class GameLogic {
             _players[playerIndex].goForward(1);
             i++;
         }
+        System.out.println(_players[playerIndex].getSkillLevel());
         testFinish(playerIndex, i, _players, _board, _diceResult);
         for (int j = 0; j < _nbPlayer; j++) {
             if (playerIndex != j) {
@@ -57,7 +58,27 @@ public class GameLogic {
                 }
             }
         }
+
+        if (!didPlayerHoverExam(playerIndex) && !_players[playerIndex].getFinish()){
+            _board.getTile(_players[playerIndex].getPosition()).applyTileEffect(_players[playerIndex]);
+        }
     }
+
+    public void applyFinalExamEffect(int playerIndex){
+        _board.getTile(_board.getNumberOfTiles() - 1).applyTileEffect(_players[playerIndex]);
+    }
+
+    public boolean didPlayerHoverExam(int playerIndex){
+        if (_players[playerIndex].getPosition() - _diceResult < _board.getExamsPositions()[0] && _players[playerIndex].getPosition() >= _board.getExamsPositions()[0]){
+            _board.getTile(_board.getExamsPositions()[0]).applyTileEffect(_players[playerIndex]);
+            return true;
+        } else if ( _players[playerIndex].getPosition() - _diceResult < _board.getExamsPositions()[1] && _players[playerIndex].getPosition() >= _board.getExamsPositions()[1]){
+            _board.getTile(_board.getExamsPositions()[1]).applyTileEffect(_players[playerIndex]);
+            return true;
+        }
+        return false;
+    }
+
 
     static void testFinish(int playerIndex, int i, Player[] players, Board board, int diceResult) {
         if (players[playerIndex].getPosition() == (board.getNumberOfTiles() - 1) && (i == (int) Math.ceil(diceResult * players[playerIndex].softSkillEffect()))) {
@@ -136,4 +157,6 @@ public class GameLogic {
     public int getDiceResult() {
         return _diceResult;
     }
+
+    public void setDiceResult(int diceResult){ _diceResult = diceResult;}
 }

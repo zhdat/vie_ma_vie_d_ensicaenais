@@ -74,6 +74,9 @@ public class Player {
     public SoftSkill getSoftSkill(){
         return _softSkill;
     }
+    public int getSkillLevel(){
+        return _skillLevel;
+    }
     public int getPosition(){
         return _position;
     }
@@ -89,9 +92,7 @@ public class Player {
     public void setSoftSkill(SoftSkill softSkill) {
         _softSkill = softSkill;
     }
-    public int getSkillLevel() {
-        return _skillLevel;
-    }
+
     public void setFormerStudies(FormerStudies formerStudies) {
         _formerStudies = formerStudies;
     }
