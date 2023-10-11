@@ -11,7 +11,7 @@ public class FinalExam extends Tile {
 
     @Override
     public void applyTileEffect(Player player) {
-        if (player.getSkillLevel() < 12){
+        if (player.getSkillLevel() < 4){
             player.setPosition(43);
         } else {
             player.setFinish();

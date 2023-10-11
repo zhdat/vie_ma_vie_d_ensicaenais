@@ -14,12 +14,14 @@ public class Exams extends Tile {
                 player.setPosition(0);
             } else {
                 player.setPosition(22);
+                player.setSkillLevel(player.getSkillLevel() - 4);
             }
         } else if (player.getPosition() >= 42){
-            if (player.getSkillLevel() < 8){
+            if (player.getSkillLevel() < 4){
                 player.setPosition(22);
             } else {
                 player.setPosition(43);
+                player.setSkillLevel(player.getSkillLevel() - 4);
             }
         }
     }

@@ -2,7 +2,6 @@ package fr.ensicaen.ecole.genielogiciel.view;
 
 import fr.ensicaen.ecole.genielogiciel.LoginMain;
 import fr.ensicaen.ecole.genielogiciel.presenter.GamePresenter;
-import fr.ensicaen.ecole.genielogiciel.presenter.WinningPresenter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.*;
@@ -23,10 +21,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Locale;
-
-import static fr.ensicaen.ecole.genielogiciel.model.player.SoftSkill.*;
-import static fr.ensicaen.ecole.genielogiciel.model.player.FormerStudies.*;
-import static fr.ensicaen.ecole.genielogiciel.model.player.Major.*;
 
 public final class GameView{
     public Button _rollButton;
@@ -106,6 +100,7 @@ public final class GameView{
     public Label _round;
     public Circle playerColor;
     public Label _playerNickname;
+    public ProgressBar _skillProgress;
     private GamePresenter _gamePresenter;
     private Stage _stage;
     private int _result;
@@ -257,24 +252,25 @@ public final class GameView{
         _diceResult.setImage(_diceImage);
     }
 
-    public void displayPlayerSoftskill(String[] softskill){
-        System.out.println(softskill[_turn]);
-        Image _softSkillImage = new Image("file:src/main/resources/fr/ensicaen/ecole/genielogiciel/view/images/" + softskill[_turn] + ".png");
+    public void displayPlayerSoftskill(String[] softskill, int nbTurn){
+        System.out.println(softskill[nbTurn]);
+        Image _softSkillImage = new Image("file:src/main/resources/fr/ensicaen/ecole/genielogiciel/view/images/" + softskill[nbTurn] + ".png");
         _softSkill.setImage(_softSkillImage);
     }
-    public void displayPlayerName(String[] playersName){
-        _playerNickname.setText(playersName[_turn]);
+    public void displayPlayerName(String[] playersName, int nbTurn){
+        _playerNickname.setText(playersName[nbTurn]);
     }
-    public void displayCharacteristics(String[] major, String[] origin, String[] softskill, String[] skillLevel){
+    public void displayCharacteristics(String[] major, String[] origin, String[] softskill, String[] skillLevel, int nbTurn){
         if (_selectedLanguage == Locale.ENGLISH)
-            _characteristics.setText("Major : " + major[_turn] + "\n" + "Former Studies : " + origin[_turn] + "\n" + "Softskill : " + softskill[_turn] + "\n" + "SkillLevel : " + skillLevel[_turn]);
+            _characteristics.setText("Major : " + major[nbTurn] + "\n" + "Former Studies : " + origin[nbTurn] + "\n" + "Softskill : " + softskill[nbTurn] + "\n" + "SkillLevel : " + skillLevel[nbTurn]);
+
         else if (_selectedLanguage == Locale.FRENCH) {
             String majorFR = "";
             String originFR = "";
             String softskillFR = "";
             String skillLevelFR = "";
 
-            switch (softskill[_turn]) {
+            switch (softskill[nbTurn]) {
                 case "HARDWORKING":
                     softskillFR = "Assidu";
                     break;
@@ -286,7 +282,7 @@ public final class GameView{
                     break;
             }
 
-            switch (origin[_turn]){
+            switch (origin[nbTurn]){
                 case "PREPA":
                     originFR = "Prépa";
                     break;
@@ -295,7 +291,7 @@ public final class GameView{
                     break;
             }
 
-            switch (major[_turn]){
+            switch (major[nbTurn]){
                 case "COMPUTER_SCIENCE":
                     majorFR = "Informatique";
                     break;
@@ -306,9 +302,9 @@ public final class GameView{
                     majorFR = "Electronique";
                     break;
             }
-
-            _characteristics.setText("Filière : " + majorFR + "\n" + "Provenance : " + originFR + "\n" + "Softskill : " + softskillFR + "\n" + "Niveau de compétence : " + skillLevel[_turn]);
+            _characteristics.setText("Filière : " + majorFR + "\n" + "Provenance : " + originFR + "\n" + "Softskill : " + softskillFR + "\n" + "Niveau de compétence : " + skillLevel[nbTurn]);
         }
+        _skillProgress.setProgress(Double.valueOf(skillLevel[nbTurn]) / 4);
     }
     public void displayTurn(int turn){
         if (_selectedLanguage == Locale.ENGLISH)

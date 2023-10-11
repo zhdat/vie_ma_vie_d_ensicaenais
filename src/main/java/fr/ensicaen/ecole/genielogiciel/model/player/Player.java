@@ -99,5 +99,8 @@ public class Player {
     public void setMajor(Major major) {
         _major = major;
     }
+    public void setSkillLevel(int skillLevel){
+        _skillLevel = skillLevel;
+    }
     /* Getters et Setters à ajouter si besoin */
 }

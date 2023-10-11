@@ -40,6 +40,8 @@ public class GameLogic {
     public void playTurn(int playerIndex) {
         _diceResult = _dice.roll();
         play(playerIndex);
+        System.out.println(_players[playerIndex].getName());
+        System.out.println(_players[playerIndex].getSkillLevel());
     }
 
     private void play(int playerIndex) {
@@ -52,8 +54,12 @@ public class GameLogic {
         testFinish(playerIndex, i, _players, _board, _diceResult);
         for (int j = 0; j < _nbPlayer; j++) {
             if (playerIndex != j) {
-                if (_players[playerIndex].getPosition() == _players[j].getPosition() && !_players[j].getFinish()) {
-                    _players[j].setPosition(initialPosition);
+                if (_players[playerIndex].getPosition() == _players[j].getPosition()) {
+                    if (!_players[j].getFinish()){
+                        if (_players[j].getPosition() != _board.getExamsPositions()[0] + 1 && _players[j].getPosition() != _board.getExamsPositions()[1] + 1){
+                            _players[j].setPosition(initialPosition);
+                        }
+                    }
                 }
             }
         }
@@ -68,10 +74,10 @@ public class GameLogic {
     }
 
     public boolean didPlayerHoverExam(int playerIndex){
-        if (_players[playerIndex].getPosition() - _diceResult < _board.getExamsPositions()[0] && _players[playerIndex].getPosition() >= _board.getExamsPositions()[0]){
+        if (_players[playerIndex].getPosition() - (_diceResult * _players[playerIndex].softSkillEffect()) < _board.getExamsPositions()[0] && _players[playerIndex].getPosition() >= _board.getExamsPositions()[0]){
             _board.getTile(_board.getExamsPositions()[0]).applyTileEffect(_players[playerIndex]);
             return true;
-        } else if ( _players[playerIndex].getPosition() - _diceResult < _board.getExamsPositions()[1] && _players[playerIndex].getPosition() >= _board.getExamsPositions()[1]){
+        } else if ( _players[playerIndex].getPosition() - (_diceResult * _players[playerIndex].softSkillEffect()) < _board.getExamsPositions()[1] && _players[playerIndex].getPosition() >= _board.getExamsPositions()[1]){
             _board.getTile(_board.getExamsPositions()[1]).applyTileEffect(_players[playerIndex]);
             return true;
         }

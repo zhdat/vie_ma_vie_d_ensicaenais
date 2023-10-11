@@ -94,9 +94,9 @@ public final class GamePresenter implements Observer{
 
         _view.displayPlayer(positions, colors, _nbTurn);
         _view.displayDice(_gameLogic.getDiceResult());
-        _view.displayPlayerName(playersName);
-        _view.displayPlayerSoftskill(softskill);
-        _view.displayCharacteristics(major, origin, softskill, skillLevel);
+        _view.displayPlayerName(playersName, _nbTurn);
+        _view.displayPlayerSoftskill(softskill, _nbTurn);
+        _view.displayCharacteristics(major, origin, softskill, skillLevel, _nbTurn);
         _view.displayTurn(_valueTurn);
 
         if (_gameLogic.getPlayers()[_nbTurn].getFinish()){

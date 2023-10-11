@@ -14,7 +14,7 @@ public class ChemistryManipulation extends Tile {
         if (player.getMajor() == Major.MATERIALS){
             if (player.getFormerStudies() == FormerStudies.AST){
                 player.increaseSkillLevel(1);
-            } else if (player.getFormerStudies() == FormerStudies.PREPA) {
+            } else if (player.getFormerStudies() == FormerStudies.PREPA && player.getSkillLevel() > 0) {
                 player.increaseSkillLevel(-1);
             }
         }
