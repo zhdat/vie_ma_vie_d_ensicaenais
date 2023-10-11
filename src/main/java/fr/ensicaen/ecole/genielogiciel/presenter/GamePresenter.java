@@ -79,10 +79,13 @@ public final class GamePresenter implements Observer{
         String[] major = new String[_nbPlayer];
         String[] origin = new String[_nbPlayer];
         String[] softskill = new String[_nbPlayer];
+        String[] skillLevel = new String[_nbPlayer];
+
         for (int i = 0; i < _nbPlayer; i++){
             major[i] = String.valueOf(_gameLogic.getPlayers()[i].getMajor());
             origin[i] = String.valueOf(_gameLogic.getPlayers()[i].getFormerStudies());
             softskill[i] = String.valueOf(_gameLogic.getPlayers()[i].getSoftSkill());
+            skillLevel[i] = String.valueOf(_gameLogic.getPlayers()[i].getSkillLevel());
         }
         Color[] colors = new Color[_nbPlayer];
         for (int i = 0; i < _nbPlayer; i++){
@@ -93,7 +96,7 @@ public final class GamePresenter implements Observer{
         _view.displayDice(_gameLogic.getDiceResult());
         _view.displayPlayerName(playersName);
         _view.displayPlayerSoftskill(softskill);
-        _view.displayCharacteristics(major, origin, softskill);
+        _view.displayCharacteristics(major, origin, softskill, skillLevel);
         _view.displayTurn(_valueTurn);
 
         if (_gameLogic.getPlayers()[_nbTurn].getFinish()){

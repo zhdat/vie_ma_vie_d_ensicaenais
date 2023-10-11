@@ -265,13 +265,14 @@ public final class GameView{
     public void displayPlayerName(String[] playersName){
         _playerNickname.setText(playersName[_turn]);
     }
-    public void displayCharacteristics(String[] major, String[] origin, String[] softskill){
+    public void displayCharacteristics(String[] major, String[] origin, String[] softskill, String[] skillLevel){
         if (_selectedLanguage == Locale.ENGLISH)
-            _characteristics.setText("Major : " + major[_turn] + "\n" + "Former Studies : " + origin[_turn] + "\n" + "Softskill : " + softskill[_turn]);
+            _characteristics.setText("Major : " + major[_turn] + "\n" + "Former Studies : " + origin[_turn] + "\n" + "Softskill : " + softskill[_turn] + "\n" + "SkillLevel : " + skillLevel[_turn]);
         else if (_selectedLanguage == Locale.FRENCH) {
             String majorFR = "";
             String originFR = "";
             String softskillFR = "";
+            String skillLevelFR = "";
 
             switch (softskill[_turn]) {
                 case "HARDWORKING":
@@ -306,7 +307,7 @@ public final class GameView{
                     break;
             }
 
-            _characteristics.setText("Filière : " + majorFR + "\n" + "Provenance : " + originFR + "\n" + "Softskill : " + softskillFR);
+            _characteristics.setText("Filière : " + majorFR + "\n" + "Provenance : " + originFR + "\n" + "Softskill : " + softskillFR + "\n" + "Niveau de compétence : " + skillLevel[_turn]);
         }
     }
     public void displayTurn(int turn){

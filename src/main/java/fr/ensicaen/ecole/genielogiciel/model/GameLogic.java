@@ -49,7 +49,6 @@ public class GameLogic {
             _players[playerIndex].goForward(1);
             i++;
         }
-        System.out.println(_players[playerIndex].getSkillLevel());
         testFinish(playerIndex, i, _players, _board, _diceResult);
         for (int j = 0; j < _nbPlayer; j++) {
             if (playerIndex != j) {

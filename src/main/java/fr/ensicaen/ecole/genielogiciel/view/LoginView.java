@@ -88,7 +88,6 @@ public class LoginView {
     }
 
     private void initializeSectorChoiceBox() {
-        System.out.println(_selectedLocale);
         if (_selectedLocale == Locale.FRENCH)
             _sector.getItems().addAll("Informatique", "MC", "Electronique");
         else if (_selectedLocale == Locale.ENGLISH)
