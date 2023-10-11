@@ -19,18 +19,20 @@ public class CplusplusTest {
     public void setUp() {
         player = new Player("Charlie", SoftSkill.HARDWORKING, FormerStudies.AST, Major.COMPUTER_SCIENCE, Color.YELLOW);
         cplusplusTile = new Cplusplus(7);
+        player.setSkillLevel(20);
     }
 
     @Test
     public void testApplyTileEffect() {
         cplusplusTile.applyTileEffect(player);
-        assertEquals(1, player.getSkillLevel());
+        assertEquals(21, player.getSkillLevel());
 
         player = new Player("David", SoftSkill.BRILLIANT, FormerStudies.PREPA, Major.COMPUTER_SCIENCE, Color.ORANGE);
         cplusplusTile = new Cplusplus(12);
+        player.setSkillLevel(20);
 
         cplusplusTile.applyTileEffect(player);
-        assertEquals(-1, player.getSkillLevel());
+        assertEquals(19, player.getSkillLevel());
     }
 
     @Test

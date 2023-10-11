@@ -18,19 +18,21 @@ public class SmartCardTest {
     public void setUp() {
         player = new Player("Bob", SoftSkill.HARDWORKING, FormerStudies.AST, Major.ELECTRONICS, Color.BLUE);
         smartCardTile = new SmartCard(5);
+        player.setSkillLevel(20);
     }
 
     @Test
     public void testApplyTileEffect() {
         smartCardTile.applyTileEffect(player);
-        assertEquals(1, player.getSkillLevel());
+        assertEquals(21, player.getSkillLevel());
     }
 
     @Test
     public void testApplyTileEffect_Prepa() {
         player = new Player("Alice", SoftSkill.BRILLIANT, FormerStudies.PREPA, Major.ELECTRONICS, Color.RED);
+        player.setSkillLevel(20);
         smartCardTile.applyTileEffect(player);
-        assertEquals(-1, player.getSkillLevel());
+        assertEquals(19, player.getSkillLevel());
     }
 
     @Test

@@ -18,19 +18,20 @@ public class MathsTest {
     public void setUp() {
         player = new Player("Bob", SoftSkill.BRILLIANT, FormerStudies.AST, Major.COMPUTER_SCIENCE, Color.BLUE);
         mathsTile = new Maths(12);
+        player.setSkillLevel(20);
     }
 
     @Test
     public void testApplyTileEffectAST() {
         mathsTile.applyTileEffect(player);
-        assertEquals(-1, player.getSkillLevel());
+        assertEquals(19, player.getSkillLevel());
     }
 
     @Test
     public void testApplyTileEffectOtherStudies() {
         player.setFormerStudies(FormerStudies.PREPA);
         mathsTile.applyTileEffect(player);
-        assertEquals(1, player.getSkillLevel());
+        assertEquals(21, player.getSkillLevel());
     }
 
     @Test
