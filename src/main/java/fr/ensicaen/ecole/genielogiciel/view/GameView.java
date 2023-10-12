@@ -308,9 +308,9 @@ public final class GameView{
     }
     public void displayTurn(int turn){
         if (_selectedLanguage == Locale.ENGLISH)
-            _round.setText("Turn number : " + String.valueOf(turn));
+            _round.setText("Turn number : " + turn);
         else if (_selectedLanguage == Locale.FRENCH)
-            _round.setText("Tour numéro : " + String.valueOf(turn));
+            _round.setText("Tour numéro : " + turn);
     }
     public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer){
         _gamePresenter.createPlayer(playerName, originPlayer, majorPlayer, colorPlayer);

@@ -10,12 +10,12 @@ import javafx.scene.paint.Color;
 public class GameLogic {
     private String _nickname;
     private final Player[] _players;
-    private FormerStudies[] _formerStudies;
-    private Major[] _majors;
+    private final FormerStudies[] _formerStudies;
+    private final Major[] _majors;
     private final Board _board;
     private int _turn;
     private final int _nbPlayer = 4;
-    private Dice _dice;
+    private final Dice _dice;
     private int _diceResult;
 
     public GameLogic() {

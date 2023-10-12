@@ -42,11 +42,11 @@ public class LoginView {
     private ChoiceBox<String> _origin;
     private final int _nbPlayer = 4;
     private int _playerIndex = 0;
-    private String[] _playerName = new String[_nbPlayer];
-    private String[] _originPlayer = new String[_nbPlayer];
-    private String[] _majorPlayer = new String[_nbPlayer];
-    private ObservableList<String> items = FXCollections.observableArrayList();
-    private Color[] _colorPlayer = new Color[_nbPlayer];
+    private final String[] _playerName = new String[_nbPlayer];
+    private final String[] _originPlayer = new String[_nbPlayer];
+    private final String[] _majorPlayer = new String[_nbPlayer];
+    private final ObservableList<String> items = FXCollections.observableArrayList();
+    private final Color[] _colorPlayer = new Color[_nbPlayer];
     private static Locale _selectedLocale;
 
     public void setPresenter(LoginPresenter presenter) {

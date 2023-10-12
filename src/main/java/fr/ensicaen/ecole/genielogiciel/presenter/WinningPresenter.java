@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public final class WinningPresenter implements Observer{
 
     private WinningView _winningView;
-    private Stage stage;
+    private final Stage stage;
 
     public WinningPresenter() {
         _winningView = new WinningView();

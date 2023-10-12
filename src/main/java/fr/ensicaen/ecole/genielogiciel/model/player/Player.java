@@ -11,7 +11,7 @@ public class Player {
     private int _position;
     private boolean _finish;
 
-    private Color _color;
+    private final Color _color;
 
     public Player(String name, SoftSkill softSkill, FormerStudies formerStudies, Major major, Color color){
         _name = name;
