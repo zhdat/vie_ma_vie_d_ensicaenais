@@ -1,6 +1,6 @@
 package fr.ensicaen.ecole.genielogiciel.model;
 
-import fr.ensicaen.ecole.genielogiciel.view.Observer;
+import fr.ensicaen.ecole.genielogiciel.presenter.Observer;
 
 public interface Observable {
     void addObserver(Observer observer);
