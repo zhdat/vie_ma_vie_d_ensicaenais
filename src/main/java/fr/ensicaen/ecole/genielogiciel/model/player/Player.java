@@ -11,14 +11,14 @@ public class Player {
     private int _position;
     private boolean _finish;
 
-    private Color _color;
+    private final Color _color;
 
     public Player(String name, SoftSkill softSkill, FormerStudies formerStudies, Major major, Color color){
         _name = name;
         _softSkill = softSkill;
         _formerStudies = formerStudies;
         _major = major;
-        _position = 0; /* A voir avec le fichier fxml... */
+        _position = 0;
         _skillLevel = 0;
         _color = color;
         _finish = false;
@@ -102,5 +102,4 @@ public class Player {
     public void setSkillLevel(int skillLevel){
         _skillLevel = skillLevel;
     }
-    /* Getters et Setters à ajouter si besoin */
 }

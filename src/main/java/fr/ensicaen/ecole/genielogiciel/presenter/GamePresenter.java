@@ -11,14 +11,14 @@ import java.io.IOException;
 public final class GamePresenter implements Observer{
     private final Model _model;
     private GameView _view;
-    private boolean _end = false;
+    private final boolean _end = false;
     private int _nbTurn = 0;
     private int _turn = 0;
     private int _valueTurn = 0;
     private final int _nbPlayer = 4;
     private final int _nbTiles = 64;
     private int _nbPlayerFinish = 0;
-    private GameLogic _gameLogic;
+    private final GameLogic _gameLogic;
 
     public GamePresenter(String nickName) {
         _gameLogic = new GameLogic();

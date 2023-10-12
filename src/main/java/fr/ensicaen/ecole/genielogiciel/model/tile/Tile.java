@@ -3,7 +3,7 @@ package fr.ensicaen.ecole.genielogiciel.model.tile;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
 
 public abstract class Tile {
-    private int _position;
+    private final int _position;
     public Tile(int position){
         _position = position;
     }

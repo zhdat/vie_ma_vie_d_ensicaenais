@@ -75,8 +75,8 @@ public class ClassicBoard extends Board{
         tiles[54] = new Cplusplus(54);
         tiles[55] = new SylvieMaloMeeting(55);
         tiles[56] = new DataBase(56);
-        tiles[57] = new Cryptography(57);
-        tiles[58] = new IWE(58);
+        tiles[57] = new IWE(57);
+        tiles[58] = new Cryptography(58);
         tiles[59] = new Party(59);
         tiles[60] = new LVTwo(60);
         tiles[61] = new Waves(61);

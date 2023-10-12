@@ -203,7 +203,6 @@ public final class GameView{
         if (_turn > 3){
             _turn = 0;
         }
-        System.out.println("Appui sur roll");
         _gamePresenter.runGameLoop();
         _turn++;
     }
@@ -253,7 +252,6 @@ public final class GameView{
     }
 
     public void displayPlayerSoftskill(String[] softskill, int nbTurn){
-        System.out.println(softskill[nbTurn]);
         Image _softSkillImage = new Image("file:src/main/resources/fr/ensicaen/ecole/genielogiciel/view/images/" + softskill[nbTurn] + ".png");
         _softSkill.setImage(_softSkillImage);
     }
@@ -308,9 +306,9 @@ public final class GameView{
     }
     public void displayTurn(int turn){
         if (_selectedLanguage == Locale.ENGLISH)
-            _round.setText("Turn number : " + String.valueOf(turn));
+            _round.setText("Turn number : " + turn);
         else if (_selectedLanguage == Locale.FRENCH)
-            _round.setText("Tour numéro : " + String.valueOf(turn));
+            _round.setText("Tour numéro : " + turn);
     }
     public void createPlayer(String[] playerName, String[] originPlayer, String[] majorPlayer, Color[] colorPlayer){
         _gamePresenter.createPlayer(playerName, originPlayer, majorPlayer, colorPlayer);
