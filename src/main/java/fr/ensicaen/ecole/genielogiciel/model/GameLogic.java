@@ -141,10 +141,6 @@ public class GameLogic {
         return _players;
     }
 
-    public Board getBoard() {
-        return _board;
-    }
-
     public int getTurn() {
         return _turn;
     }

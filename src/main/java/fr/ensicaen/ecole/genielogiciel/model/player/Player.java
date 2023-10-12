@@ -102,5 +102,4 @@ public class Player {
     public void setSkillLevel(int skillLevel){
         _skillLevel = skillLevel;
     }
-    /* Getters et Setters à ajouter si besoin */
 }

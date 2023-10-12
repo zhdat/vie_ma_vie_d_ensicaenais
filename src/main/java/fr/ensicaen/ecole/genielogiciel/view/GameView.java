@@ -203,7 +203,6 @@ public final class GameView{
         if (_turn > 3){
             _turn = 0;
         }
-        System.out.println("Appui sur roll");
         _gamePresenter.runGameLoop();
         _turn++;
     }
@@ -253,7 +252,6 @@ public final class GameView{
     }
 
     public void displayPlayerSoftskill(String[] softskill, int nbTurn){
-        System.out.println(softskill[nbTurn]);
         Image _softSkillImage = new Image("file:src/main/resources/fr/ensicaen/ecole/genielogiciel/view/images/" + softskill[nbTurn] + ".png");
         _softSkill.setImage(_softSkillImage);
     }
