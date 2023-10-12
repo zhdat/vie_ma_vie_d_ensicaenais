@@ -18,7 +18,7 @@ public class Player {
         _softSkill = softSkill;
         _formerStudies = formerStudies;
         _major = major;
-        _position = 0; /* A voir avec le fichier fxml... */
+        _position = 0;
         _skillLevel = 0;
         _color = color;
         _finish = false;

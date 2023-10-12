@@ -5,11 +5,7 @@ import fr.ensicaen.ecole.genielogiciel.model.board.ClassicBoard;
 import fr.ensicaen.ecole.genielogiciel.model.player.FormerStudies;
 import fr.ensicaen.ecole.genielogiciel.model.player.Major;
 import fr.ensicaen.ecole.genielogiciel.model.player.Player;
-import fr.ensicaen.ecole.genielogiciel.view.Observer;
 import javafx.scene.paint.Color;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GameLogic {
     private String _nickname;
@@ -40,8 +36,6 @@ public class GameLogic {
     public void playTurn(int playerIndex) {
         _diceResult = _dice.roll();
         play(playerIndex);
-        System.out.println(_players[playerIndex].getName());
-        System.out.println(_players[playerIndex].getSkillLevel());
     }
 
     private void play(int playerIndex) {
