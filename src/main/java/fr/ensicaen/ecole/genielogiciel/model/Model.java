@@ -1,6 +1,6 @@
 package fr.ensicaen.ecole.genielogiciel.model;
 
-import fr.ensicaen.ecole.genielogiciel.view.Observer;
+import fr.ensicaen.ecole.genielogiciel.presenter.Observer;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;

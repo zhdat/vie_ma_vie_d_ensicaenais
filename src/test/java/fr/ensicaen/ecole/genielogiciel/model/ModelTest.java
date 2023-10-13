@@ -8,8 +8,6 @@ import fr.ensicaen.ecole.genielogiciel.model.tile.FinalExam;
 import org.junit.jupiter.api.Test;
 import javafx.scene.paint.Color;
 
-import java.awt.*;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

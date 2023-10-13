@@ -3,7 +3,6 @@ package fr.ensicaen.ecole.genielogiciel.presenter;
 import fr.ensicaen.ecole.genielogiciel.LoginMain;
 import fr.ensicaen.ecole.genielogiciel.view.GameView;
 import fr.ensicaen.ecole.genielogiciel.view.LoginView;
-import fr.ensicaen.ecole.genielogiciel.view.Observer;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
