@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Locale;
 
 public final class LoginPresenter implements Observer{
+    // FIXME pourquoi cette classe implémente Observer. Elle n'est jamais abonnée.
     private LoginView _view;
 
     public void setView( LoginView view ) {
@@ -38,7 +39,7 @@ public final class LoginPresenter implements Observer{
     }
 
     @Override
-    public void update(Object object) {
+    public void update(Object object) { // FIXME ne sert à rien
 
     }
 }

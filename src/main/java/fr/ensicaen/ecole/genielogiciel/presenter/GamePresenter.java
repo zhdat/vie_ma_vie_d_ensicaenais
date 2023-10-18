@@ -30,21 +30,22 @@ public final class GamePresenter implements Observer{
 
     public void runGameLoop() {
         int count = 0;
-        System.out.println("Et c'est parti...");
-        if (_nbTurn > (_nbPlayer - 1)){
+        System.out.println("Et c'est parti..."); // FIXME on ne laisse pas de print dans une version en production
+        if (_nbTurn > (_nbPlayer - 1)){ // FIXME surparenthésage
             _nbTurn = 0;
         }
         Player[] players = _gameLogic.getPlayers();
         while (players[_nbTurn].getFinish()){
             count++;
             _nbTurn++;
-            if (_nbTurn > (_nbPlayer - 1)){
+            if (_nbTurn > (_nbPlayer - 1)){// FIXME surparenthésage
                 _nbTurn = 0;
             }
             if (count >= 8){
                 break;
             }
         }
+        // FIXME les instruction suivantes sont très complquées et pas auto-documentées
         if (_nbTurn > (_nbPlayer - 1)){
             _nbTurn = 0;
         }
@@ -64,6 +65,11 @@ public final class GamePresenter implements Observer{
 
     @Override
     public void update(Object object) {
+        // FIXME MVP n'st pas MVC -> Avec MVP c'est ttoujours le presenter qui a l'initiative du dialogue,
+        // FIXME jamais le modèle. Le presentateur demande au modèle de se mettre et recupère les donnée
+        // FIXME Pour mettre à jour la vue. Votre solution avec l'observateur est intile et très lourde.
+        // FIXME Cette fonction correspond à un tour de jeu et est appelée directement par le GamePresenter lui-même
+        // FIXME pas la peine de passer par le modèle qui envoie un update()
         int[] positions = new int[_gameLogic.getNbPlayer()];
         Player[] players = _gameLogic.getPlayers();
         for (int i = 0; i < _gameLogic.getNbPlayer(); i++){

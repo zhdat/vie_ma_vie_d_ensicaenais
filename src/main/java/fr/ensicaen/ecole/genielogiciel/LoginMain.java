@@ -12,6 +12,10 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+// FIXME GitLab : README.md : n'apporte rien à la description du projet
+// FIXME GitLab : manque le rapport
+// FIXME projet mal organisé: des fichiers la racine du projet (p.ex liste_des-cases.ods, dossier icons) qui n'ont rien à faire là
+// FIXME présence du dossier bin avec les exécutables qui ne devrait pas être dans le git.
 public final class LoginMain extends Application {
     public static void main( String[] args ) {
         launch(args);

@@ -20,6 +20,7 @@ public abstract class Board {
         return _examsPositions;
     }
 
+    // FIXME HO -> probème de casse
     public int[] get_newYearsPositions() {
         return _newYearsPositions;
     }

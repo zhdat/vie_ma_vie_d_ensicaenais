@@ -9,6 +9,7 @@ public class ClassicBoard extends Board{
         _holidaysPositions = new int[2];
         _newYearsPositions = new int[3];
 
+        // FIXME pas très S(O)LiD
         Tile[] tiles;
         tiles = new Tile[_numberOfTiles];
         tiles[0] = new StartOfTheYear(0);

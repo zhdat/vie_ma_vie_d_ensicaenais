@@ -11,7 +11,7 @@ public class GameLogic {
     private String _nickname;
     private final Player[] _players;
     private final FormerStudies[] _formerStudies;
-    private final Major[] _majors;
+    private final Major[] _majors; // FIXME plutôt: specialties ?
     private final Board _board;
     private int _turn;
     private final int _nbPlayer = 4;

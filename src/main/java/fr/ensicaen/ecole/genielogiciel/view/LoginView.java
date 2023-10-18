@@ -125,6 +125,7 @@ public class LoginView {
         _playerIndex++;
     }
 
+    // FIXME mauvaise casse -> Camel Case
     public Locale get_selectedLocale() {
         return _selectedLocale;
     }

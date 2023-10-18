@@ -23,12 +23,15 @@ import java.io.IOException;
 import java.util.Locale;
 
 public final class GameView{
+    // FIXME HORREUR des attibuts publiques!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public Button _rollButton;
     public ImageView _diceResult;
     public ImageView _softSkill;
     public AnchorPane _board;
     public Circle _player1;
     public Circle _tileStart;
+
+    // FIXME Cette liste n'est pas très ouverte au extension et fermée aux modifications
     public Circle _tile1;
     public Circle _tile2;
     public Circle _tile3;
@@ -247,6 +250,7 @@ public final class GameView{
         playerColor.setFill(_tabPlayer[nbTurn].getFill());
     }
     public void displayDice(int diceResult){
+        // FIXME on ne met pas de _ devant les variables!
         Image _diceImage = new Image("file:src/main/resources/fr/ensicaen/ecole/genielogiciel/view/images/" + diceResult + ".png");
         _diceResult.setImage(_diceImage);
     }
